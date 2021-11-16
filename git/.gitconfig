@@ -1,0 +1,49 @@
+[user]
+    name = # //no-commit
+    email = # //no-commit
+[oh-my-zsh]
+    hide-status = 1
+[credential]
+    helper = store
+[color]
+    ui = auto
+[color "branch"]
+    current = yellow bold
+    local = green bold
+    remote = cyan bold
+[color "diff"]
+    meta = yellow bold
+    frag = magenta bold
+    old = red bold
+    new = green bold
+    whitespace = red reverse
+[color "status"]
+    added = green bold
+    changed = yellow bold
+    untracked = red bold
+[core]
+    editor = code --wait
+[diff]
+    tool = vscode
+[difftool "vscode"]
+    cmd = code --wait --diff $LOCAL $REMOTE
+[merge]
+    tool = vscode
+    conflictStyle = diff3
+[mergetool]
+    keepBackup = false
+[mergetool "vscode"]
+    cmd = code --wait $MERGED
+[pager]
+    branch = false
+[pull]
+    rebase = true
+[rebase]
+    autosquash = true
+    abbreviateCommands = true
+[rerere]
+    enabled = true
+[init]
+    defaultBranch = main
+[advice]
+    detachedHead = false
