@@ -1,12 +1,11 @@
 #!/usr/bin/env zsh
 
-pushd $DOTFILES
+if [[ -z $STOW_FOLDERS ]]; then
+    STOW_FOLDERS="bash,docker,git,i3,kitty,nvim,rofi,vim,zsh"
+fi
 
-for folder in $(echo $STOW_FOLDERS | sed "s/,/ /g")
-do
-    stow -D $folder
-    echo "Stowing $folder..."
-    stow $folder
-done
+if [[ -z $DOTFILES ]]; then
+    DOTFILES=$HOME/.dotfiles
+fi
 
-popd
+STOW_FOLDERS=$STOW_FOLDERS DOTFILES=$DOTFILES $DOTFILES/install
