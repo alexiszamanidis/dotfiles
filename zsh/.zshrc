@@ -1,4 +1,4 @@
-export ZSH="/home//.oh-my-zsh" # //no-commit
+export ZSH="/home/alexzam/.oh-my-zsh"
 export DOTFILES=$HOME/dotfiles
 export STOW_FOLDERS="bash,docker,git,i3,kitty,nvim,rofi,vim,zsh"
 
