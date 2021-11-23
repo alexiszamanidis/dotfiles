@@ -56,9 +56,7 @@ update_and_clean_up() {
     ~/.ubuntu_bootstrap/scripts/update_and_clean_up.sh "$@"
 }
 
-declare -a dotfiles=(".maven_aliases" ".npm_aliases" ".yarn_aliases"
-                     ".bash_aliases" ".git_aliases" ".docker_aliases"
-                     ".functions")
+declare -a dotfiles=(".bash_aliases" ".docker_aliases" ".git_aliases")
 
 # source global aliases
 for dotfile in "${dotfiles[@]}"
