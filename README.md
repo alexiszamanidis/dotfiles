@@ -4,6 +4,7 @@
 
 ```
 sudo apt install -y git-all && \
-git clone https://github.com/alexiszamanidis/.ubuntu_bootstrap.git ~/dotfiles && \
+git clone https://github.com/alexiszamanidis/dotfiles.git ~/dotfiles && \
+cd ~/dotfiles && \
 ./install
 ```
