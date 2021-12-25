@@ -76,3 +76,7 @@ export FZF_CTRL_T_COMMAND="${FZF_DEFAULT_COMMAND}"
 # these commands are used to enable vim remaps
 bindkey -r '\C-s'
 stty -ixon
+
+bindkey "^A" beginning-of-line
+bindkey "^E" end-of-line
+bindkey "^Q" push-line-or-edit
