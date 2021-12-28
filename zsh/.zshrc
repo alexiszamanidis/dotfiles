@@ -1,6 +1,7 @@
 export ZSH="/home/alexzam/.oh-my-zsh"
 export DOTFILES=$HOME/dotfiles
 export STOW_FOLDERS="bash,docker,git,i3,kitty,nvim,rofi,vim,zsh"
+export EDITOR="code"
 
 ZSH_THEME="robbyrussell"
 
