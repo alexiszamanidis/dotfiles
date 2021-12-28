@@ -20,6 +20,7 @@ plugins=(
     zsh-autosuggestions
     zsh-syntax-highlighting
     zsh-z
+    zsh-git-worktree
 )
 
 # fix slowness of pastes with zsh-syntax-highlighting.zsh
