@@ -1,6 +1,6 @@
 export ZSH="/home/alexzam/.oh-my-zsh"
 export DOTFILES=$HOME/dotfiles
-export STOW_FOLDERS="bash,docker,git,i3,kitty,nvim,rofi,vim,zsh"
+export STOW_FOLDERS="bash,docker,git,i3,kitty,nvim,rofi,vim,zsh,scripts"
 export EDITOR="code"
 
 ZSH_THEME="robbyrussell"
@@ -55,7 +55,7 @@ reload() {
 }
 
 update_and_clean_up() {
-    ~/.ubuntu_bootstrap/scripts/update_and_clean_up.sh "$@"
+    ~/scripts/update_and_clean_up "$@"
 }
 
 declare -a dotfiles=(".bash_aliases" ".docker_aliases" ".git_aliases")

@@ -9,6 +9,10 @@ This repository synchronizes a new Ubuntu System with the dotfiles that I am cur
 -   Bootstrap your new Ubuntu System
 -   Never reconfigure your System ever again
 
+### Reminders
+
+-   STOW_FOLDERS variable is defined in install and .zshrc files
+
 ### Clone and Install
 
 ```
@@ -17,6 +21,22 @@ git clone https://github.com/alexiszamanidis/dotfiles.git ~/dotfiles && \
 cd $HOME/dotfiles && \
 chmod +x install stow unstow && ./install
 ```
+
+### Scripts
+
+`update_and_clean_up`
+
+Updates and cleans up the system
+
+Alias:
+
+```
+update_and_clean_up
+```
+
+| Name   | Flag | Default | Description                                        |
+| ------ | ---- | ------- | -------------------------------------------------- |
+| VSCODE | \-v  | false   | This option is used for updating vscode extensions |
 
 ### Ansible
 
