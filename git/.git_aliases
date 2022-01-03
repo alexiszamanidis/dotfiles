@@ -16,6 +16,35 @@ gcoprev() {
     git checkout -
 }
 
+alias gb='git-branch-fzf'
+alias gcof='git-checkout-fzf'
+
+git-branch-fzf() {
+    git rev-parse HEAD > /dev/null 2>&1 || return
+
+    git branch --color=always --all --sort=-committerdate |
+    grep -v HEAD |
+    fzf --ansi  |
+    sed "s/.* //"
+}
+
+git-checkout-fzf() {
+    git rev-parse HEAD > /dev/null 2>&1 || return
+
+    local branch=$(git-branch-fzf)
+
+    if [[ "$branch" = "" ]]; then
+        echo "No branch selected"
+        return
+    fi
+
+    if [[ "$branch" = 'remotes/'* ]]; then
+        git checkout --track $branch
+    else
+        git checkout $branch;
+    fi
+}
+
 alias glog='git log --graph --pretty=format:"%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset" --abbrev-commit'
 
 alias gst='git stash'
