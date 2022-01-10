@@ -8,16 +8,16 @@ ZSH_THEME="robbyrussell"
 plugins=(
     docker
     docker-compose
-    extract
+    # extract
     git
-    python
+    # python
     node
     npm
     yarn
     sudo
-    web-search
-    history
-    jsontools
+    # web-search
+    # history
+    # jsontools
     zsh-autosuggestions
     zsh-syntax-highlighting
     zsh-z
