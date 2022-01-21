@@ -1,6 +1,6 @@
 export ZSH="/home/alexzam/.oh-my-zsh"
 export DOTFILES=$HOME/dotfiles
-export STOW_FOLDERS="bash,docker,git,i3,kitty,nvim,rofi,vim,zsh,scripts"
+export STOW_FOLDERS="bash,docker,git,i3,kitty,nvim,rofi,vim,zsh,scripts,upstream"
 export EDITOR="code"
 
 ZSH_THEME="robbyrussell"
@@ -58,7 +58,7 @@ update_and_clean_up() {
     ~/scripts/update_and_clean_up "$@"
 }
 
-declare -a dotfiles=(".bash_aliases" ".docker_aliases" ".git_aliases")
+declare -a dotfiles=(".bash_aliases" ".docker_aliases" ".git_aliases" ".upstream_aliases")
 
 # source global aliases
 for dotfile in "${dotfiles[@]}"
