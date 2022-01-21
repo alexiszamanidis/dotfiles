@@ -13,12 +13,16 @@ This repository synchronizes a new Ubuntu System with the dotfiles that I am cur
 
 -   STOW_FOLDERS variable is defined in install and .zshrc files
 -   i3
+
     -   monitors
         -   type `xrandr` to find the hotkeys of the monitors
         -   update the variables(firstMonitor, secondMonitor) in i3/.config/i3/config
     -   workspaces
         -   type `xprop` and click on an application you want to bind with a specific workspace
         -   pick the name next to `WM_NAME(STRING) =` and use it in i3/.config/i3/config
+
+-   Upstream submodule
+    -   Related files/folders: .gitsubmodule, upstream submodule directory, .zshrc '.upstream_aliases'
 
 ### Clone and Install
 
