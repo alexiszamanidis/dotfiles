@@ -25,10 +25,8 @@ alias topten="history | commands | sort -rn | head"
 alias myip="curl http://ipecho.net/plain; echo"
 alias dirs='dirs -v | head -10'
 alias usage='du -h -d1'
-alias update="source ~/.zshrc"
 alias sshdir="cd ~/.ssh"
 alias runp="lsof -i "
-alias md="mkdir "
 alias h='history'
 alias j='jobs -l'
 alias settings='env XDG_CURRENT_DESKTOP=GNOME gnome-control-center'

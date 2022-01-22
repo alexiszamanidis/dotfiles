@@ -38,9 +38,6 @@ zstyle :bracketed-paste-magic paste-finish pastefinish
 
 source $ZSH/oh-my-zsh.sh
 
-alias v="nvim"
-alias s="sudo"
-
 # stow (th stands for target=home)
 stowth() {
     stow -vSt ~ $1

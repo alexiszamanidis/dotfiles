@@ -2,16 +2,7 @@ alias gs='git status'
 alias gdc='git diff --cached'
 
 alias ga='git add'
-alias diffc=diff --cached
 
-function gc { git commit -m "$@"; }
-alias gca='git commit --amend --no-edit'
-alias gcm='git commit -m'
-
-alias gcod='git checkout dev'
-alias gcom='git checkout master'
-alias gcos='git checkout staging'
-alias gcor='git checkout refactoring'
 gcoprev() {
     git checkout -
 }
@@ -88,16 +79,6 @@ alias gstl='git stash list'
 
 alias gf='git fetch'
 alias gfa='git fetch --all'
-
-# gwta() {
-#     command="git worktree add ./$1 $1"
-#     eval $command
-# }
-alias gwta='git worktree add'
-alias gwtr='git worktree remove'
-alias gwtp='git worktree prune'
-alias gwtl='git worktree list'
-alias gwt_enable_fetch="git config remote.origin.fetch 'refs/heads/*:refs/heads/*'"
 
 gacp() {
     git add -A
