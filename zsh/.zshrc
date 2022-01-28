@@ -55,7 +55,7 @@ update_and_clean_up() {
     ~/scripts/update_and_clean_up "$@"
 }
 
-declare -a dotfiles=(".bash_aliases" ".docker_aliases" ".git_aliases" ".upstream_aliases")
+declare -a dotfiles=(".bash_aliases" ".docker_aliases" ".git_aliases" "upstream/.upstream_aliases")
 
 # source global aliases
 for dotfile in "${dotfiles[@]}"
