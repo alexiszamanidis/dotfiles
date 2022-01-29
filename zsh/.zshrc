@@ -1,6 +1,6 @@
 export ZSH="/home/alexzam/.oh-my-zsh"
 export DOTFILES=$HOME/dotfiles
-export STOW_FOLDERS="bash,docker,git,i3,kitty,nvim,rofi,vim,zsh,scripts,upstream"
+export STOW_FOLDERS="bash,docker,git,i3,kitty,nvim,rofi,zsh,scripts,upstream"
 export EDITOR="code"
 
 ZSH_THEME="robbyrussell"
@@ -72,7 +72,7 @@ export FZF_DEFAULT_OPTS="--height 100% --layout=reverse --border --preview='bat 
 export FZF_DEFAULT_COMMAND="fd --type f --hidden --follow --exclude .git"
 export FZF_CTRL_T_COMMAND="${FZF_DEFAULT_COMMAND}"
 
-# these commands are used to enable vim remaps
+# these commands are used to enable nvim remaps
 bindkey -r '\C-s'
 stty -ixon
 
