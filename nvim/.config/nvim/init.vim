@@ -1,5 +1,8 @@
 syntax on
 
+set exrc
+set nohlsearch
+set hidden
 set noerrorbells
 set tabstop=4 softtabstop=4
 set shiftwidth=4
@@ -13,10 +16,14 @@ set nobackup
 set undodir=~/.vim/undodir
 set undofile
 set incsearch
+set scrolloff=8
+set signcolumn=yes
+set colorcolumn=80
 " there is a bug with 'jiangmiao/auto-pairs' plugin, probably with others as well
 " set paste
-set hlsearch
 set complete+=kspell
+" probably I need to uncomment the set below, and comment out the 'set nohlsearch'
+" set hlsearch
 set completeopt=menuone,longest
 set shortmess+=c
 
@@ -37,7 +44,9 @@ Plug 'ervandew/supertab'
 
 call plug#end()
 
-" this remap is used for fzf palette
+let mapleader = " "
+
+" fzf palette
 nnoremap <C-p> :Files<Cr>
 
 " nerd tree
