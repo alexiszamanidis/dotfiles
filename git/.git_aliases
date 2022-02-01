@@ -1,8 +1,6 @@
 alias gs='git status'
 alias gdc='git diff --cached'
 
-alias ga='git add'
-
 gcoprev() {
     git checkout -
 }
@@ -12,9 +10,6 @@ alias glog='git log --graph --pretty=format:"%Cred%h%Creset -%C(yellow)%d%Creset
 alias gst='git stash'
 alias gsta='git stash apply'
 alias gstl='git stash list'
-
-alias gf='git fetch'
-alias gfa='git fetch --all'
 
 gacp() {
     git add -A
