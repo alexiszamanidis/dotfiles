@@ -47,6 +47,7 @@ unstowth() {
     stow -vDt ~ $1
 }
 
+alias zshrc="$EDITOR ~/.zshrc"
 reload() {
     source ~/.zshrc
 }
