@@ -22,7 +22,10 @@ This repository synchronizes a new Ubuntu System with the dotfiles that I am cur
         -   pick the name next to `WM_NAME(STRING) =` and use it in i3/.config/i3/config
 
 -   Upstream submodule
-    -   Related files/folders: .gitsubmodule, upstream submodule directory, .zshrc 'upstream/.upstream_aliases'
+    -   Related files/folders:
+        -   upstream folder
+        -   .gitsubmodule: upstream submodule
+        -   .zshrc: 'upstream/.upstream_aliases', 'alias upstream="$EDITOR ~/upstream"'
 
 ### Clone and Install
 

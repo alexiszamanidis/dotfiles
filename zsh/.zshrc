@@ -11,7 +11,6 @@ plugins=(
     # extract
     git
     # python
-    node
     npm
     yarn
     sudo
@@ -47,7 +46,6 @@ unstowth() {
     stow -vDt ~ $1
 }
 
-alias zshrc="$EDITOR ~/.zshrc"
 reload() {
     source ~/.zshrc
 }
@@ -80,3 +78,8 @@ stty -ixon
 bindkey "^A" beginning-of-line
 bindkey "^E" end-of-line
 bindkey "^Q" push-line-or-edit
+
+alias zshrc="$EDITOR ~/.zshrc"
+alias kitty.conf="$EDITOR ~/.config/kitty/kitty.conf"
+alias init.vim="$EDITOR ~/.config/nvim/init.vim"
+alias upstream="$EDITOR ~/upstream"
