@@ -25,7 +25,7 @@ This repository synchronizes a new Ubuntu System with the dotfiles that I am cur
     -   Related files/folders:
         -   upstream folder
         -   .gitsubmodule: upstream submodule
-        -   .zshrc: 'upstream/.upstream_aliases', 'alias upstream="$EDITOR ~/upstream"'
+        -   .zshrc: 'upstream/.upstream_aliases'
 
 ### Clone and Install
 
