@@ -82,3 +82,4 @@ bindkey "^Q" push-line-or-edit
 alias zshrc="$EDITOR ~/.zshrc"
 alias kitty.conf="$EDITOR ~/.config/kitty/kitty.conf"
 alias init.vim="$EDITOR ~/.config/nvim/init.vim"
+alias i3.config="$EDITOR ~/.config/i3/config"

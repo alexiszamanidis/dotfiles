@@ -25,7 +25,9 @@ This repository synchronizes a new Ubuntu System with the dotfiles that I am cur
     -   Related files/folders:
         -   upstream folder
         -   .gitsubmodule: upstream submodule
-        -   .zshrc: 'upstream/.upstream_aliases'
+        -   .zshrc: 'upstream/.upstream_aliases', STOW_FOLDERS: "upstream"
+        -   install: STOW_FOLDERS: "upstream"
+        -   i3 config: # Upstream Home Monitors
 
 ### Clone and Install
 
