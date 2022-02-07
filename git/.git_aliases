@@ -82,3 +82,12 @@ gprune() {
     git remote update --prune && \
     git branch -vv | awk '/: gone]/{print $1}' | xargs --no-run-if-empty git branch -d
 }
+
+create-merge-request() {
+    if [ "$#" -ne 1 ]; then
+        echo "Pleave provide the branch into which you want your code merged!"
+        return
+    fi
+
+    gh pr create --fill -B $1
+}
