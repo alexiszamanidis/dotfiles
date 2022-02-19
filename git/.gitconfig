@@ -44,7 +44,7 @@
 [rerere]
     enabled = true
 [init]
-    defaultBranch = main
+    defaultBranch = master
 [advice]
     detachedHead = false
 [fetch]
