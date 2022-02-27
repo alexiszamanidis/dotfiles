@@ -21,19 +21,11 @@ This repository synchronizes a new Ubuntu System with the dotfiles that I am cur
         -   type `xprop` and click on an application you want to bind with a specific workspace
         -   pick the name next to `WM_NAME(STRING) =` and use it in i3/.config/i3/config
 
--   Upstream submodule
-    -   Related files/folders:
-        -   upstream folder
-        -   .gitsubmodule: upstream submodule
-        -   .zshrc: 'upstream/.upstream_aliases', STOW_FOLDERS: "upstream"
-        -   install: STOW_FOLDERS: "upstream"
-        -   i3 config: # Upstream Home Monitors
-
 ### Clone and Install
 
 ```
 sudo apt install -y git-all && \
-git clone https://github.com/alexiszamanidis/dotfiles.git ~/dotfiles && \
+git clone --recurse-submodules https://github.com/alexiszamanidis/dotfiles.git ~/dotfiles && \
 cd $HOME/dotfiles && \
 chmod +x install stow unstow && ./install
 ```
