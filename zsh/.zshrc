@@ -79,6 +79,14 @@ bindkey "^A" beginning-of-line
 bindkey "^E" end-of-line
 bindkey "^Q" push-line-or-edit
 
+# git-fzf bind keys
+git-fzf-checkout-bindkey() { git-fzf checkout; }
+zle -N git-fzf-checkout-bindkey
+bindkey '^o' git-fzf-checkout-bindkey
+git-fzf-log-bindkey() { git-fzf log; }
+zle -N git-fzf-log-bindkey
+bindkey '^l' git-fzf-log-bindkey
+
 alias zshrc="$EDITOR ~/.zshrc"
 alias kitty.conf="$EDITOR ~/.config/kitty/kitty.conf"
 alias init.vim="$EDITOR ~/.config/nvim/init.vim"
