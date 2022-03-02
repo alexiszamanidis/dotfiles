@@ -80,12 +80,16 @@ bindkey "^E" end-of-line
 bindkey "^Q" push-line-or-edit
 
 # git-fzf bind keys
-git-fzf-checkout-bindkey() { git-fzf checkout; }
+git-fzf-checkout-bindkey() { echo; git-fzf checkout; zle reset-prompt; }
 zle -N git-fzf-checkout-bindkey
 bindkey '^o' git-fzf-checkout-bindkey
 git-fzf-log-bindkey() { git-fzf log; }
 zle -N git-fzf-log-bindkey
 bindkey '^l' git-fzf-log-bindkey
+
+git-checkout-prev() { echo; git checkout -; zle reset-prompt; }
+zle -N git-checkout-prev
+bindkey '^r' git-checkout-prev
 
 alias zshrc="$EDITOR ~/.zshrc"
 alias kitty.conf="$EDITOR ~/.config/kitty/kitty.conf"
