@@ -52,6 +52,9 @@ nnoremap <C-p> :Files<Cr>
 " nerd tree
 nnoremap <C-b> :NERDTreeToggle<CR>
 
+" behave like the rest of the CAPITAL letters
+nnoremap Y y$
+
 " Keeping it centered
 nnoremap n nzzzv
 nnoremap N Nzzzv
