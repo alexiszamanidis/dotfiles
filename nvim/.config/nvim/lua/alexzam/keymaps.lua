@@ -24,3 +24,8 @@ keymap("n", "Y", "y$", opts)
 -- keeping it centered
 keymap("n", "n", "nzzzv", opts)
 keymap("n", "N", "Nzzzv", opts)
+
+-- Telescope
+keymap("n", "<c-p>", "<cmd>lua require'telescope.builtin'.find_files(require('telescope.themes'))<cr>", opts)
+-- TODO should change to CTRL + SHIFT + F
+-- keymap("n", "<c-f>", "<cmd>lua require'telescope.builtin'.live_grep(require('telescope.themes'))<cr>", opts)
