@@ -1,2 +1,6 @@
+# vscode
 .vscode
+
+# vim
 autoload
+packer_compiled.lua
