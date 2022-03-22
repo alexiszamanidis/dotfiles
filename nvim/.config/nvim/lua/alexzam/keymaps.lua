@@ -26,6 +26,6 @@ keymap("n", "n", "nzzzv", opts)
 keymap("n", "N", "Nzzzv", opts)
 
 -- Telescope
-keymap("n", "<c-p>", "<cmd>lua require'telescope.builtin'.find_files(require('telescope.themes'))<cr>", opts)
--- TODO should change to CTRL + SHIFT + F
--- keymap("n", "<c-f>", "<cmd>lua require'telescope.builtin'.live_grep(require('telescope.themes'))<cr>", opts)
+keymap("n", "<C-p>", "<cmd>lua require'telescope.builtin'.find_files(require('telescope.themes'))<cr>", opts)
+-- TODO ctrl+f, ctrl+shift+f both work. WHY?
+keymap("n", "<C-F>", "<cmd>lua require'telescope.builtin'.live_grep(require('telescope.themes'))<cr>", opts)
