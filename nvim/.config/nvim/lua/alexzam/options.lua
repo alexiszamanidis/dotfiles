@@ -18,7 +18,9 @@ local options = {
     undofile = true,
     incsearch = true,
     scrolloff = 8,
-    signcolumn = "yes"
+    signcolumn = "yes",
+    cursorcolumn = true,
+    cursorline = true
 }
 
 vim.opt.shortmess:append "c"
