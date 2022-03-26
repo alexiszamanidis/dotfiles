@@ -90,8 +90,3 @@ bindkey '^l' git-fzf-log-bindkey
 git-checkout-prev() { echo; git checkout -; zle reset-prompt; }
 zle -N git-checkout-prev
 bindkey '^r' git-checkout-prev
-
-alias zshrc="$EDITOR ~/.zshrc"
-alias kitty.conf="$EDITOR ~/.config/kitty/kitty.conf"
-alias init.vim="$EDITOR ~/.config/nvim/init.vim"
-alias i3.config="$EDITOR ~/.config/i3/config"
