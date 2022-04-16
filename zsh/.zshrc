@@ -90,3 +90,7 @@ bindkey '^l' git-fzf-log-bindkey
 git-checkout-prev() { echo; git checkout -; zle reset-prompt; }
 zle -N git-checkout-prev
 bindkey '^r' git-checkout-prev
+
+# this alias is used to open settings on i3wm
+# TODO is there a better way to do this?
+alias settings="env XDG_CURRENT_DESKTOP=GNOME gnome-control-center"
