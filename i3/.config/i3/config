@@ -274,5 +274,8 @@ exec kitty
 # exec /opt/forticlient-sslvpn/forticlientsslvpn.sh
 exec spotify
 
+# smooth switching
 exec --no-startup-id compton -f
+
+# ALT+SHIFT: switch language(us, gr)
 exec_always "setxkbmap -model pc104 -layout us,gr -variant ,, -option grp:alt_shift_toggle"
