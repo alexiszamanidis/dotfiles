@@ -5,3 +5,4 @@
 autoload
 packer_compiled.lua
 nvim/.config/nvim/.netrwhist
+~/
