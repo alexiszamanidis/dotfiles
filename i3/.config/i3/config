@@ -277,5 +277,6 @@ exec spotify
 # smooth switching
 exec --no-startup-id compton -f
 
+# In order for this to work, you need to refresh i3(WIN_KEY+SHIFT+r)
 # ALT+SHIFT: switch language(us, gr)
 exec_always "setxkbmap -model pc104 -layout us,gr -variant ,, -option grp:alt_shift_toggle"
