@@ -21,6 +21,15 @@ This repository synchronizes a new Ubuntu System with the dotfiles that I am cur
         -   type `xprop` and click on an application you want to bind with a specific workspace
         -   pick the name next to `WM_NAME(STRING) =` and use it in i3/.config/i3/config
 
+-   When .editorconfig is not working run the following commands
+
+    -   ```bash
+        # check which files need to be fixed
+        npx eclint check '.'
+        # fix these files
+        npx eclint fix '.'
+        ```
+
 ### Clone and Install
 
 ```
