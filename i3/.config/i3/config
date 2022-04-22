@@ -122,8 +122,7 @@ set $workspaces1 "1: chrome"
 set $workspaces2 "2: vscode"
 set $workspaces3 "3: terminal"
 set $workspaces4 "4: slack"
-set $workspaces5 "5: excalidraw"
-# set $workspaces5 "5: gimp"
+set $workspaces5 "5: paint"
 set $workspaces8 "8: vpn"
 set $workspaces9 "9: spotify"
 set $workspaces10 "10: chrome-2"
@@ -175,8 +174,9 @@ assign [class="Google-chrome"] $workspaces10
 # assign not working for gimp and spotify
 # assign [class="Gimp"] $workspaces5
 # assign [class="Spotify"] $workspaces10
+# Propably instance won't remain the same per installation
 for_window [class="Google-chrome" instance="crx_kmcnjdcipmgchfndpapkoecbidofdpbc"] move to workspace $workspaces5
-# for_window [class="Gimp"] move to workspace $workspaces5
+for_window [class="Gimp"] move to workspace $workspaces5
 for_window [class="Spotify"] move to workspace $workspaces9
 
 # reload the configuration file
