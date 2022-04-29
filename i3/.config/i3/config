@@ -256,12 +256,12 @@ bindsym XF86AudioPrev exec playerctl previous
 
 # startup
 exec_always --no-startup-id feh --bg-scale ~/.config/i3/background.png
-exec google-chrome-stable
-# exec code
-exec kitty
+exec --no-startup-id google-chrome-stable
+# exec --no-startup-id code
+exec --no-startup-id kitty
 # exec slack
 # exec /opt/forticlient-sslvpn/forticlientsslvpn.sh
-exec spotify
+exec --no-startup-id spotify
 
 # smooth switching
 exec --no-startup-id compton -f
@@ -269,3 +269,5 @@ exec --no-startup-id compton -f
 # In order for this to work, you need to refresh i3(WIN_KEY+SHIFT+r)
 # ALT+SHIFT: switch language(us, gr)
 exec_always "setxkbmap -model pc104 -layout us,gr -variant ,, -option grp:alt_shift_toggle"
+# this is a hacky way to solve the i3 language issue(auto restart i3 after 5 seconds)
+exec --no-startup-id "sleep 5; i3-msg restart"
