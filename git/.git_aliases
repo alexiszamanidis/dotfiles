@@ -7,18 +7,6 @@ alias gst='git stash'
 alias gsta='git stash apply'
 alias gstl='git stash list'
 
-gacp() {
-    git add -A
-    git commit -m "$*"
-    git push
-}
-
-gaafp() {
-    git add -A
-    git commit --amend --no-edit
-    git push -f
-}
-
 # gmp: git-merge-push
 # merge feature/A to dev
 # example: `gmp feature/A dev`

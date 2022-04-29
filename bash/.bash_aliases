@@ -32,6 +32,6 @@ kill_process_on_port() {
         return -1
     fi
     port=$1
-    command="kill -9 \$(sudo lsof -t -i:$port)"
+    command="kill -9 \$(lsof -t -i:$port)"
     eval $command
 }
