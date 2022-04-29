@@ -162,6 +162,7 @@ assign [class="Google-chrome"] $workspaces10
 # assign [class="Gimp"] $workspaces5
 # assign [class="Spotify"] $workspaces10
 # Propably instance won't remain the same per installation
+# Excalidraw PWA
 for_window [class="Google-chrome" instance="crx_kmcnjdcipmgchfndpapkoecbidofdpbc"] move to workspace $workspaces5
 for_window [class="Gimp"] move to workspace $workspaces5
 for_window [class="Spotify"] move to workspace $workspaces9
