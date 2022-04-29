@@ -49,3 +49,5 @@
     detachedHead = false
 [fetch]
     prune = true
+[submodule]
+	recurse = true
