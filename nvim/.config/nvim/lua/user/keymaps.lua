@@ -48,6 +48,6 @@ keymap("x", "<A-k>", ":move '<-2<CR>gv-gv", opts)
 keymap("x", "<A-Up>", ":move '<-2<CR>gv-gv", opts)
 
 -- Telescope
-keymap("n", "<C-p>", "<cmd>lua require'telescope.builtin'.find_files(require('telescope.themes'))<cr>", opts)
+keymap("n", "<C-p>", "<cmd>lua require'telescope.builtin'.git_files(require('telescope.themes'))<cr>", opts)
 -- TODO ctrl+f, ctrl+shift+f both work. WHY?
 keymap("n", "<C-F>", "<cmd>lua require'telescope.builtin'.live_grep(require('telescope.themes'))<cr>", opts)

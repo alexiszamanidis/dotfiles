@@ -24,6 +24,7 @@ This repository synchronizes a new Ubuntu System with the dotfiles that I am cur
 -   When .editorconfig is not working run the following commands
 
     -   ```bash
+        # (Node should be installed!)
         # check which files need to be fixed
         npx eclint check '.'
         # fix these files
