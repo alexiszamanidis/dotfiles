@@ -23,6 +23,7 @@ alias c='clear'
 alias x=extract
 alias myip="curl http://ipecho.net/plain; echo"
 alias runp="lsof -i "
+alias open="xdg-open $1"
 
 kill_process_on_port() {
     if [ ! $# -eq 1 ]
