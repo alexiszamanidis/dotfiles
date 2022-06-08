@@ -51,3 +51,6 @@ keymap("x", "<A-Up>", ":move '<-2<CR>gv-gv", opts)
 keymap("n", "<C-p>", "<cmd>lua require'telescope.builtin'.git_files(require('telescope.themes'))<cr>", opts)
 -- TODO ctrl+f, ctrl+shift+f both work. WHY?
 keymap("n", "<C-F>", "<cmd>lua require'telescope.builtin'.live_grep(require('telescope.themes'))<cr>", opts)
+
+-- Nvim-tree
+keymap("n", "<C-b>", "<cmd>:NvimTreeToggle<cr>", opts)
