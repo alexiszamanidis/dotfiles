@@ -93,6 +93,32 @@ git-checkout-prev() { echo; git checkout -; zle reset-prompt; }
 zle -N git-checkout-prev
 bindkey '^r' git-checkout-prev
 
+get-main-dirs-bindkey() {
+    local dirs=$(ls -d ~/*)
+
+    local dir_paths=( "${HOME}/work/" "${HOME}/work/" )
+
+    for dir_path in "${dir_paths[@]}"
+    do
+        [ ! -d "${dir_path}" ] && continue
+        local list_dirs_command="ls -d ${dir_path}*"
+        local dirs_output=$(eval $list_dirs_command) > /dev/null 2>&1
+        [ $? -ne 0 ] && continue
+        dirs+=dirs_output
+    done
+
+    local dir=$(echo $dirs | fzf --no-preview)
+
+    # if the user exited fzf without choosing a dir
+    [ -z $dir ] && return 0
+
+    echo
+    cd $dir
+    zle reset-prompt
+}
+zle -N get-main-dirs-bindkey
+bindkey '^f' get-main-dirs-bindkey
+
 # this alias is used to open settings on i3wm
 # TODO is there a better way to do this?
 alias settings="env XDG_CURRENT_DESKTOP=GNOME gnome-control-center"
