@@ -56,7 +56,7 @@ update_and_clean_up() {
     ~/scripts/update_and_clean_up "$@"
 }
 
-declare -a dotfiles=(".bash_aliases" ".docker_aliases" ".git_aliases" "upstream/.upstream_aliases")
+declare -a dotfiles=(".zsh_bindkeys" ".bash_aliases" ".docker_aliases" ".git_aliases" "upstream/.upstream_aliases")
 
 # source global aliases
 for dotfile in "${dotfiles[@]}"
@@ -72,52 +72,6 @@ bindkey '^P' fzf-file-widget
 export FZF_DEFAULT_OPTS="--height 100% --layout=reverse --border --preview='bat --style=numbers --color=always --line-range :500 {}'"
 export FZF_DEFAULT_COMMAND="fd --type f --hidden --follow --exclude .git"
 export FZF_CTRL_T_COMMAND="${FZF_DEFAULT_COMMAND}"
-
-# these commands are used to enable nvim remaps
-bindkey -r '\C-s'
-stty -ixon
-
-bindkey "^A" beginning-of-line
-bindkey "^E" end-of-line
-bindkey "^Q" push-line-or-edit
-
-# git-fzf bind keys
-git-fzf-checkout-bindkey() { echo; git-fzf checkout; zle reset-prompt; }
-zle -N git-fzf-checkout-bindkey
-bindkey '^o' git-fzf-checkout-bindkey
-git-fzf-log-bindkey() { git-fzf log; }
-zle -N git-fzf-log-bindkey
-bindkey '^l' git-fzf-log-bindkey
-
-git-checkout-prev() { echo; git checkout -; zle reset-prompt; }
-zle -N git-checkout-prev
-bindkey '^r' git-checkout-prev
-
-get-main-dirs-bindkey() {
-    local dirs=$(ls -d ~/*)
-
-    local dir_paths=( "${HOME}/work/" "${HOME}/work/" )
-
-    for dir_path in "${dir_paths[@]}"
-    do
-        [ ! -d "${dir_path}" ] && continue
-        local list_dirs_command="ls -d ${dir_path}*"
-        local dirs_output=$(eval $list_dirs_command) > /dev/null 2>&1
-        [ $? -ne 0 ] && continue
-        dirs+=dirs_output
-    done
-
-    local dir=$(echo $dirs | fzf --no-preview)
-
-    # if the user exited fzf without choosing a dir
-    [ -z $dir ] && return 0
-
-    echo
-    cd $dir
-    zle reset-prompt
-}
-zle -N get-main-dirs-bindkey
-bindkey '^f' get-main-dirs-bindkey
 
 # this alias is used to open settings on i3wm
 # TODO is there a better way to do this?
