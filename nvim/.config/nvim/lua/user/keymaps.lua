@@ -53,4 +53,4 @@ keymap("n", "<C-p>", "<cmd>lua require'telescope.builtin'.git_files(require('tel
 keymap("n", "<C-F>", "<cmd>lua require'telescope.builtin'.live_grep(require('telescope.themes'))<cr>", opts)
 
 -- Nvim-tree
-keymap("n", "<C-b>", "<cmd>:NvimTreeToggle<cr>", opts)
+keymap("n", "<C-b>", ":NvimTreeToggle<cr>", opts)
