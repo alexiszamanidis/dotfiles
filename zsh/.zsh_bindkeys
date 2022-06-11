@@ -9,15 +9,17 @@ bindkey "^Q" push-line-or-edit
 get-main-dirs-bindkey() {
     local dirs=$(ls -d ~/*)
 
-    local dir_paths=( "${HOME}/work/" "${HOME}/work/" )
+    local dir_paths=( "${HOME}/personal/" "${HOME}/work/" )
 
     for dir_path in "${dir_paths[@]}"
     do
         [ ! -d "${dir_path}" ] && continue
         local list_dirs_command="ls -d ${dir_path}*"
-        local dirs_output=$(eval $list_dirs_command) > /dev/null 2>&1
-        [ $? -ne 0 ] && continue
-        dirs+=dirs_output
+        $(eval $list_dirs_command) > /dev/null 2>&1
+        # if there are no directories
+        [ $? -eq 1 ] && continue
+        dirs+="\n"
+        dirs+=$(eval $list_dirs_command)
     done
 
     local dir=$(echo $dirs | fzf --no-preview)
