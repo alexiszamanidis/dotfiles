@@ -54,3 +54,18 @@ keymap("n", "<C-F>", "<cmd>lua require'telescope.builtin'.live_grep(require('tel
 
 -- Nvim-tree
 keymap("n", "<C-b>", ":NvimTreeToggle<cr>", opts)
+
+-- Bufferline
+keymap("n", "<C-i>", "<Cmd>BufferLineCycleNext<CR>", opts)
+-- This keymap does not work
+-- keymap("n", "<C-S-i>", "<Cmd>BufferLineCyclePrev<CR>", opts)
+keymap("n", "<C-w>", "<Cmd>bdelete<CR>", opts)
+keymap("n", "<A-1>", "<Cmd>BufferLineGoToBuffer 1<CR>", opts)
+keymap("n", "<A-2>", "<Cmd>BufferLineGoToBuffer 2<CR>", opts)
+keymap("n", "<A-3>", "<Cmd>BufferLineGoToBuffer 3<CR>", opts)
+keymap("n", "<A-4>", "<Cmd>BufferLineGoToBuffer 4<CR>", opts)
+keymap("n", "<A-5>", "<Cmd>BufferLineGoToBuffer 5<CR>", opts)
+keymap("n", "<A-6>", "<Cmd>BufferLineGoToBuffer 6<CR>", opts)
+keymap("n", "<A-7>", "<Cmd>BufferLineGoToBuffer 7<CR>", opts)
+keymap("n", "<A-8>", "<Cmd>BufferLineGoToBuffer 8<CR>", opts)
+keymap("n", "<A-9>", "<Cmd>BufferLineGoToBuffer 9<CR>", opts)
