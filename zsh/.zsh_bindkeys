@@ -14,11 +14,14 @@ get-main-dirs-bindkey() {
     for dir_path in "${dir_paths[@]}"
     do
         [ ! -d "${dir_path}" ] && continue
-        local list_dirs_command="ls -d ${dir_path}*"
-        $(eval $list_dirs_command) > /dev/null 2>&1
-        # if there are no directories
-        [ $? -eq 1 ] && continue
+        local number_of_child_directories_command="find ${dir_path} -mindepth 1 -maxdepth 1 -type d | wc -l"
+        local number_of_child_directories=$(eval $number_of_child_directories_command) > /dev/null 2>&1
+
+        # if there are no child directories
+        [[ $number_of_child_directories -eq 0 ]] && continue
+
         dirs+="\n"
+        local list_dirs_command="ls -d ${dir_path}*"
         dirs+=$(eval $list_dirs_command)
     done
 
