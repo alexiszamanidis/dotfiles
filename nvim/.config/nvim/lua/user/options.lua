@@ -20,7 +20,8 @@ local options = {
     scrolloff = 8,
     signcolumn = "yes",
     cursorcolumn = true,
-    cursorline = true
+    cursorline = true,
+    ignorecase = true
 }
 
 vim.opt.shortmess:append "c"
