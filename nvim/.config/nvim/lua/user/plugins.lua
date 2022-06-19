@@ -55,7 +55,7 @@ return packer.startup(function(use)
   }
 
   -- Colorscheme
-  use "lunarvim/darkplus.nvim"        -- colorscheme
+  use "Mofiqul/dracula.nvim"          -- Dracula colorscheme
 
   -- Completion plugins
   use "hrsh7th/nvim-cmp"              -- completion plugin
