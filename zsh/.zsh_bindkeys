@@ -7,31 +7,13 @@ bindkey "^E" end-of-line
 bindkey "^Q" push-line-or-edit
 
 get-main-dirs-bindkey() {
-    local dirs=$(ls -d ~/*)
-
-    local dir_paths=( "${HOME}/personal/" "${HOME}/work/" )
-
-    for dir_path in "${dir_paths[@]}"
-    do
-        [ ! -d "${dir_path}" ] && continue
-        local number_of_child_directories_command="find ${dir_path} -mindepth 1 -maxdepth 1 -type d | wc -l"
-        local number_of_child_directories=$(eval $number_of_child_directories_command) > /dev/null 2>&1
-
-        # if there are no child directories
-        [[ $number_of_child_directories -eq 0 ]] && continue
-
-        dirs+="\n"
-        local list_dirs_command="ls -d ${dir_path}*"
-        dirs+=$(eval $list_dirs_command)
-    done
-
-    local dir=$(echo $dirs | fzf --no-preview)
+    local selected_dir=$(find ~/ ~/personal ~/work -mindepth 1 -maxdepth 1 -type d | fzf --no-preview)
 
     # if the user exited fzf without choosing a dir
-    [ -z $dir ] && return 0
+    [ -z $selected_dir ] && return 0
 
     echo
-    cd $dir
+    cd $selected_dir
     zle reset-prompt
 }
 zle -N get-main-dirs-bindkey
