@@ -12,6 +12,15 @@ kitty-tab-manager() {
     # if the user exited fzf without choosing a dir
     [ -z $dir_path ] && return 0
 
+    # if kitty is not installed, then cd(change directory) into it
+    which kitty > /dev/null 2>&1
+    if [ $? -eq 1 ]; then
+        echo
+        cd $dir_path
+        zle reset-prompt
+        return 0
+    fi
+
     kitty @ focus-window --match cwd:$dir_path > /dev/null 2>&1
     # if switch tab was successful
     [ $? -eq 0 ] && return 0
