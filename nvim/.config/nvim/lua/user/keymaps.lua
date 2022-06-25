@@ -49,8 +49,9 @@ keymap("x", "<A-Up>", ":move '<-2<CR>gv-gv", opts)
 
 -- Telescope
 keymap("n", "<C-p>", "<cmd>lua require'telescope.builtin'.git_files(require('telescope.themes'))<cr>", opts)
--- TODO ctrl+f, ctrl+shift+f both work. WHY?
-keymap("n", "<C-F>", "<cmd>lua require'telescope.builtin'.live_grep(require('telescope.themes'))<cr>", opts)
+-- TODO: need to replace this with C-S-f. It is not working cuz of KITTY!
+keymap("n", "<C-f>", "<cmd>lua require'telescope.builtin'.live_grep(require('telescope.themes'))<cr>", opts)
+-- keymap("n", "<C-f>", "<cmd>!tmux neww tmux-sessionizer<CR>", term_opts)
 
 -- Nvim-tree
 keymap("n", "<C-b>", ":NvimTreeToggle<cr>", opts)
