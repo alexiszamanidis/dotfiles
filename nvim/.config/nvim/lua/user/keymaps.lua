@@ -49,9 +49,8 @@ keymap("x", "<A-Up>", ":move '<-2<CR>gv-gv", opts)
 
 -- Telescope
 keymap("n", "<C-p>", "<cmd>lua require'telescope.builtin'.git_files(require('telescope.themes'))<cr>", opts)
--- TODO: need to replace this with C-S-f. It is not working cuz of KITTY!
-keymap("n", "<C-f>", "<cmd>lua require'telescope.builtin'.live_grep(require('telescope.themes'))<cr>", opts)
--- keymap("n", "<C-f>", "<cmd>!tmux neww tmux-sessionizer<CR>", term_opts)
+-- TODO: need to replace this with C-S-f. It is not working cuz of KITTY!?!
+keymap("n", "<leader>f", "<cmd>lua require'telescope.builtin'.live_grep(require('telescope.themes'))<cr>", opts)
 
 -- Nvim-tree
 keymap("n", "<C-b>", ":NvimTreeToggle<cr>", opts)
@@ -70,3 +69,7 @@ keymap("n", "<A-6>", "<Cmd>BufferLineGoToBuffer 6<CR>", opts)
 keymap("n", "<A-7>", "<Cmd>BufferLineGoToBuffer 7<CR>", opts)
 keymap("n", "<A-8>", "<Cmd>BufferLineGoToBuffer 8<CR>", opts)
 keymap("n", "<A-9>", "<Cmd>BufferLineGoToBuffer 9<CR>", opts)
+
+
+-- Tmux
+keymap("n", "<C-f>", "<cmd>!tmux neww tmux-sessionizer<CR>", term_opts)
