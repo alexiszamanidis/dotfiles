@@ -1,6 +1,6 @@
 export ZSH="/home/alexzam/.oh-my-zsh"
 export DOTFILES=$HOME/dotfiles
-export STOW_FOLDERS="bin,bash,docker,dunst,git,i3,compton,kitty,tmux,nvim,rofi,zsh,scripts,upstream"
+export STOW_FOLDERS="bin,bash,docker,dunst,git,i3,compton,kitty,xterm,tmux,nvim,rofi,zsh,scripts,upstream"
 export EDITOR="code"
 export PATH=$PATH:~/.local/bin
 export ZSH_GIT_FZF_REMOVE_STALLED_BRANCHES="true"
