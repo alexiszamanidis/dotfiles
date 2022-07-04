@@ -70,6 +70,24 @@ keymap("n", "<A-7>", "<Cmd>BufferLineGoToBuffer 7<CR>", opts)
 keymap("n", "<A-8>", "<Cmd>BufferLineGoToBuffer 8<CR>", opts)
 keymap("n", "<A-9>", "<Cmd>BufferLineGoToBuffer 9<CR>", opts)
 
+-- Splits
+-- Move between splits
+keymap("n", "<C-h>", "<C-w>h", opts)
+keymap("n", "<C-j>", "<C-w>j", opts)
+keymap("n", "<C-k>", "<C-w>k", opts)
+keymap("n", "<C-l>", "<C-w>l", opts)
+-- Move between splits
+keymap("n", "<C-Left>", ":vertical resize +3<CR>", opts)
+keymap("n", "<C-Right>", ":vertical resize -3<CR>", opts)
+keymap("n", "<C-Up>", ":resize +3<CR>", opts)
+keymap("n", "<C-Down>", ":resize -3<CR>", opts)
+-- Split windows
+keymap("n", "<C-\\>", ":vsp<cr>", opts)
+-- TODO: HOW CAN I MAKE THIS WORK?
+keymap("n", "<C-minus>", ":sp<cr>", opts)
+-- Change 2 split windows from vert to horiz or horiz to vert
+keymap("n", "<Leader>tv", "<C-w>t<C-w>H", opts)
+keymap("n", "<Leader>th", "<C-w>t<C-w>K", opts)
 
 -- Tmux
 keymap("n", "<C-f>", "<cmd>!tmux neww tmux-sessionizer<CR>", term_opts)

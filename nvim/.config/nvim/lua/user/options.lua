@@ -21,7 +21,9 @@ local options = {
     signcolumn = "yes",
     cursorcolumn = true,
     cursorline = true,
-    ignorecase = true
+    ignorecase = true,
+    splitbelow = true,
+    splitright = true
 }
 
 vim.opt.shortmess:append "c"
