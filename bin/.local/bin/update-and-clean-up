@@ -15,7 +15,7 @@ while getopts :v options; do
 done
 
 # load helpers
-source ~/scripts/helpers
+source ~/.local/bin/helpers
 
 update_and_upgrade
 

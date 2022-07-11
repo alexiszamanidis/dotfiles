@@ -1,6 +1,6 @@
 export ZSH="/home/alexzam/.oh-my-zsh"
 export DOTFILES=$HOME/dotfiles
-export STOW_FOLDERS="bin,bash,docker,dunst,git,i3,compton,kitty,tmux,nvim,rofi,zsh,scripts,upstream"
+export STOW_FOLDERS="bin,bash,docker,dunst,git,i3,compton,kitty,tmux,nvim,rofi,zsh,upstream"
 export EDITOR="code"
 export PATH=$PATH:~/.local/bin
 export ZSH_GIT_FZF_REMOVE_STALLED_BRANCHES="true"
@@ -50,10 +50,6 @@ unstowth() {
 
 reload() {
     source ~/.zshrc
-}
-
-update_and_clean_up() {
-    ~/scripts/update_and_clean_up "$@"
 }
 
 declare -a dotfiles=(".zsh_bindkeys" ".bash_aliases" ".docker_aliases" ".git_aliases" "upstream/.upstream_aliases")
