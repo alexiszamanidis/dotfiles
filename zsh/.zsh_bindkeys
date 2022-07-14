@@ -3,9 +3,12 @@
 bindkey -r '\C-s'
 stty -ixon
 
+# fzf
+bindkey '^P' fzf-file-widget
+
 # cmd
-bindkey "^A" beginning-of-line
-bindkey "^E" end-of-line
+bindkey "^I" beginning-of-line
+bindkey "^A" end-of-line
 bindkey "^Q" push-line-or-edit
 
 # tmux
