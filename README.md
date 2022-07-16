@@ -42,15 +42,9 @@ chmod +x install stow unstow && ./install
 
 ### Scripts
 
-`update_and_clean_up`
+`update-and-clean-up`
 
 Updates and cleans up the system
-
-Alias:
-
-```
-update_and_clean_up
-```
 
 | Name   | Flag | Default | Description                                        |
 | ------ | ---- | ------- | -------------------------------------------------- |

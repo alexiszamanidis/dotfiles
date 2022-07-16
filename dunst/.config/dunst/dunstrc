@@ -1,4 +1,5 @@
 [global]
+    geometry = "0x0-30+20"
     monitor = 0
     follow = mouse
     width = 300
@@ -13,13 +14,13 @@
     progress_bar_min_width = 150
     progress_bar_max_width = 300
     indicate_hidden = yes
-    transparency = 15
+    transparency = 0
     separator_height = 1
     padding = 8
     horizontal_padding = 10
     text_icon_padding = 0
-    frame_width = 0
-    frame_color = "#282a36"
+    frame_width = 2
+    frame_color = "#44475a"
     separator_color = frame
     sort = yes
     idle_threshold = 120

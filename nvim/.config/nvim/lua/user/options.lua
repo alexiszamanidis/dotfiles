@@ -22,7 +22,9 @@ local options = {
     signcolumn = "yes",                      -- always show the sign column, otherwise it would shift the text each time
     cursorcolumn = true,
     cursorline = true,                       -- highlight the current line
-    ignorecase = true                        -- ignore case in search patterns
+    ignorecase = true,                       -- ignore case in search patterns
+    splitbelow = true,
+    splitright = true
 }
 
 vim.opt.shortmess:append "c"

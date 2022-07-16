@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+
+GREEN="\033[0;32m"
+RED="\033[0;31m"
+# No Color
+NC="\033[0m"
+
+if [ "$#" -eq 1 ]; then
+    echo -e $1
+elif [ "$2" = "GREEN" ]; then
+    echo -e "${GREEN}$1${NC}"
+elif [ "$2" = "RED" ]; then
+    echo -e "${RED}$1${NC}"
+fi

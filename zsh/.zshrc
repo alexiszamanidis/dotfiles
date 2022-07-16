@@ -1,8 +1,8 @@
 export ZSH="/home/alexzam/.oh-my-zsh"
 export DOTFILES=$HOME/dotfiles
-export STOW_FOLDERS="bash,docker,dunst,git,i3,compton,kitty,nvim,rofi,zsh,scripts,upstream"
+export STOW_FOLDERS="bin,bash,docker,dunst,git,i3,compton,kitty,tmux,nvim,rofi,zsh,upstream"
 export EDITOR="code"
-
+export PATH=$PATH:~/.local/bin
 export ZSH_GIT_FZF_REMOVE_STALLED_BRANCHES="true"
 
 ZSH_THEME="robbyrussell"
@@ -52,10 +52,6 @@ reload() {
     source ~/.zshrc
 }
 
-update_and_clean_up() {
-    ~/scripts/update_and_clean_up "$@"
-}
-
 declare -a dotfiles=(".zsh_bindkeys" ".bash_aliases" ".docker_aliases" ".git_aliases" "upstream/.upstream_aliases")
 
 # source global aliases
@@ -68,7 +64,6 @@ done
 
 # fzf
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-bindkey '^P' fzf-file-widget
 export FZF_DEFAULT_OPTS="--height 100% --layout=reverse --border --preview='bat --style=numbers --color=always --line-range :500 {}'"
 export FZF_DEFAULT_COMMAND="fd --type f --hidden --follow --exclude .git"
 export FZF_CTRL_T_COMMAND="${FZF_DEFAULT_COMMAND}"

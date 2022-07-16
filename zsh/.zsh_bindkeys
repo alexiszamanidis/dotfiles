@@ -1,50 +1,10 @@
-# these commands are used to enable nvim remaps
-bindkey -r '\C-s'
-stty -ixon
+# fzf
+bindkey '^P' fzf-file-widget
 
-bindkey "^A" beginning-of-line
-bindkey "^E" end-of-line
-bindkey "^Q" push-line-or-edit
-
-get-main-dirs-bindkey() {
-    local dirs=$(ls -d ~/*)
-
-    local dir_paths=( "${HOME}/personal/" "${HOME}/work/" )
-
-    for dir_path in "${dir_paths[@]}"
-    do
-        [ ! -d "${dir_path}" ] && continue
-        local number_of_child_directories_command="find ${dir_path} -mindepth 1 -maxdepth 1 -type d | wc -l"
-        local number_of_child_directories=$(eval $number_of_child_directories_command) > /dev/null 2>&1
-
-        # if there are no child directories
-        [[ $number_of_child_directories -eq 0 ]] && continue
-
-        dirs+="\n"
-        local list_dirs_command="ls -d ${dir_path}*"
-        dirs+=$(eval $list_dirs_command)
-    done
-
-    local dir=$(echo $dirs | fzf --no-preview)
-
-    # if the user exited fzf without choosing a dir
-    [ -z $dir ] && return 0
-
-    echo
-    cd $dir
-    zle reset-prompt
-}
-zle -N get-main-dirs-bindkey
-bindkey '^f' get-main-dirs-bindkey
+# tmux
+bindkey -s ^f "tmux-sessionizer\n"
 
 # git-fzf bind keys
-git-fzf-checkout-bindkey() { echo; git-fzf checkout; zle reset-prompt; }
-zle -N git-fzf-checkout-bindkey
-bindkey '^o' git-fzf-checkout-bindkey
-git-fzf-log-bindkey() { git-fzf log; }
-zle -N git-fzf-log-bindkey
-bindkey '^l' git-fzf-log-bindkey
-
-git-checkout-prev() { echo; git checkout -; zle reset-prompt; }
-zle -N git-checkout-prev
-bindkey '^r' git-checkout-prev
+bindkey -s ^o "git-fzf checkout\n"
+bindkey -s ^l "git-fzf log\n"
+bindkey -s ^d "git-fzf diff\n"

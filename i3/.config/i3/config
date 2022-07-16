@@ -110,7 +110,7 @@ set $ws9 "9"
 set $ws10 "10"
 
 set $workspaces1 "1: chrome"
-set $workspaces2 "2: vscode"
+set $workspaces2 "2: editor"
 set $workspaces3 "3: terminal"
 set $workspaces4 "4: slack"
 set $workspaces5 "5: paint"

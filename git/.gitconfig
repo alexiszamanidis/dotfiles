@@ -50,4 +50,4 @@
 [fetch]
     prune = true
 [submodule]
-	recurse = true
+    recurse = true
