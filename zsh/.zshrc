@@ -1,4 +1,4 @@
-export ZSH="/home/alexzam/.oh-my-zsh"
+export ZSH="$HOME/.oh-my-zsh"
 export DOTFILES=$HOME/dotfiles
 export STOW_FOLDERS="bin,bash,docker,dunst,git,i3,compton,kitty,tmux,nvim,rofi,zsh,upstream"
 export EDITOR="code"
