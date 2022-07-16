@@ -1,15 +1,5 @@
-# TODO: Do i need these?
-# these commands are used to enable nvim remaps
-bindkey -r '\C-s'
-stty -ixon
-
 # fzf
 bindkey '^P' fzf-file-widget
-
-# cmd
-bindkey "^I" beginning-of-line
-bindkey "^A" end-of-line
-bindkey "^Q" push-line-or-edit
 
 # tmux
 bindkey -s ^f "tmux-sessionizer\n"
@@ -17,3 +7,4 @@ bindkey -s ^f "tmux-sessionizer\n"
 # git-fzf bind keys
 bindkey -s ^o "git-fzf checkout\n"
 bindkey -s ^l "git-fzf log\n"
+bindkey -s ^d "git-fzf diff\n"
