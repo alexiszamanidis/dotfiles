@@ -45,6 +45,7 @@ return packer.startup(function(use)
   use "nvim-lua/popup.nvim"           -- An implementation of the Popup API from vim in Neovim
   use "nvim-lua/plenary.nvim"         -- Useful lua functions used ny lots of plugins
   use "windwp/nvim-autopairs"         -- Autopairs, integrates with both cmp and treesitter
+  use "terrortylor/nvim-comment"      -- Comments
   use "kyazdani42/nvim-web-devicons"  -- Icons
   use {
     "akinsho/bufferline.nvim",
@@ -54,8 +55,11 @@ return packer.startup(function(use)
     tag = "nightly"                   -- optional, updated every week. (see issue #1193)
   }
 
+  -- UI
+  use "folke/which-key.nvim"
+
   -- Colorscheme
-  use "lunarvim/darkplus.nvim"        -- colorscheme
+  use "Mofiqul/dracula.nvim"          -- Dracula colorscheme
 
   -- Completion plugins
   use "hrsh7th/nvim-cmp"              -- completion plugin
