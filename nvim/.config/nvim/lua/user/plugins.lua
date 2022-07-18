@@ -55,6 +55,9 @@ return packer.startup(function(use)
     tag = "nightly"                   -- optional, updated every week. (see issue #1193)
   }
 
+  -- UI
+  use "folke/which-key.nvim"
+
   -- Colorscheme
   use "Mofiqul/dracula.nvim"          -- Dracula colorscheme
 
