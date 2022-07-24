@@ -31,6 +31,10 @@ This repository synchronizes a new Ubuntu System with the dotfiles that I am cur
         npx eclint fix '.'
         ```
 
+-   Color schemes
+
+    -   vscode, dunst, kitty, nvim, rofi
+
 ### Clone and Install
 
 ```
