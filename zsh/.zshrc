@@ -1,6 +1,6 @@
 export ZSH="$HOME/.oh-my-zsh"
 export DOTFILES=$HOME/dotfiles
-export STOW_FOLDERS="bin,bash,docker,dunst,git,i3,compton,kitty,tmux,nvim,rofi,zsh,upstream"
+export STOW_FOLDERS="bin,bash,docker,dunst,git,i3,compton,kitty,tmux,nvim,rofi,zsh,work"
 export EDITOR="code"
 export PATH=$PATH:~/.local/bin
 export ZSH_GIT_FZF_REMOVE_STALLED_BRANCHES="true"
@@ -52,7 +52,7 @@ reload() {
     source ~/.zshrc
 }
 
-declare -a dotfiles=(".zsh_bindkeys" ".bash_aliases" ".docker_aliases" ".git_aliases" "upstream/.upstream_aliases")
+declare -a dotfiles=(".zsh_bindkeys" ".bash_aliases" ".docker_aliases" ".git_aliases" "work/.work_aliases")
 
 # source global aliases
 for dotfile in "${dotfiles[@]}"

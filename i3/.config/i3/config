@@ -144,7 +144,7 @@ bindsym $mod+Shift+0 move container to workspace $workspaces10
 
 # type 'xrandr' to find the hotkeys of the monitors
 
-# Upstream Home Monitors
+# Work Home Monitors
 set $firstMonitor "DP-2"
 set $secondMonitor "DP-3"
 

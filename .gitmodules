@@ -1,3 +1,3 @@
-[submodule "upstream"]
-    path = upstream
-    url = git@github.com:alexiszamanidis/upstream.git
+[submodule "work"]
+	path = work
+	url = git@github.com:alexiszamanidis/work.git
