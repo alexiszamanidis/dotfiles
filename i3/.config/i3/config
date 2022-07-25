@@ -98,49 +98,40 @@ bindsym $mod+Shift+Tab workspace prev
 
 # Define names for default workspaces for which we configure key bindings later on.
 # We use variables to avoid repeating the names in multiple places.
-set $ws1 "1"
-set $ws2 "2"
-set $ws3 "3"
+set $ws1 "1: chrome"
+set $ws2 "2: editor"
+set $ws3 "3: terminal"
 set $ws4 "4"
-set $ws5 "5"
-set $ws6 "6"
-set $ws7 "7"
+set $ws5 "5: slack"
+set $ws6 "6: paint"
+set $ws7 "7: vpn"
 set $ws8 "8"
-set $ws9 "9"
-set $ws10 "10"
-
-set $workspaces1 "1: chrome"
-set $workspaces2 "2: editor"
-set $workspaces3 "3: terminal"
-set $workspaces4 "4: slack"
-set $workspaces5 "5: paint"
-set $workspaces8 "8: vpn"
-set $workspaces9 "9: spotify"
-set $workspaces10 "10: chrome-2"
+set $ws9 "9: spotify"
+set $ws10 "10: chrome-2"
 
 # switch to workspace
-bindsym $mod+1 workspace $workspaces1
-bindsym $mod+2 workspace $workspaces2
-bindsym $mod+3 workspace $workspaces3
-bindsym $mod+4 workspace $workspaces4
-bindsym $mod+5 workspace $workspaces5
-bindsym $mod+6 workspace number $ws6
-bindsym $mod+7 workspace number $ws7
-bindsym $mod+8 workspace $workspaces8
-bindsym $mod+9 workspace $workspaces9
-bindsym $mod+0 workspace $workspaces10
+bindsym $mod+1 workspace $ws1
+bindsym $mod+2 workspace $ws2
+bindsym $mod+3 workspace $ws3
+bindsym $mod+4 workspace $ws4
+bindsym $mod+5 workspace $ws5
+bindsym $mod+6 workspace $ws6
+bindsym $mod+7 workspace $ws7
+bindsym $mod+8 workspace $ws8
+bindsym $mod+9 workspace $ws9
+bindsym $mod+0 workspace $ws10
 
 # move focused container to workspace
-bindsym $mod+Shift+1 move container to workspace $workspaces1
-bindsym $mod+Shift+2 move container to workspace $workspaces2
-bindsym $mod+Shift+3 move container to workspace $workspaces3
-bindsym $mod+Shift+4 move container to workspace $workspaces4
-bindsym $mod+Shift+5 move container to workspace $workspaces5
-bindsym $mod+Shift+6 move container to workspace number $ws6
-bindsym $mod+Shift+7 move container to workspace number $ws7
-bindsym $mod+Shift+8 move container to workspace $workspaces8
-bindsym $mod+Shift+9 move container to workspace $workspaces9
-bindsym $mod+Shift+0 move container to workspace $workspaces10
+bindsym $mod+Shift+1 move container to workspace $ws1
+bindsym $mod+Shift+2 move container to workspace $ws2
+bindsym $mod+Shift+3 move container to workspace $ws3
+bindsym $mod+Shift+4 move container to workspace $ws4
+bindsym $mod+Shift+5 move container to workspace $ws5
+bindsym $mod+Shift+6 move container to workspace $ws6
+bindsym $mod+Shift+7 move container to workspace $ws7
+bindsym $mod+Shift+8 move container to workspace $ws8
+bindsym $mod+Shift+9 move container to workspace $ws9
+bindsym $mod+Shift+0 move container to workspace $ws10
 
 # type 'xrandr' to find the hotkeys of the monitors
 
@@ -156,20 +147,21 @@ bindsym $mod+Control+h move workspace to output left
 bindsym $mod+Control+Left move workspace to output right
 bindsym $mod+Control+Right move workspace to output left
 
-assign [class="Google-chrome"] $workspaces1
-assign [class="Code"] $workspaces2
-assign [class="kitty"] $workspaces3
-assign [class="Slack"] $workspaces4
-assign [class="Forticlientsslvpn"] $workspaces8
-assign [class="Google-chrome"] $workspaces10
-# assign not working for gimp and spotify
-# assign [class="Gimp"] $workspaces5
-# assign [class="Spotify"] $workspaces10
+assign [class="Google-chrome"] $ws1
+assign [class="Code"] $ws2
+assign [class="kitty"] $ws3
+assign [class="Slack"] $ws5
 # Propably instance won't remain the same per installation
 # Excalidraw PWA
-for_window [class="Google-chrome" instance="crx_kmcnjdcipmgchfndpapkoecbidofdpbc"] move to workspace $workspaces5
-for_window [class="Gimp"] move to workspace $workspaces5
-for_window [class="Spotify"] move to workspace $workspaces9
+for_window [class="Google-chrome" instance="crx_kmcnjdcipmgchfndpapkoecbidofdpbc"] move to workspace $ws6
+for_window [class="Gimp"] move to workspace $ws6
+assign [class="Forticlientsslvpn"] $ws7
+for_window [class="Spotify"] move to workspace $ws9
+# assign not working for gimp and spotify
+# assign [class="Gimp"] $ws6
+# assign [class="Spotify"] $ws9
+# TODO: When I open chrome it is moved to workspace 1. How can I fix this?
+# assign [class="Google-chrome"] $ws10
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
