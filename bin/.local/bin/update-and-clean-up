@@ -15,9 +15,9 @@ while getopts :v options; do
 done
 
 colorful-echo "Updating and Upgrading" "GREEN"
-apt-get update -y
-apt-get upgrade -y
-apt-get dist-upgrade -y
+sudo apt-get update -y
+sudo apt-get upgrade -y
+sudo apt-get dist-upgrade -y
 
 if [ "$v" = true ] ; then
     colorful-echo "Updating VSCODE extensions" "GREEN"
@@ -31,11 +31,11 @@ fi
 
 # clean up
 colorful-echo "Cleaning Cache" "GREEN"
-apt-get clean -y
-apt-get autoclean -y
+sudo apt-get clean -y
+sudo apt-get autoclean -y
 
 colorful-echo "Removing Unnecessary Packages" "GREEN"
-apt-get autoremove -y
+sudo apt-get autoremove -y
 
 colorful-echo "Cleaning user and root trash" "GREEN"
 trash-empty
