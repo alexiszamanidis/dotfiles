@@ -4,7 +4,7 @@ if [[ $# -eq 1 ]]; then
     # support when simply passing the current working directory or a specified path
     selected="$1" && [[ "$selected" == '.' ]] && selected="$PWD"
 else
-    selected=$(find ~/ ~/personal ~/work-projects -mindepth 1 -maxdepth 1 -type d | fzf --no-preview)
+    selected=$(find ~/ ~/personal-projects ~/work-projects -mindepth 1 -maxdepth 1 -type d | fzf --no-preview)
 fi
 
 if [[ -z $selected ]]; then
