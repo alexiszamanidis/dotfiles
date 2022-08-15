@@ -49,8 +49,6 @@ keymap("x", "<A-Up>", ":move '<-2<CR>gv-gv", opts)
 
 -- Telescope
 keymap("n", "<C-p>", "<cmd>lua require'telescope.builtin'.git_files(require('telescope.themes'))<cr>", opts)
--- TODO: need to replace this with C-S-f. It is not working cuz of KITTY!?!
-keymap("n", "<leader>f", "<cmd>lua require'telescope.builtin'.live_grep(require('telescope.themes'))<cr>", opts)
 
 -- Nvim-tree
 keymap("n", "<C-b>", ":NvimTreeToggle<cr>", opts)

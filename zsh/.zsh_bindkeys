@@ -1,5 +1,5 @@
 # fzf
-bindkey '^P' fzf-file-widget
+bindkey -s '^P' "fzf\n"
 
 # tmux
 bindkey -s ^f "tmux-sessionizer\n"
@@ -8,3 +8,6 @@ bindkey -s ^f "tmux-sessionizer\n"
 bindkey -s ^o "git-fzf checkout\n"
 bindkey -s ^l "git-fzf log\n"
 bindkey -s ^d "git-fzf diff\n"
+
+# nvim
+bindkey -s ^n "nvim .\n"

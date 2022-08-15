@@ -68,6 +68,10 @@ export FZF_DEFAULT_OPTS="--height 100% --layout=reverse --border --preview='bat 
 export FZF_DEFAULT_COMMAND="fd --type f --hidden --follow --exclude .git"
 export FZF_CTRL_T_COMMAND="${FZF_DEFAULT_COMMAND}"
 
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
+
 # this alias is used to open settings on i3wm
 # TODO is there a better way to do this?
 alias settings="env XDG_CURRENT_DESKTOP=GNOME gnome-control-center"
