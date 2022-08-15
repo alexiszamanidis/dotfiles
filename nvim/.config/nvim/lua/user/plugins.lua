@@ -68,7 +68,7 @@ return packer.startup(function(use)
     use "hrsh7th/cmp-path" -- path completions
     use "hrsh7th/cmp-cmdline" -- cmdline completions
     use "saadparwaiz1/cmp_luasnip" -- snippet completions
-    use "hrsh7th/cmp-nvim-lsp"
+    use "hrsh7th/cmp-nvim-lsp" -- Completion
 
     -- Snippets
     use "L3MON4D3/LuaSnip" --snippet engine
@@ -95,6 +95,7 @@ return packer.startup(function(use)
     use "tamago324/nlsp-settings.nvim" -- language server settings defined in json for
     use "b0o/SchemaStore.nvim"
     use "jose-elias-alvarez/null-ls.nvim" -- for formatters and linters
+    use "onsails/lspkind-nvim" -- vscode-like pictograms
 
     -- Automatically set up your configuration after cloning packer.nvim
     -- Put this at the end after all plugins

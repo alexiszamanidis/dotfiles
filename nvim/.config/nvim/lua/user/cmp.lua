@@ -8,6 +8,11 @@ if not snip_status_ok then
     return
 end
 
+local lspkind_status_ok, lspkind = pcall(require, "lspkind")
+if not lspkind_status_ok then
+    return
+end
+
 require("luasnip/loaders/from_vscode").lazy_load()
 
 local check_backspace = function()
@@ -65,17 +70,10 @@ cmp.setup {
         }),
     },
     formatting = {
-        fields = { "kind", "abbr", "menu" },
-        format = function(entry, vim_item)
-            vim_item.menu = ({
-                luasnip = "[Snippet]",
-                buffer = "[Buffer]",
-                path = "[Path]",
-            })[entry.source.name]
-            return vim_item
-        end,
+        format = lspkind.cmp_format({ with_text = false, maxwidth = 50 })
     },
     sources = {
+        { name = "nvim_lsp" },
         { name = "luasnip" },
         { name = "buffer" },
         { name = "path" },
