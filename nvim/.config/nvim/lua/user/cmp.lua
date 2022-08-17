@@ -70,13 +70,26 @@ cmp.setup {
         }),
     },
     formatting = {
-        format = lspkind.cmp_format({ with_text = false, maxwidth = 50 })
+        format = lspkind.cmp_format {
+            with_text = true,
+            menu = {
+                buffer = "[buf]",
+                nvim_lsp = "[LSP]",
+                nvim_lua = "[api]",
+                path = "[path]",
+                luasnip = "[snip]",
+                gh_issues = "[issues]",
+                tn = "[TabNine]",
+            },
+        },
     },
     sources = {
+        -- could enable this only for lua, but nvim_lua handles that already
+        { name = "nvim_lua" },
         { name = "nvim_lsp" },
-        { name = "luasnip" },
-        { name = "buffer" },
         { name = "path" },
+        { name = "luasnip" },
+        { name = "buffer", keyword_length = 5 },
     },
     confirm_opts = {
         behavior = cmp.ConfirmBehavior.Replace,
