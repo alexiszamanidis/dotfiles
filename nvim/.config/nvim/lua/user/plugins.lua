@@ -92,9 +92,6 @@ return packer.startup(function(use)
     use "dinhhuy258/git.nvim"
     use "lewis6991/gitsigns.nvim"
 
-    -- Java
-    use { "mfussenegger/nvim-jdtls", commit = "3a148dac526396678f141a033270961d0d9ccb88" }
-
     -- LSP
     use "neovim/nvim-lspconfig" -- enable LSP
     use "williamboman/mason.nvim"
