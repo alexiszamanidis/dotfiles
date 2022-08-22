@@ -46,21 +46,27 @@ return packer.startup(function(use)
     use "nvim-lua/plenary.nvim" -- Useful lua functions used ny lots of plugins
     use "windwp/nvim-autopairs" -- Autopairs, integrates with both cmp and treesitter
     use "windwp/nvim-ts-autotag" -- Autotags
-    use "terrortylor/nvim-comment" -- Comments
-    use "kyazdani42/nvim-web-devicons" -- Icons
-    use {
-        "akinsho/bufferline.nvim",
-    }
-    use {
-        "kyazdani42/nvim-tree.lua",
-        tag = "nightly" -- optional, updated every week. (see issue #1193)
-    }
+    use "akinsho/bufferline.nvim"
+    use "kyazdani42/nvim-tree.lua"
+
+    -- Terminal
+    use "akinsho/toggleterm.nvim"
+
+    -- Utility
+    use "lewis6991/impatient.nvim" -- Speed up loading Lua modules in Noevim to improve startup time
+
+    -- Icons
+    use "kyazdani42/nvim-web-devicons"
+
+    -- Comments
+    use "numToStr/Comment.nvim"
+    use "B4mbus/todo-comments.nvim"
 
     -- UI
     use "folke/which-key.nvim"
 
     -- Colorscheme
-    use "Mofiqul/dracula.nvim" -- Dracula colorscheme
+    use "Mofiqul/dracula.nvim"
 
     -- Completion plugins
     use "hrsh7th/nvim-cmp" -- completion plugin
@@ -89,9 +95,13 @@ return packer.startup(function(use)
     use "dinhhuy258/git.nvim"
     use "lewis6991/gitsigns.nvim"
 
+    -- Java
+    use { "mfussenegger/nvim-jdtls", commit = "3a148dac526396678f141a033270961d0d9ccb88" }
+
     -- LSP
     use "neovim/nvim-lspconfig" -- enable LSP
-    use "williamboman/nvim-lsp-installer" -- simple to use language server installer
+    use "williamboman/mason.nvim"
+    use "williamboman/mason-lspconfig.nvim"
     use "tamago324/nlsp-settings.nvim" -- language server settings defined in json for
     use "b0o/SchemaStore.nvim"
     use "jose-elias-alvarez/null-ls.nvim" -- for formatters and linters

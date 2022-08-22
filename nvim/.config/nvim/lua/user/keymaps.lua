@@ -18,14 +18,17 @@ vim.g.maplocalleader = " "
 --   term_mode = "t",
 --   command_mode = "c",
 
--- Normal --
 -- behave like the rest of the CAPITAL letters
 keymap("n", "Y", "y$", opts)
 -- keeping it centered
 keymap("n", "n", "nzzzv", opts)
 keymap("n", "N", "Nzzzv", opts)
+-- Do NOT yank with x
+keymap("n", "x", "\"_x", opts)
+-- Do NOT lose your yank when you delete something
+keymap("n", "d", "\"_d", opts)
+keymap("v", "d", "\"_d", opts)
 
--- Visual --
 -- Keep same paste
 keymap("v", "p", '"_dP', opts)
 -- Stay in indent mode
@@ -48,7 +51,7 @@ keymap("x", "<A-k>", ":move '<-2<CR>gv-gv", opts)
 keymap("x", "<A-Up>", ":move '<-2<CR>gv-gv", opts)
 
 -- Telescope
-keymap("n", "<C-p>", "<cmd>lua require'telescope.builtin'.git_files(require('telescope.themes'))<cr>", opts)
+keymap("n", "<C-p>", "<cmd>lua require'telescope.builtin'.git_files()<cr>", opts)
 
 -- Nvim-tree
 keymap("n", "<C-b>", ":NvimTreeToggle<cr>", opts)
