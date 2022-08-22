@@ -99,6 +99,7 @@ return packer.startup(function(use)
     use "tamago324/nlsp-settings.nvim" -- language server settings defined in json for
     use "b0o/SchemaStore.nvim"
     use "jose-elias-alvarez/null-ls.nvim" -- for formatters and linters
+    use "ray-x/lsp_signature.nvim"
     use "onsails/lspkind-nvim" -- vscode-like pictograms
 
     -- Automatically set up your configuration after cloning packer.nvim
