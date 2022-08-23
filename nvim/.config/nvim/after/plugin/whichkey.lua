@@ -21,8 +21,10 @@ local mappings = {
         r = { "<cmd>lua vim.lsp.buf.rename()<cr>", "Rename" },
         R = { "<cmd>TroubleToggle lsp_references<cr>", "References" },
     },
-    t = {
+    s = {
         name = "Tabs",
+        l = { ":vsp<cr>", "Split vertically" },
+        j = { ":sp<cr>", "Split horizontally" },
         v = { "<C-w>t<C-w>H", "Change to vertical split" },
         h = { "<C-w>t<C-w>K", "Change to horizontal split" },
     },

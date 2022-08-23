@@ -40,7 +40,6 @@ keymap("v", "<A-j>", ":m .+1<CR>==", opts)
 keymap("v", "<A-Down>", ":m .+1<CR>==", opts)
 keymap("v", "<A-k>", ":m .-2<CR>==", opts)
 keymap("v", "<A-Up>", ":m .-2<CR>==", opts)
-
 -- Visual Block --
 -- Move text up and down
 keymap("x", "J", ":move '>+1<CR>gv-gv", opts)
@@ -82,13 +81,6 @@ keymap("n", "<C-Left>", ":vertical resize +3<CR>", opts)
 keymap("n", "<C-Right>", ":vertical resize -3<CR>", opts)
 keymap("n", "<C-Up>", ":resize +3<CR>", opts)
 keymap("n", "<C-Down>", ":resize -3<CR>", opts)
--- Split windows
-keymap("n", "<C-\\>", ":vsp<cr>", opts)
--- TODO: HOW CAN I MAKE THIS WORK?
-keymap("n", "<C-minus>", ":sp<cr>", opts)
--- Change 2 split windows from vert to horiz or horiz to vert
-keymap("n", "<Leader>tv", "<C-w>t<C-w>H", opts)
-keymap("n", "<Leader>th", "<C-w>t<C-w>K", opts)
 
 -- Tmux
 keymap("n", "<C-f>", "<cmd>!tmux neww tmux-sessionizer<CR>", term_opts)
