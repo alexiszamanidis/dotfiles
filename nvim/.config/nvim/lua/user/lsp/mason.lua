@@ -17,6 +17,7 @@ local servers = {
     "tsserver",
     "yamlls",
     "bashls",
+    "prismals",
     "jdtls"
 }
 
