@@ -16,7 +16,8 @@ local mappings = {
     l = {
         name = "LSP",
         i = { "<cmd>LspInfo<cr>", "Info" },
-        f = { "<cmd>lua vim.lsp.buf.format({ async = true })<cr>", "Format" },
+        -- In order for this work 'async' should be 'false'
+        f = { "<cmd>lua vim.lsp.buf.format({ async = false })<cr>:w<cr>", "Format" },
         F = { "<cmd>LspToggleAutoFormat<cr>", "Toggle Autoformat" },
         r = { "<cmd>lua vim.lsp.buf.rename()<cr>", "Rename" },
         R = { "<cmd>TroubleToggle lsp_references<cr>", "References" },
