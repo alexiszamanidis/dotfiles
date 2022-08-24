@@ -3,7 +3,7 @@ if not status_ok then
     return
 end
 
-configs.setup {
+configs.setup({
     ensure_installed = "all",
     sync_install = false,
     autopairs = {
@@ -14,9 +14,9 @@ configs.setup {
         additional_vim_regex_highlighting = true,
     },
     indent = {
-        enable = true
+        enable = true,
     },
     autotag = {
-        enable = true
-    }
-}
+        enable = true,
+    },
+})

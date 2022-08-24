@@ -24,10 +24,10 @@ keymap("n", "Y", "y$", opts)
 keymap("n", "n", "nzzzv", opts)
 keymap("n", "N", "Nzzzv", opts)
 -- Do NOT yank with x
-keymap("n", "x", "\"_x", opts)
+keymap("n", "x", '"_x', opts)
 -- Do NOT lose your yank when you delete something
-keymap("n", "d", "\"_d", opts)
-keymap("v", "d", "\"_d", opts)
+keymap("n", "d", '"_d', opts)
+keymap("v", "d", '"_d', opts)
 
 -- Format
 -- In order for this work 'async' should be 'false'

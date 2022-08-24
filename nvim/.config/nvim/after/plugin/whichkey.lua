@@ -11,13 +11,12 @@ local mappings = {
         b = { "<cmd>Telescope buffers<cr>", "Find buffers" },
         t = { "<cmd>Telescope help_tags<cr>", "Find tags" },
         r = { "<cmd>Telescope resume<cr>", "Last search" },
-        d = { "<cmd>Telescope diagnostics<cr>", "Find diagnostics" }
+        d = { "<cmd>Telescope diagnostics<cr>", "Find diagnostics" },
     },
     l = {
         name = "LSP",
         i = { "<cmd>LspInfo<cr>", "Info" },
-        -- In order for this work 'async' should be 'false'
-        f = { "<cmd>lua vim.lsp.buf.format({ async = false })<cr>:w<cr>", "Format" },
+        f = { "<cmd>lua vim.lsp.buf.format({ async = true })<cr>", "Format" },
         F = { "<cmd>LspToggleAutoFormat<cr>", "Toggle Autoformat" },
         r = { "<cmd>lua vim.lsp.buf.rename()<cr>", "Rename" },
         R = { "<cmd>TroubleToggle lsp_references<cr>", "References" },
@@ -37,9 +36,9 @@ local mappings = {
         p = { ":PackerProfile<cr>", "Packer Profile" },
         s = { ":PackerSync<cr>", "Sync Plugins" },
         S = { ":PackerStatus<cr>", "Packer Status" },
-        u = { ":PackerUpdate<cr>", "Update Plugins" }
-    }
+        u = { ":PackerUpdate<cr>", "Update Plugins" },
+    },
 }
 
-local opts = { prefix = '<leader>' }
+local opts = { prefix = "<leader>" }
 which_key.register(mappings, opts)

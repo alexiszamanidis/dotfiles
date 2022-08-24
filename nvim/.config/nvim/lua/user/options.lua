@@ -25,14 +25,14 @@ local options = {
     ignorecase = true, -- ignore case in search patterns
     splitbelow = true, -- force all horizontal splits to go below current window
     splitright = true, -- force all vertical splits to go to the right of current window
-    colorcolumn = "80"
+    colorcolumn = "80",
 }
 
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
-vim.opt.fillchars = vim.opt.fillchars + 'eob: '
+vim.opt.fillchars = vim.opt.fillchars + "eob: "
 
-vim.opt.shortmess:append "c"
+vim.opt.shortmess:append("c")
 
 -- Treesitter folding
 -- vim.opt.foldmethod = "expr"
@@ -43,4 +43,4 @@ for k, v in pairs(options) do
 end
 
 -- vim.cmd "set whichwrap+=<,>,[,],h,l"
-vim.cmd [[set iskeyword+=-]]
+vim.cmd([[set iskeyword+=-]])

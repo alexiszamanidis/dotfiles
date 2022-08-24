@@ -3,23 +3,23 @@ if not status_ok then
     return
 end
 
-telescope.setup {
+telescope.setup({
     defaults = {
         prompt_prefix = " >",
         file_ignore_patterns = {
             ".git/",
-            "node_modules/"
-        }
+            "node_modules/",
+        },
     },
     pickers = {
         git_files = {
             show_untracked = true,
-            hidden = true
+            hidden = true,
         },
         live_grep = {
             additional_args = function()
                 return { "--hidden" }
-            end
+            end,
         },
-    }
-}
+    },
+})

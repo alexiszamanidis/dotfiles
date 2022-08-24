@@ -3,4 +3,4 @@ if not status_ok then
     return
 end
 
-n_autotags.setup {}
+n_autotags.setup({})
