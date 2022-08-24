@@ -15,8 +15,6 @@ alias l.='ls -d .* --color=auto'
 
 ## grep aliases
 alias grep='grep --color=auto'
-alias egrep='egrep --color=auto'
-alias fgrep='fgrep --color=auto'
 
 ## override
 alias cat="bat"
@@ -38,4 +36,10 @@ kill_process_on_port() {
     port=$1
     command="kill -9 \$(lsof -t -i:$port)"
     eval $command
+}
+
+add_to_path() {
+    if [[ "$PATH" != *"$1"* ]]; then
+        export PATH=$1:$PATH
+    fi
 }

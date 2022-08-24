@@ -44,11 +44,6 @@ reload() {
     source $HOME/.zprofile
 }
 
-add_to_path() {
-    if [[ "$PATH" != *"$1"* ]]; then
-        export PATH=$1:$PATH
-    fi
-}
-
 add_to_path $HOME/.local/bin
 add_to_path $HOME/.cargo/bin
+add_to_path $HOME/.local/.npm-global/bin
