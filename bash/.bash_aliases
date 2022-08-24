@@ -26,6 +26,10 @@ alias myip="curl http://ipecho.net/plain; echo"
 alias runp="lsof -i "
 alias open="xdg-open $1"
 
+# this alias is used to open settings on i3wm
+# TODO: is there a better way to do this?
+alias settings="env XDG_CURRENT_DESKTOP=GNOME gnome-control-center"
+
 kill_process_on_port() {
     if [ ! $# -eq 1 ]
     then
