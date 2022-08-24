@@ -18,11 +18,14 @@ vim.g.maplocalleader = " "
 --   term_mode = "t",
 --   command_mode = "c",
 
--- behave like the rest of the CAPITAL letters
-keymap("n", "Y", "y$", opts)
--- keeping it centered
+-- Behave like the rest of the CAPITAL letters
+keymap("n", "Y", "yg$", opts)
+-- Keeping it centered
 keymap("n", "n", "nzzzv", opts)
 keymap("n", "N", "Nzzzv", opts)
+-- Move down UP and DOWN and center it
+keymap("n", "<C-d>", "<C-d>zz", opts)
+keymap("n", "<C-u>", "<C-u>zz", opts)
 -- Do NOT yank with x
 keymap("n", "x", '"_x', opts)
 -- Do NOT lose your yank when you delete something
