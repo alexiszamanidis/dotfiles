@@ -19,6 +19,7 @@ local config = {
         "java.base/java.util=ALL-UNNAMED",
         "--add-opens",
         "java.base/java.lang=ALL-UNNAMED",
+        "-javaagent:" .. home .. "/.local/share/nvim/lsp/jdt-language-server/lombok.jar",
         "-jar",
         home
             .. "/.local/share/nvim/lsp/jdt-language-server/plugins/org.eclipse.equinox.launcher_1.6.400.v20210924-0641.jar",
