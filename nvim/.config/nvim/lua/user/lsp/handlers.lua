@@ -91,7 +91,7 @@ M.on_attach = function(client, bufnr)
     end
 
     if client.name == "jdt.ls" then
-        client.server_capabilities.document_formatting = false
+        client.resolved_capabilities.document_formatting = false
     end
 end
 
