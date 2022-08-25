@@ -15,6 +15,7 @@ local mappings = {
     },
     l = {
         name = "LSP",
+        a = { "<cmd>lua vim.lsp.buf.code_action()<cr>", "Code Action" },
         i = { "<cmd>LspInfo<cr>", "Info" },
         f = { "<cmd>lua vim.lsp.buf.format({ async = true })<cr>", "Format" },
         F = { "<cmd>LspToggleAutoFormat<cr>", "Toggle Autoformat" },
