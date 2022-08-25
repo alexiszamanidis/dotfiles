@@ -20,6 +20,7 @@ null_ls.setup({
         diagnostics.eslint, -- javascript etc
         code_actions.eslint, -- javascript etc
         formatting.prettier, -- javascript etc
+        formatting.google_java_format, -- java
     },
     -- you can reuse a shared lspconfig on_attach callback here
     on_attach = function(client, bufnr)
