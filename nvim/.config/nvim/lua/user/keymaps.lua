@@ -32,11 +32,10 @@ keymap("n", "x", '"_x', opts)
 keymap("n", "d", '"_d', opts)
 keymap("v", "d", '"_d', opts)
 
--- Format
--- In order for this work 'async' should be 'false'
-keymap("n", "<C-s>", "<cmd>lua vim.lsp.buf.format({ async = false })<cr>:w<cr>", opts)
-keymap("v", "<C-s>", "<Esc><cmd>lua vim.lsp.buf.format({ async = false })<cr>:w<cr>", opts)
-keymap("i", "<C-s>", "<Esc><cmd>lua vim.lsp.buf.format({ async = false })<cr>:w<cr>", opts)
+-- Save
+keymap("n", "<C-s>", ":w<cr>", opts)
+keymap("v", "<C-s>", "<Esc>:w<cr>", opts)
+keymap("i", "<C-s>", "<Esc>:w<cr>", opts)
 
 -- Keep same paste
 keymap("v", "p", '"_dP', opts)

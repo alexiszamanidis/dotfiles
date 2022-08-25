@@ -3,6 +3,13 @@ if not status then
     return
 end
 
+-- Find root of project
+local root_markers = { ".git", "mvnw", "gradlew", "pom.xml", "build.gradle" }
+local root_dir = require("jdtls.setup").find_root(root_markers)
+if root_dir == "" then
+    return
+end
+
 local home = os.getenv("HOME")
 
 local config = {
@@ -28,11 +35,9 @@ local config = {
         "-data",
         home .. "/.local/share/nvim/lsp/jdt-language-server/workspace/folder",
     },
-    root_dir = require("jdtls.setup").find_root({
-        ".git",
-        "mvnw",
-        "gradlew",
-    }),
+    -- This is the default if not provided, you can remove it. Or adjust as needed.
+    -- One dedicated LSP server & client will be started per unique root_dir
+    root_dir = root_dir,
     settings = {
         java = {},
     },
