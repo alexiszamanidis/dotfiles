@@ -53,7 +53,3 @@ Updates and cleans up the system
 | Name   | Flag | Default | Description                                        |
 | ------ | ---- | ------- | -------------------------------------------------- |
 | VSCODE | \-v  | false   | This option is used for updating vscode extensions |
-
-### Ansible
-
-You can check out my [Ansible repository](https://github.com/alexiszamanidis/ansible) that installs many useful packages and applications. I combine these two repositories to set up a new Ubuntu System.
