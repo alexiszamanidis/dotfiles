@@ -1,4 +1,5 @@
 export ZSH="$HOME/.oh-my-zsh"
+export ZSH_PROFILE="$HOME/.zsh_profile"
 
 ZSH_THEME="robbyrussell"
 
@@ -21,3 +22,5 @@ plugins=(
 )
 
 source $ZSH/oh-my-zsh.sh
+# TODO: toggleterm.nvim does NOT load .zprofile
+source $ZSH_PROFILE
