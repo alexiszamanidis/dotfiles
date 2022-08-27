@@ -1,5 +1,6 @@
 alias gs='git status'
-alias gdc='git diff --cached'
+alias gd='git diff --word-diff=color'
+alias gdc='git diff --word-diff=color --cached'
 
 alias glog='git log --graph --pretty=format:"%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset" --abbrev-commit'
 
