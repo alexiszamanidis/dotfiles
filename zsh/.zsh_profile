@@ -1,7 +1,6 @@
 export DOTFILES=$HOME/dotfiles
 export STOW_FOLDERS="bin,bash,docker,dunst,git,i3,compton,kitty,tmux,nvim,rofi,zsh,work"
 export EDITOR="code"
-# export PATH=$PATH:~/.local/bin
 export ZSH_GIT_FZF_REMOVE_STALLED_BRANCHES="true"
 
 # fix slowness of pastes with zsh-syntax-highlighting.zsh
@@ -15,7 +14,13 @@ pastefinish() {
 zstyle :bracketed-paste-magic paste-init pasteinit
 zstyle :bracketed-paste-magic paste-finish pastefinish
 
-declare -a dotfiles=(".zsh_bindkeys" ".bash_aliases" ".docker_aliases" ".git_aliases" "work/.work_aliases")
+declare -a dotfiles=(
+    ".zsh_bindkeys"
+    ".bash_aliases"
+    ".docker_aliases"
+    ".git_aliases"
+    "work/.work_aliases"
+)
 # source global aliases
 for dotfile in "${dotfiles[@]}"
 do
@@ -31,9 +36,26 @@ export FZF_DEFAULT_COMMAND="fd --type f --hidden --follow --exclude .git"
 export FZF_CTRL_T_COMMAND="${FZF_DEFAULT_COMMAND}"
 
 # nvm
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
+# export NVM_DIR="$HOME/.nvm"
+# [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+# [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
+lazynvm() {
+    unset -f nvm node npm
+    export NVM_DIR=~/.nvm
+    [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
+}
+nvm() {
+    lazynvm
+    nvm $@
+}
+node() {
+    lazynvm
+    node $@
+}
+npm() {
+    lazynvm
+    npm $@
+}
 
 # sdkman(java)
 # alias start_java="export SDKMAN_DIR="$HOME/.sdkman" && [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh""

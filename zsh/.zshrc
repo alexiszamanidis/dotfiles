@@ -1,7 +1,7 @@
 export ZSH="$HOME/.oh-my-zsh"
 export ZSH_PROFILE="$HOME/.zsh_profile"
 
-ZSH_THEME="robbyrussell"
+ZSH_THEME="muse"
 
 plugins=(
     # docker
