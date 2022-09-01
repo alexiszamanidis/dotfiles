@@ -100,6 +100,8 @@ return packer.startup(function(use)
         run = ":TSUpdate",
         commit = "4b536a9709fa4cbbc4c9ae8b32e7a32821a7249e",
     })
+    -- sticky header
+    use({ "nvim-treesitter/nvim-treesitter-context", commit = "8e88b67d0dc386d6ba1b3d09c206f19a50bc0625" })
 
     -- GIT
     use({ "dinhhuy258/git.nvim", commit = "68582afbc6a16366f6c08448c23d0315b5bc1573" })
