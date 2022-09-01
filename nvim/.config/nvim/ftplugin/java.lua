@@ -3,6 +3,9 @@ if not status then
     return
 end
 
+local extendedClientCapabilities = jdtls.extendedClientCapabilities
+extendedClientCapabilities.resolveAdditionalTextEditsSupport = true
+
 -- Find root of project
 local root_markers = { ".git", "mvnw", "gradlew", "pom.xml", "build.gradle" }
 local root_dir = require("jdtls.setup").find_root(root_markers)
@@ -45,6 +48,8 @@ local config = {
         "-data",
         home .. "/.local/share/nvim/lsp/jdt-language-server/workspace/folder",
     },
+    on_attach = require("user.lsp.handlers").on_attach,
+    capabilities = require("user.lsp.handlers").capabilities,
     -- This is the default if not provided, you can remove it. Or adjust as needed.
     -- One dedicated LSP server & client will be started per unique root_dir
     root_dir = root_dir,
@@ -68,17 +73,49 @@ local config = {
             references = {
                 includeDecompiledSources = true,
             },
+            inlayHints = {
+                parameterNames = {
+                    enabled = "all", -- literals, all, none
+                },
+            },
             -- Set this to true to use jdtls as your formatter
             -- format = {
             --     enabled = false,
             -- },
         },
+        signatureHelp = { enabled = true },
+        completion = {
+            favoriteStaticMembers = {
+                "org.hamcrest.MatcherAssert.assertThat",
+                "org.hamcrest.Matchers.*",
+                "org.hamcrest.CoreMatchers.*",
+                "org.junit.jupiter.api.Assertions.*",
+                "java.util.Objects.requireNonNull",
+                "java.util.Objects.requireNonNullElse",
+                "org.mockito.Mockito.*",
+            },
+        },
+        contentProvider = { preferred = "fernflower" },
+        extendedClientCapabilities = extendedClientCapabilities,
+        sources = {
+            organizeImports = {
+                starThreshold = 9999,
+                staticStarThreshold = 9999,
+            },
+        },
+        codeGeneration = {
+            toString = {
+                template = "${object.className}{${member.name()}=${member.value}, ${otherMembers}}",
+            },
+            useBlocks = true,
+        },
+    },
+    flags = {
+        allow_incremental_sync = true,
     },
     init_options = {
         bundles = bundles,
     },
-    on_attach = require("user.lsp.handlers").on_attach,
-    capabilities = require("user.lsp.handlers").capabilities,
 }
 
 vim.api.nvim_create_autocmd({ "BufWritePost" }, {
