@@ -12,6 +12,16 @@ end
 
 local home = os.getenv("HOME")
 
+JAVA_DAP_ACTIVE = true
+
+local bundles = {
+    vim.fn.glob(
+        home .. "/java/java-debug/com.microsoft.java.debug.plugin/target/com.microsoft.java.debug.plugin-*.jar"
+    ),
+}
+
+vim.list_extend(bundles, vim.split(vim.fn.glob(home .. "/java/vscode-java-test/server/*.jar"), "\n"))
+
 local config = {
     cmd = {
         "java",
@@ -39,13 +49,43 @@ local config = {
     -- One dedicated LSP server & client will be started per unique root_dir
     root_dir = root_dir,
     settings = {
-        java = {},
+        java = {
+            eclipse = {
+                downloadSources = true,
+            },
+            configuration = {
+                updateBuildConfiguration = "interactive",
+            },
+            maven = {
+                downloadSources = true,
+            },
+            implementationsCodeLens = {
+                enabled = true,
+            },
+            referencesCodeLens = {
+                enabled = true,
+            },
+            references = {
+                includeDecompiledSources = true,
+            },
+            -- Set this to true to use jdtls as your formatter
+            -- format = {
+            --     enabled = false,
+            -- },
+        },
     },
     init_options = {
-        bundles = {},
+        bundles = bundles,
     },
     on_attach = require("user.lsp.handlers").on_attach,
     capabilities = require("user.lsp.handlers").capabilities,
 }
+
+vim.api.nvim_create_autocmd({ "BufWritePost" }, {
+    pattern = { "*.java" },
+    callback = function()
+        vim.lsp.codelens.refresh()
+    end,
+})
 
 jdtls.start_or_attach(config)
