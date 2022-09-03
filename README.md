@@ -38,9 +38,8 @@ This repository synchronizes a new Ubuntu System with the dotfiles that I am cur
 ### Clone and Install
 
 ```
-sudo apt install -y git-all && \
 git clone --recurse-submodules https://github.com/alexiszamanidis/dotfiles.git ~/dotfiles && \
-cd $HOME/dotfiles && \
+cd ~/dotfiles && \
 chmod +x install stow unstow && ./install
 ```
 
