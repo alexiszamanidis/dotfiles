@@ -1,5 +1,6 @@
 local status_ok, schemastore = pcall(require, "schemastore")
 if not status_ok then
+    vim.notify("schemastore not found!")
     return
 end
 

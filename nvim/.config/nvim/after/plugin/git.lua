@@ -1,5 +1,6 @@
 local status_ok, git = pcall(require, "git")
 if not status_ok then
+    vim.notify("git not found!")
     return
 end
 

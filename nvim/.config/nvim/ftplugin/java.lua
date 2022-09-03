@@ -1,5 +1,6 @@
-local status, jdtls = pcall(require, "jdtls")
-if not status then
+local status_ok, jdtls = pcall(require, "jdtls")
+if not status_ok then
+    vim.notify("jdtls not found!")
     return
 end
 
@@ -42,7 +43,8 @@ local config = {
         "-javaagent:" .. home .. "/.local/share/nvim/lsp/jdt-language-server/lombok.jar",
         "-jar",
         home
-            .. "/.local/share/nvim/lsp/jdt-language-server/plugins/org.eclipse.equinox.launcher_1.6.400.v20210924-0641.jar",
+            ..
+            "/.local/share/nvim/lsp/jdt-language-server/plugins/org.eclipse.equinox.launcher_1.6.400.v20210924-0641.jar",
         "-configuration",
         home .. "/.local/share/nvim/lsp/jdt-language-server/config_linux",
         "-data",
@@ -129,6 +131,7 @@ jdtls.start_or_attach(config)
 
 local status_ok, which_key = pcall(require, "which-key")
 if not status_ok then
+    vim.notify("which-key not found!")
     return
 end
 

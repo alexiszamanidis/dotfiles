@@ -4,6 +4,7 @@ M.capabilities = vim.lsp.protocol.make_client_capabilities()
 
 local status_cmp_ok, cmp_nvim_lsp = pcall(require, "cmp_nvim_lsp")
 if not status_cmp_ok then
+    vim.notify("cmp_nvim_lsp not found!")
     return
 end
 
@@ -57,6 +58,7 @@ local function attach_navic(client, bufnr)
     vim.g.navic_silence = true
     local status_ok, navic = pcall(require, "nvim-navic")
     if not status_ok then
+        vim.notify("nvim-navic not found!")
         return
     end
     navic.attach(client, bufnr)
