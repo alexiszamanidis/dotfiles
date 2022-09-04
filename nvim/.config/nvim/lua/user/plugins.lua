@@ -107,6 +107,11 @@ return packer.startup(function(use)
     -- GIT
     use({ "dinhhuy258/git.nvim", commit = "68582afbc6a16366f6c08448c23d0315b5bc1573" })
     use({ "lewis6991/gitsigns.nvim", commit = "1e107c91c0c5e3ae72c37df8ffdd50f87fb3ebfa" })
+    use({
+        "sindrets/diffview.nvim",
+        requires = "nvim-lua/plenary.nvim",
+        commit = "e32de2be00e0b5e23736f906f3d6d9dca14fbeb0",
+    })
 
     -- LSP
     -- enable LSP

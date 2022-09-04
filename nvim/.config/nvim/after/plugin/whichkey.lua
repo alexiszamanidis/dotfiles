@@ -5,6 +5,10 @@ if not status_ok then
 end
 
 local mappings = {
+    g = {
+        name = "Git",
+        d = { ":DiffviewOpen<cr>", "Diff" },
+    },
     f = {
         name = "Find",
         f = { "<cmd>Telescope git_files<cr>", "Find files" },
