@@ -8,6 +8,11 @@ local mappings = {
     g = {
         name = "Git",
         d = { ":DiffviewOpen<cr>", "Diff" },
+        ["dc"] = { ":DiffviewClose<cr>", "Diff Close" },
+        -- d = {
+        --     "<cmd>Gitsigns diffthis HEAD<cr>",
+        --     "Diff",
+        -- },
     },
     f = {
         name = "Find",
