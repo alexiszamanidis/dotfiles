@@ -44,96 +44,94 @@ return packer.startup(function(use)
     -- My plugins here
 
     -- Have packer manage itself
-    use({ "wbthomason/packer.nvim", commit = "3a9f9801f683946b9f1047d8f4bf9946c29e927d" })
+    use({ "wbthomason/packer.nvim", })
     -- An implementation of the Popup API from vim in Neovim
-    use({ "nvim-lua/popup.nvim", commit = "b7404d35d5d3548a82149238289fa71f7f6de4ac" })
+    use({ "nvim-lua/popup.nvim", })
     -- Useful lua functions used ny lots of plugins
-    use({ "nvim-lua/plenary.nvim", commit = "31807eef4ed574854b8a53ae40ea3292033a78ea" })
+    use({ "nvim-lua/plenary.nvim", })
     -- Autopairs, integrates with both cmp and treesitter
-    use({ "windwp/nvim-autopairs", commit = "0a18e10a0c3fde190437567e40557dcdbbc89ea1" })
-    use({ "windwp/nvim-ts-autotag", commit = "fdefe46c6807441460f11f11a167a2baf8e4534b" })
-    use({ "akinsho/bufferline.nvim", commit = "5a755ea88752af31684f5ac88074c2ae12964a6d" })
-    use({ "kyazdani42/nvim-tree.lua", commit = "e3353c4cb40baef335e1a21d8b9c21b9cde919be" })
+    use({ "windwp/nvim-autopairs", })
+    use({ "windwp/nvim-ts-autotag", })
+    use({ "akinsho/bufferline.nvim", })
+    use({ "kyazdani42/nvim-tree.lua", })
 
     -- TERMINAL
-    use({ "akinsho/toggleterm.nvim", commit = "62683d927dfd30dc68441a5811fdcb6c9f176c42" })
+    use({ "akinsho/toggleterm.nvim", })
 
     -- UTILITIES
-    use({ "lewis6991/impatient.nvim", commit = "b842e16ecc1a700f62adb9802f8355b99b52a5a6" }) -- Speed up loading Lua modules in Noevim to improve startup time
+    use({ "lewis6991/impatient.nvim", })
 
     -- ICONS
-    use({ "kyazdani42/nvim-web-devicons", commit = "2d02a56189e2bde11edd4712fea16f08a6656944" })
+    use({ "kyazdani42/nvim-web-devicons", })
 
     -- COMMENTS
-    use({ "numToStr/Comment.nvim", commit = "ba5903b88c0a43fdc94abe79ade2b8291ff661ed" })
-    use({ "B4mbus/todo-comments.nvim", commit = "6347cc3f69b938ca18f4101ab991d89b3c369023" })
+    use({ "numToStr/Comment.nvim", })
+    use({ "B4mbus/todo-comments.nvim", })
 
     -- UI
-    use({ "folke/which-key.nvim", commit = "bd4411a2ed4dd8bb69c125e339d837028a6eea71" })
+    use({ "folke/which-key.nvim", })
 
     -- COLORSCHME
-    use({ "Mofiqul/dracula.nvim", commit = "40d38e95bf006470b3efe837b2e0b9f66707c850" })
+    use({ "Mofiqul/dracula.nvim", })
 
     -- COMPLETIONS
     -- completion plugin
-    use({ "hrsh7th/nvim-cmp", commit = "828768631bf224a1a63771aefd09c1a072b6fe84" })
+    use({ "hrsh7th/nvim-cmp", })
     -- buffer completions
-    use({ "hrsh7th/cmp-buffer", commit = "3022dbc9166796b644a841a02de8dd1cc1d311fa" })
+    use({ "hrsh7th/cmp-buffer", })
     -- path completions
-    use({ "hrsh7th/cmp-path", commit = "" })
+    use({ "hrsh7th/cmp-path", })
     -- cmdline completions
-    use({ "hrsh7th/cmp-cmdline", commit = "9c0e331fe78cab7ede1c051c065ee2fc3cf9432e" })
+    use({ "hrsh7th/cmp-cmdline", })
     -- snippet completions
-    use({ "saadparwaiz1/cmp_luasnip", commit = "a9de941bcbda508d0a45d28ae366bb3f08db2e36" })
+    use({ "saadparwaiz1/cmp_luasnip", })
     -- Completion
-    use({ "hrsh7th/cmp-nvim-lsp", commit = "affe808a5c56b71630f17aa7c38e15c59fd648a8" })
+    use({ "hrsh7th/cmp-nvim-lsp", })
 
     -- SNIPPETS
     --snippet engine
-    use({ "L3MON4D3/LuaSnip", commit = "04f90900f2a57938921fd25169c7f282e7eefe85" })
+    use({ "L3MON4D3/LuaSnip", })
 
     -- TELESCOPE
-    use({ "nvim-telescope/telescope.nvim", commit = "28dc08f614f45d37ad90f170935f1f4e12559aeb" })
+    use({ "nvim-telescope/telescope.nvim", })
 
     -- TREESITTER
     use({
         "nvim-treesitter/nvim-treesitter",
         run = ":TSUpdate",
-        commit = "4b536a9709fa4cbbc4c9ae8b32e7a32821a7249e",
     })
     -- sticky header
-    use({ "nvim-treesitter/nvim-treesitter-context", commit = "8e88b67d0dc386d6ba1b3d09c206f19a50bc0625" })
+    use({ "nvim-treesitter/nvim-treesitter-context", })
 
     -- GIT
-    use({ "dinhhuy258/git.nvim", commit = "68582afbc6a16366f6c08448c23d0315b5bc1573" })
-    use({ "lewis6991/gitsigns.nvim", commit = "1e107c91c0c5e3ae72c37df8ffdd50f87fb3ebfa" })
+    use({ "dinhhuy258/git.nvim", })
+    use({ "lewis6991/gitsigns.nvim", })
     use({
         "sindrets/diffview.nvim",
         requires = "nvim-lua/plenary.nvim",
-        commit = "e32de2be00e0b5e23736f906f3d6d9dca14fbeb0",
     })
 
     -- LSP
     -- enable LSP
-    use({ "neovim/nvim-lspconfig", commit = "70af1bf414d7f9926fc883a008246db8a544f69c" })
-    use({ "williamboman/mason.nvim", commit = "03a326ad32eaa227f290cad3eb562d33467af4e6" })
-    use({ "williamboman/mason-lspconfig.nvim", commit = "d9365e72afb2f876a62cd3cade555dc1a95031d9" })
+    use({ "neovim/nvim-lspconfig", })
+    use({ "williamboman/mason.nvim", })
+    use({ "williamboman/mason-lspconfig.nvim", })
     -- language server settings defined in json for
-    use({ "tamago324/nlsp-settings.nvim", commit = "4c7afa00c149f8c3becb9a8e2b455e11d4501717" })
-    use({ "b0o/SchemaStore.nvim", commit = "f39e340d71560fc5670820ac99f21d96096bba1d" })
+    use({ "tamago324/nlsp-settings.nvim", })
+    use({ "b0o/SchemaStore.nvim", })
     -- for formatters and linters
-    use({ "jose-elias-alvarez/null-ls.nvim", commit = "753ad51790a966b42997ac935e26573fb6d5864a" })
-    use({ "ray-x/lsp_signature.nvim", commit = "e65a63858771db3f086c8d904ff5f80705fd962b" })
+    use({ "jose-elias-alvarez/null-ls.nvim", })
+    use({ "ray-x/lsp_signature.nvim", })
     -- vscode-like pictograms
-    use({ "onsails/lspkind-nvim", commit = "57e5b5dfbe991151b07d272a06e365a77cc3d0e7" })
+    use({ "onsails/lspkind-nvim", })
 
     -- Java
-    use({ "mfussenegger/nvim-jdtls", commit = "3a148dac526396678f141a033270961d0d9ccb88" })
+    use({ "mfussenegger/nvim-jdtls", })
 
     -- DAP
-    use({ "mfussenegger/nvim-dap", commit = "014ebd53612cfd42ac8c131e6cec7c194572f21d" })
-    use({ "rcarriga/nvim-dap-ui", commit = "d76d6594374fb54abf2d94d6a320f3fd6e9bb2f7" })
-    use({ "ravenxrz/DAPInstall.nvim", commit = "8798b4c36d33723e7bba6ed6e2c202f84bb300de" })
+    use({ "mfussenegger/nvim-dap", })
+    use({ "rcarriga/nvim-dap-ui", })
+    use({ "ravenxrz/DAPInstall.nvim", })
 
     -- Automatically set up your configuration after cloning packer.nvim
     -- Put this at the end after all plugins
