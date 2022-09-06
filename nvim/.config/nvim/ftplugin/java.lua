@@ -43,8 +43,7 @@ local config = {
         "-javaagent:" .. home .. "/.local/share/nvim/lsp/jdt-language-server/lombok.jar",
         "-jar",
         home
-            ..
-            "/.local/share/nvim/lsp/jdt-language-server/plugins/org.eclipse.equinox.launcher_1.6.400.v20210924-0641.jar",
+            .. "/.local/share/nvim/lsp/jdt-language-server/plugins/org.eclipse.equinox.launcher_1.6.400.v20210924-0641.jar",
         "-configuration",
         home .. "/.local/share/nvim/lsp/jdt-language-server/config_linux",
         "-data",
@@ -129,8 +128,8 @@ vim.api.nvim_create_autocmd({ "BufWritePost" }, {
 
 jdtls.start_or_attach(config)
 
-local status_ok, which_key = pcall(require, "which-key")
-if not status_ok then
+local which_key_status_ok, which_key = pcall(require, "which-key")
+if not which_key_status_ok then
     vim.notify("which-key not found!")
     return
 end
