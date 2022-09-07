@@ -44,56 +44,56 @@ return packer.startup(function(use)
     -- My plugins here
 
     -- Have packer manage itself
-    use({ "wbthomason/packer.nvim", })
+    use({ "wbthomason/packer.nvim" })
     -- An implementation of the Popup API from vim in Neovim
-    use({ "nvim-lua/popup.nvim", })
+    use({ "nvim-lua/popup.nvim" })
     -- Useful lua functions used ny lots of plugins
-    use({ "nvim-lua/plenary.nvim", })
+    use({ "nvim-lua/plenary.nvim" })
     -- Autopairs, integrates with both cmp and treesitter
-    use({ "windwp/nvim-autopairs", })
-    use({ "windwp/nvim-ts-autotag", })
-    use({ "akinsho/bufferline.nvim", })
-    use({ "kyazdani42/nvim-tree.lua", })
+    use({ "windwp/nvim-autopairs" })
+    use({ "windwp/nvim-ts-autotag" })
+    use({ "akinsho/bufferline.nvim" })
+    use({ "kyazdani42/nvim-tree.lua" })
 
     -- TERMINAL
-    use({ "akinsho/toggleterm.nvim", })
+    use({ "akinsho/toggleterm.nvim" })
 
     -- UTILITIES
-    use({ "lewis6991/impatient.nvim", })
+    use({ "lewis6991/impatient.nvim" })
 
     -- ICONS
-    use({ "kyazdani42/nvim-web-devicons", })
+    use({ "kyazdani42/nvim-web-devicons" })
 
     -- COMMENTS
-    use({ "numToStr/Comment.nvim", })
-    use({ "B4mbus/todo-comments.nvim", })
+    use({ "numToStr/Comment.nvim" })
+    use({ "B4mbus/todo-comments.nvim" })
 
     -- UI
-    use({ "folke/which-key.nvim", })
+    use({ "folke/which-key.nvim" })
 
     -- COLORSCHME
-    use({ "Mofiqul/dracula.nvim", })
+    use({ "Mofiqul/dracula.nvim" })
 
     -- COMPLETIONS
     -- completion plugin
-    use({ "hrsh7th/nvim-cmp", })
+    use({ "hrsh7th/nvim-cmp" })
     -- buffer completions
-    use({ "hrsh7th/cmp-buffer", })
+    use({ "hrsh7th/cmp-buffer" })
     -- path completions
-    use({ "hrsh7th/cmp-path", })
+    use({ "hrsh7th/cmp-path" })
     -- cmdline completions
-    use({ "hrsh7th/cmp-cmdline", })
+    use({ "hrsh7th/cmp-cmdline" })
     -- snippet completions
-    use({ "saadparwaiz1/cmp_luasnip", })
+    use({ "saadparwaiz1/cmp_luasnip" })
     -- Completion
-    use({ "hrsh7th/cmp-nvim-lsp", })
+    use({ "hrsh7th/cmp-nvim-lsp" })
 
     -- SNIPPETS
     --snippet engine
-    use({ "L3MON4D3/LuaSnip", })
+    use({ "L3MON4D3/LuaSnip" })
 
     -- TELESCOPE
-    use({ "nvim-telescope/telescope.nvim", })
+    use({ "nvim-telescope/telescope.nvim" })
 
     -- TREESITTER
     use({
@@ -101,11 +101,11 @@ return packer.startup(function(use)
         run = ":TSUpdate",
     })
     -- sticky header
-    use({ "nvim-treesitter/nvim-treesitter-context", })
+    use({ "nvim-treesitter/nvim-treesitter-context" })
 
     -- GIT
-    use({ "dinhhuy258/git.nvim", })
-    use({ "lewis6991/gitsigns.nvim", })
+    use({ "dinhhuy258/git.nvim" })
+    use({ "lewis6991/gitsigns.nvim" })
     use({
         "sindrets/diffview.nvim",
         requires = "nvim-lua/plenary.nvim",
@@ -113,25 +113,25 @@ return packer.startup(function(use)
 
     -- LSP
     -- enable LSP
-    use({ "neovim/nvim-lspconfig", })
-    use({ "williamboman/mason.nvim", })
-    use({ "williamboman/mason-lspconfig.nvim", })
+    use({ "neovim/nvim-lspconfig" })
+    use({ "williamboman/mason.nvim" })
+    use({ "williamboman/mason-lspconfig.nvim" })
     -- language server settings defined in json for
-    use({ "tamago324/nlsp-settings.nvim", })
-    use({ "b0o/SchemaStore.nvim", })
+    use({ "tamago324/nlsp-settings.nvim" })
+    use({ "b0o/SchemaStore.nvim" })
     -- for formatters and linters
-    use({ "jose-elias-alvarez/null-ls.nvim", })
-    use({ "ray-x/lsp_signature.nvim", })
+    use({ "jose-elias-alvarez/null-ls.nvim" })
+    use({ "ray-x/lsp_signature.nvim" })
     -- vscode-like pictograms
-    use({ "onsails/lspkind-nvim", })
+    use({ "onsails/lspkind-nvim" })
 
     -- Java
-    use({ "mfussenegger/nvim-jdtls", })
+    use({ "mfussenegger/nvim-jdtls" })
 
     -- DAP
-    use({ "mfussenegger/nvim-dap", })
-    use({ "rcarriga/nvim-dap-ui", })
-    use({ "ravenxrz/DAPInstall.nvim", })
+    use({ "mfussenegger/nvim-dap" })
+    use({ "rcarriga/nvim-dap-ui" })
+    use({ "ravenxrz/DAPInstall.nvim" })
 
     -- Automatically set up your configuration after cloning packer.nvim
     -- Put this at the end after all plugins
