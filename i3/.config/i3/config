@@ -43,7 +43,7 @@ bindsym $mod+p exec rofi -show drun -show-icons
 bindsym $mod+Shift+p exec rofi -show window -show-icons
 
 # change focus
-# bindsym $mod+$left focus left
+bindsym $mod+$left focus left
 bindsym $mod+$down focus down
 bindsym $mod+$up focus up
 bindsym $mod+$right focus right
@@ -67,10 +67,10 @@ bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Right move right
 
 # split in horizontal orientation
-bindsym $mod+h split h
+# bindsym $mod+h split h
 
 # split in vertical orientation
-bindsym $mod+v split v
+# bindsym $mod+v split v
 
 # enter fullscreen mode for the focused container
 bindsym $mod+f fullscreen toggle
@@ -107,7 +107,7 @@ set $ws6 "6: paint"
 set $ws7 "7: vpn"
 set $ws8 "8"
 set $ws9 "9: spotify"
-set $ws10 "10: chrome-2"
+set $ws10 "10: brave"
 
 # switch to workspace
 bindsym $mod+1 workspace $ws1
@@ -157,11 +157,10 @@ for_window [class="Google-chrome" instance="crx_kmcnjdcipmgchfndpapkoecbidofdpbc
 for_window [class="Gimp"] move to workspace $ws6
 assign [class="Forticlientsslvpn"] $ws7
 for_window [class="Spotify"] move to workspace $ws9
+assign [class="Brave-browser"] $ws10
 # assign not working for gimp and spotify
 # assign [class="Gimp"] $ws6
 # assign [class="Spotify"] $ws9
-# TODO: When I open chrome it is moved to workspace 1. How can I fix this?
-# assign [class="Google-chrome"] $ws10
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
@@ -267,3 +266,4 @@ exec --no-startup-id kitty
 # exec slack
 # exec /opt/forticlient-sslvpn/forticlientsslvpn.sh
 exec --no-startup-id spotify
+# exec --no-startup-id brave-browser
