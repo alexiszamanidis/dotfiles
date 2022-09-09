@@ -35,14 +35,6 @@ This repository synchronizes a new Ubuntu System with the dotfiles that I am cur
 
     -   vscode, dunst, kitty, nvim, rofi
 
-### Clone and Install
-
-```
-git clone --recurse-submodules https://github.com/alexiszamanidis/dotfiles.git ~/dotfiles && \
-cd $HOME/dotfiles && \
-chmod +x install stow unstow && ./install
-```
-
 ### Scripts
 
 `update-and-clean-up`
