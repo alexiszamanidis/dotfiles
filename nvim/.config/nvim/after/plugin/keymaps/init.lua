@@ -9,6 +9,7 @@ nnoremap("Y", "yg$")
 
 -- Quit
 nnoremap("<C-q>", ":q<cr>")
+inoremap("<C-c>", "<Esc>")
 
 -- Keep same paste
 vnoremap("p", '"_dP')
