@@ -7,6 +7,9 @@ local xnoremap = Remap.xnoremap
 -- Behave like the rest of the CAPITAL letters
 nnoremap("Y", "yg$")
 
+-- Quit
+nnoremap("<C-q>", ":q<cr>")
+
 -- Keep same paste
 vnoremap("p", '"_dP')
 

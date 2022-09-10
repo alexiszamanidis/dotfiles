@@ -1,17 +1,17 @@
 #!/usr/bin/env bash
 
 # default values
-v=false # v: vscode
+v=false # v: update vscode extensions
 
-# iterate throught user input arguments
+# iterate through user input arguments
 while getopts :v options; do
-  echo ${options}
-  case $options in
-    v) v=true;;
-    ?)
-      echo "Usage [-v]"
-      exit 1;;
-  esac
+    echo ${options}
+    case $options in
+        v) v=true ;;
+        ?)
+            echo "Usage [-v]"
+            exit 1 ;;
+    esac
 done
 
 colorful-echo "Updating and Upgrading" "GREEN"

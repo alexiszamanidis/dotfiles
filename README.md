@@ -1,9 +1,5 @@
 ## Dotfiles
 
-A lot of software programs store their configuration settings in plain, text-based files or directories.
-
-Dotfiles are configuration files for various programs and they help those programs manage their functionality.
-
 This repository synchronizes a new Ubuntu System with the dotfiles that I am currently using
 
 -   Bootstrap your new Ubuntu System
@@ -35,12 +31,3 @@ This repository synchronizes a new Ubuntu System with the dotfiles that I am cur
 
     -   vscode, dunst, kitty, nvim, rofi
 
-### Scripts
-
-`update-and-clean-up`
-
-Updates and cleans up the system
-
-| Name   | Flag | Default | Description                                        |
-| ------ | ---- | ------- | -------------------------------------------------- |
-| VSCODE | \-v  | false   | This option is used for updating vscode extensions |
