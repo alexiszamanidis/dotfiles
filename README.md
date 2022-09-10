@@ -30,4 +30,3 @@ This repository synchronizes a new Ubuntu System with the dotfiles that I am cur
 -   Color schemes
 
     -   vscode, dunst, kitty, nvim, rofi
-

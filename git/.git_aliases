@@ -12,17 +12,17 @@ alias gstl='git stash list'
 # merge feature/A to dev
 # example: `gmp feature/A dev`
 gmp() {
-   git checkout $2
-   git pull
-   git merge $1
-   git push
+    git checkout $2
+    git pull
+    git merge $1
+    git push
 }
 # example: `gmerge feature/A dev`
 gmerge() {
-   git checkout $2
-   git pull
-   git merge $1
-   # git push
+    git checkout $2
+    git pull
+    git merge $1
+    # git push
 }
 
 # grp: git-rebase-push
