@@ -30,9 +30,6 @@ nnoremap("D", '"_D')
 vnoremap("d", '"_d')
 vnoremap("D", '"_D')
 
--- Replace word
-nnoremap("<leader>s", ":%s/\\<<C-r><C-w>\\>/<C-r><C-w>/gI<Left><Left><Left>")
-
 -- Save
 nnoremap("<C-s>", ":w<cr>")
 vnoremap("<C-s>", "<Esc>:w<cr>")

@@ -5,6 +5,7 @@ if not status_ok then
 end
 
 local mappings = {
+    r = { ":%s/\\<<C-r><C-w>\\>/<C-r><C-w>/gI<Left><Left><Left>", "Replace word" },
     g = {
         name = "Git",
         d = { ":DiffviewOpen<cr>", "Diff" },
