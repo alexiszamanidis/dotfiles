@@ -8,7 +8,7 @@ local xnoremap = Remap.xnoremap
 nnoremap("Y", "yg$")
 
 -- Quit
-nnoremap("<C-q>", ":q<cr>")
+nnoremap("<C-q>", ":q<CR>")
 inoremap("<C-c>", "<Esc>")
 
 -- Keep same paste
@@ -31,9 +31,9 @@ vnoremap("d", '"_d')
 vnoremap("D", '"_D')
 
 -- Save
-nnoremap("<C-s>", ":w<cr>")
-vnoremap("<C-s>", "<Esc>:w<cr>")
-inoremap("<C-s>", "<Esc>:w<cr>")
+nnoremap("<C-s>", ":w<CR>")
+vnoremap("<C-s>", "<Esc>:w<CR>")
+inoremap("<C-s>", "<Esc>:w<CR>")
 
 -- Stay in indent mode
 vnoremap("<S-Tab>", "<gv")
@@ -72,12 +72,12 @@ nnoremap("<C-Down>", ":resize -3<CR>")
 nnoremap("<C-f>", "<cmd>!tmux neww tmux-sessionizer<CR>")
 
 -- Telescope
-nnoremap("<C-p>", "<cmd>lua require'telescope.builtin'.git_files()<cr>")
+nnoremap("<C-p>", "<cmd>lua require'telescope.builtin'.git_files()<CR>")
 
 -- Nvim-tree
-nnoremap("<C-b>", ":NvimTreeToggle<cr>")
+nnoremap("<C-b>", ":NvimTreeToggle<CR>")
 
 -- Comment with 'Ctrl-/'
-nnoremap("<C-_>", "<cmd>lua require('Comment.api').toggle.linewise()<cr>")
-inoremap("<C-_>", "<esc><cmd>lua require('Comment.api').toggle.linewise()<cr>")
-vnoremap("<C-_>", "<esc><cmd>lua require('Comment.api').toggle.linewise(vim.fn.visualmode())<cr>")
+nnoremap("<C-_>", "<cmd>lua require('Comment.api').toggle.linewise()<CR>")
+inoremap("<C-_>", "<esc><cmd>lua require('Comment.api').toggle.linewise()<CR>")
+vnoremap("<C-_>", "<esc><cmd>lua require('Comment.api').toggle.linewise(vim.fn.visualmode())<CR>")
