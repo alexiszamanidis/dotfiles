@@ -1,9 +1,11 @@
+local home = os.getenv("HOME")
+
 local options = {
     exrc = true,
     hlsearch = false, -- highlight all matches on previous search pattern
     hidden = true,
     errorbells = false,
-    tabstop = 4, -- insert 2 spaces for a tab
+    tabstop = 4, -- insert 4 spaces for a tab
     softtabstop = 4,
     shiftwidth = 4, -- the number of spaces inserted for each indentation
     expandtab = true, -- convert tabs to spaces
@@ -15,7 +17,7 @@ local options = {
     swapfile = false, -- creates a swapfile
     backup = false, -- creates a backup file
     clipboard = "unnamedplus", -- allows neovim to access the system clipboard
-    undodir = "~/.vim/undodir",
+    undodir = home .. "/.vim/undodir",
     undofile = true, -- enable persistent undo
     incsearch = true,
     scrolloff = 8, -- determine the number of context lines you would like to see above and below the cursor
@@ -26,6 +28,7 @@ local options = {
     splitbelow = true, -- force all horizontal splits to go below current window
     splitright = true, -- force all vertical splits to go to the right of current window
     colorcolumn = "80",
+    updatetime = 50, -- Having longer updatetime (default is 4000 ms = 4 s) leads to noticeable delays and poor user experience.
 }
 
 vim.g.mapleader = " "
