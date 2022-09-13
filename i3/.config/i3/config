@@ -263,7 +263,7 @@ exec_always --no-startup-id feh --bg-scale ~/.config/i3/background.png
 exec --no-startup-id google-chrome-stable
 # exec --no-startup-id code
 exec --no-startup-id kitty
-# exec slack
+exec slack
 # exec /opt/forticlient-sslvpn/forticlientsslvpn.sh
-exec --no-startup-id spotify
+# exec --no-startup-id spotify
 # exec --no-startup-id brave-browser
