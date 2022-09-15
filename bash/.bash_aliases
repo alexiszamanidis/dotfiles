@@ -31,9 +31,6 @@ alias open="xdg-open $1"
 # TODO: is there a better way to do this?
 alias settings="env XDG_CURRENT_DESKTOP=GNOME gnome-control-center"
 
-# TODO: Do I need this!
-alias fix_java="mvn clean eclipse:clean eclipse:eclipse"
-
 kill_process_on_port() {
     if [ ! $# -eq 1 ]
     then
