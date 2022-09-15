@@ -66,7 +66,7 @@ return packer.startup(function(use)
 
     -- COMMENTS
     use({ "numToStr/Comment.nvim" })
-    use({ "B4mbus/todo-comments.nvim" })
+    use({ "folke/todo-comments.nvim" })
 
     -- UI
     use({ "folke/which-key.nvim" })
