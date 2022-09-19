@@ -30,8 +30,8 @@ cmp.setup({
         end,
     },
     mapping = {
-        ["<C-k>"] = cmp.mapping.select_prev_item(),
-        ["<C-j>"] = cmp.mapping.select_next_item(),
+        ["<C-k>"] = cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Insert }),
+        ["<C-j>"] = cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Insert }),
         ["<C-b>"] = cmp.mapping(cmp.mapping.scroll_docs(-1), { "i", "c" }),
         ["<C-f>"] = cmp.mapping(cmp.mapping.scroll_docs(1), { "i", "c" }),
         ["<C-Space>"] = cmp.mapping(cmp.mapping.complete(), { "i", "c" }),
@@ -76,12 +76,11 @@ cmp.setup({
         format = lspkind.cmp_format({
             with_text = true,
             menu = {
-                buffer = "[buf]",
+                buffer = "[Buffer]",
                 nvim_lsp = "[LSP]",
-                nvim_lua = "[api]",
-                path = "[path]",
-                luasnip = "[snip]",
-                gh_issues = "[issues]",
+                nvim_lua = "[Lua]",
+                luasnip = "[Snippet]",
+                path = "[Path]",
                 tn = "[TabNine]",
             },
         }),

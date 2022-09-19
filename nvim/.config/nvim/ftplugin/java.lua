@@ -31,13 +31,20 @@ local home = os.getenv("HOME")
 
 JAVA_DAP_ACTIVE = true
 
-local bundles = {
-    vim.fn.glob(
-        home .. "/java/java-debug/com.microsoft.java.debug.plugin/target/com.microsoft.java.debug.plugin-*.jar"
-    ),
-}
+local bundles = {}
 
-vim.list_extend(bundles, vim.split(vim.fn.glob(home .. "/java/vscode-java-test/server/*.jar"), "\n"))
+if JAVA_DAP_ACTIVE then
+    vim.list_extend(bundles, vim.split(vim.fn.glob(home .. "/java/vscode-java-test/server/*.jar"), "\n"))
+    vim.list_extend(
+        bundles,
+        vim.split(
+            vim.fn.glob(
+                home .. "/java/java-debug/com.microsoft.java.debug.plugin/target/com.microsoft.java.debug.plugin-*.jar"
+            ),
+            "\n"
+        )
+    )
+end
 
 local config = {
     cmd = {
@@ -55,8 +62,7 @@ local config = {
         "--add-opens",
         "java.base/java.lang=ALL-UNNAMED",
         "-jar",
-        home
-            .. "/.local/share/nvim/lsp/jdt-language-server/plugins/org.eclipse.equinox.launcher_1.6.400.v20210924-0641.jar",
+        vim.fn.glob(home .. "/.local/share/nvim/lsp/jdt-language-server/plugins/org.eclipse.equinox.launcher_*.jar"),
         "-configuration",
         home .. "/.local/share/nvim/lsp/jdt-language-server/config_linux",
         "-data",

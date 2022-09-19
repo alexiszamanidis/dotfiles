@@ -31,21 +31,21 @@ local options = {
     updatetime = 50, -- Having longer updatetime (default is 4000 ms = 4 s) leads to noticeable delays and poor user experience.
 }
 
-vim.g.mapleader = " "
-vim.g.maplocalleader = " "
-vim.g.loaded_netrw = 1
-vim.g.loaded_netrwPlugin = 1
-vim.opt.fillchars = vim.opt.fillchars + "eob: "
-
-vim.opt.shortmess:append("c")
-
--- Treesitter folding
--- vim.opt.foldmethod = "expr"
--- vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
-
 for k, v in pairs(options) do
     vim.opt[k] = v
 end
 
--- vim.cmd "set whichwrap+=<,>,[,],h,l"
-vim.cmd([[set iskeyword+=-]])
+-- Leader
+vim.g.mapleader = " "
+
+-- Turns off netrw
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
+vim.g.loaded_netrwSettings = 1
+vim.g.loaded_netrwFileHandlers = 1
+
+-- Fillchars(eob: end of buffer)
+vim.opt.fillchars = vim.opt.fillchars + "eob: "
+
+-- Shorter messages
+vim.opt.shortmess:append("c")
