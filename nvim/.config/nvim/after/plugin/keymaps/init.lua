@@ -4,6 +4,10 @@ local vnoremap = Remap.vnoremap
 local inoremap = Remap.inoremap
 local xnoremap = Remap.xnoremap
 
+-- Increment/Decrement
+nnoremap("+", "<C-a>")
+nnoremap("-", "<C-x>")
+
 -- Behave like the rest of the CAPITAL letters
 nnoremap("Y", "yg$")
 
