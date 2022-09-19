@@ -87,6 +87,8 @@ return packer.startup(function(use)
     use({ "saadparwaiz1/cmp_luasnip" })
     -- Completion
     use({ "hrsh7th/cmp-nvim-lsp" })
+    -- TabNine
+    use({ "tzachar/cmp-tabnine", run = "./install.sh" })
 
     -- SNIPPETS
     --snippet engine

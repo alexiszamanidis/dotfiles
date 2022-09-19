@@ -23,6 +23,15 @@ local check_backspace = function()
     return col == 0 or vim.fn.getline("."):sub(col, col):match("%s")
 end
 
+local source_mapping = {
+    buffer = "[Buffer]",
+    nvim_lsp = "[LSP]",
+    nvim_lua = "[Lua]",
+    luasnip = "[Snippet]",
+    path = "[Path]",
+    cmp_tabnine = "[TabNine]",
+}
+
 cmp.setup({
     snippet = {
         expand = function(args)
@@ -73,19 +82,21 @@ cmp.setup({
         }),
     },
     formatting = {
-        format = lspkind.cmp_format({
-            with_text = true,
-            menu = {
-                buffer = "[Buffer]",
-                nvim_lsp = "[LSP]",
-                nvim_lua = "[Lua]",
-                luasnip = "[Snippet]",
-                path = "[Path]",
-                tn = "[TabNine]",
-            },
-        }),
+        format = function(entry, vim_item)
+            vim_item.kind = lspkind.presets.default[vim_item.kind]
+            local menu = source_mapping[entry.source.name]
+            if entry.source.name == "cmp_tabnine" then
+                if entry.completion_item.data ~= nil and entry.completion_item.data.detail ~= nil then
+                    menu = entry.completion_item.data.detail .. " " .. menu
+                end
+                vim_item.kind = ""
+            end
+            vim_item.menu = menu
+            return vim_item
+        end,
     },
     sources = {
+        { name = "cmp_tabnine" },
         -- could enable this only for lua, but nvim_lua handles that already
         { name = "nvim_lua" },
         { name = "nvim_lsp" },
