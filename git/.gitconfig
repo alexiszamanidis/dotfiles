@@ -22,7 +22,7 @@
     changed = yellow bold
     untracked = red bold
 [core]
-    editor = code --wait
+    editor = nvim
 [diff]
     tool = vscode
 [difftool "vscode"]

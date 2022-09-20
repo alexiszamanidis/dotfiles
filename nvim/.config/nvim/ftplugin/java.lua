@@ -29,17 +29,19 @@ end
 
 local home = os.getenv("HOME")
 
+local java_path = home .. "/java"
+
 JAVA_DAP_ACTIVE = true
 
 local bundles = {}
 
 if JAVA_DAP_ACTIVE then
-    vim.list_extend(bundles, vim.split(vim.fn.glob(home .. "/java/vscode-java-test/server/*.jar"), "\n"))
+    vim.list_extend(bundles, vim.split(vim.fn.glob(java_path .. "/vscode-java-test/server/*.jar"), "\n"))
     vim.list_extend(
         bundles,
         vim.split(
             vim.fn.glob(
-                home .. "/java/java-debug/com.microsoft.java.debug.plugin/target/com.microsoft.java.debug.plugin-*.jar"
+                java_path .. "/java-debug/com.microsoft.java.debug.plugin/target/com.microsoft.java.debug.plugin-*.jar"
             ),
             "\n"
         )
@@ -54,7 +56,7 @@ local config = {
         "-Declipse.product=org.eclipse.jdt.ls.core.product",
         "-Dlog.protocol=true",
         "-Dlog.level=ALL",
-        "-javaagent:" .. home .. "/.local/share/nvim/lsp/jdt-language-server/lombok.jar",
+        "-javaagent:" .. java_path .. "/jdt-language-server/lombok.jar",
         "-Xms1g",
         "--add-modules=ALL-SYSTEM",
         "--add-opens",
@@ -62,11 +64,11 @@ local config = {
         "--add-opens",
         "java.base/java.lang=ALL-UNNAMED",
         "-jar",
-        vim.fn.glob(home .. "/.local/share/nvim/lsp/jdt-language-server/plugins/org.eclipse.equinox.launcher_*.jar"),
+        vim.fn.glob(java_path .. "/jdt-language-server/plugins/org.eclipse.equinox.launcher_*.jar"),
         "-configuration",
-        home .. "/.local/share/nvim/lsp/jdt-language-server/config_linux",
+        java_path .. "/jdt-language-server/config_linux",
         "-data",
-        home .. "/.local/share/nvim/lsp/jdt-language-server/workspace/folder",
+        java_path .. "/jdt-language-server/workspace/folder",
     },
     on_attach = require("user.lsp.handlers").on_attach,
     capabilities = capabilities,
