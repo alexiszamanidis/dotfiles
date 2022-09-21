@@ -257,7 +257,7 @@ exec_always "setxkbmap -model pc104 -layout us,gr -variant ,, -option grp:alt_sh
 # smooth switching
 exec --no-startup-id compton -f -b
 # background
-exec_always --no-startup-id feh --bg-scale ~/.config/i3/background.png
+exec --no-startup-id ~/.fehbg
 
 # applications
 exec --no-startup-id google-chrome-stable
