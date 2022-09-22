@@ -62,6 +62,15 @@ local mappings = {
         u = { "<cmd>lua require'dapui'.toggle()<cr>", "UI" },
         x = { "<cmd>lua require'dap'.terminate()<cr>", "Exit" },
     },
+    b = {
+        name = "Background",
+        i = {
+            function()
+                require("user.telescope").background_image_selector()
+            end,
+            "Background images",
+        },
+    },
 }
 
 local opts = { prefix = "<leader>" }
