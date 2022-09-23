@@ -7,7 +7,7 @@ This repository synchronizes a new Ubuntu System with the dotfiles that I am cur
 
 ### Reminders
 
--   STOW_FOLDERS variable is defined in install and .zshrc files
+-   STOW_FOLDERS variable is defined in install and .zsh_profile files
 -   i3
 
     -   monitors

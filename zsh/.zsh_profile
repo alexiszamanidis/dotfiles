@@ -2,7 +2,7 @@ VIM="nvim"
 
 export DOTFILES=$HOME/dotfiles
 export STOW_FOLDERS="bin,bash,docker,dunst,git,i3,compton,kitty,tmux,nvim,rofi,zsh,work"
-export EDITOR="code"
+export EDITOR=$VIM
 export ZSH_GIT_FZF_REMOVE_STALLED_BRANCHES="true"
 
 # fix slowness of pastes with zsh-syntax-highlighting.zsh
