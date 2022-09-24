@@ -33,6 +33,11 @@ nnoremap("d", '"_d')
 nnoremap("D", '"_D')
 vnoremap("d", '"_d')
 vnoremap("D", '"_D')
+-- c
+nnoremap("c", '"_c')
+nnoremap("C", '"_C')
+vnoremap("c", '"_c')
+vnoremap("C", '"_C')
 
 -- Save
 nnoremap("<C-s>", ":w<CR>")
