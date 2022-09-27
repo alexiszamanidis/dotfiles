@@ -31,18 +31,6 @@ alias open="xdg-open $1"
 # TODO: is there a better way to do this?
 alias settings="env XDG_CURRENT_DESKTOP=GNOME gnome-control-center"
 
-kill_process_on_port() {
-    if [ ! $# -eq 1 ]
-    then
-        echo "No port was supplied"
-        echo "e.g. kill_process_on_port 3000"
-        return -1
-    fi
-    port=$1
-    command="kill -9 \$(lsof -t -i:$port)"
-    eval $command
-}
-
 add_to_path() {
     if [[ "$PATH" != *"$1"* ]]; then
         export PATH=$1:$PATH
