@@ -54,6 +54,7 @@ return packer.startup(function(use)
     use({ "windwp/nvim-ts-autotag" })
     use({ "akinsho/bufferline.nvim" })
     use({ "kyazdani42/nvim-tree.lua" })
+    use({ "laytan/cloak.nvim" })
 
     -- TERMINAL
     use({ "akinsho/toggleterm.nvim" })
