@@ -69,5 +69,6 @@ reload() {
 }
 
 add_to_path $HOME/.local/bin
-add_to_path $HOME/.cargo/bin
+add_to_path $HOME/.local/scripts
 add_to_path $HOME/.local/.npm-global/bin
+add_to_path $HOME/.cargo/bin
