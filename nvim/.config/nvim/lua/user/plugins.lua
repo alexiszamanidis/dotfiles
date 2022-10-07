@@ -49,8 +49,6 @@ return packer.startup(function(use)
     use({ "nvim-lua/popup.nvim" })
     -- Useful lua functions used ny lots of plugins
     use({ "nvim-lua/plenary.nvim" })
-    -- Autopairs, integrates with both cmp and treesitter
-    use({ "windwp/nvim-autopairs" })
     use({ "windwp/nvim-ts-autotag" })
     use({ "akinsho/bufferline.nvim" })
     use({ "kyazdani42/nvim-tree.lua" })
