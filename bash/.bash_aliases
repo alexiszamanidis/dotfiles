@@ -1,27 +1,28 @@
 ## cd aliases
-alias ..='cd ..'
-alias ...='cd ../../../'
-alias ....='cd ../../../../'
-alias .....='cd ../../../../'
-alias .2='cd ../../'
-alias .3='cd ../../../'
-alias .4='cd ../../../../'
-alias .5='cd ../../../../..'
+alias ..="cd .."
+alias ...="cd ../../../"
+alias ....="cd ../../../../"
+alias .....="cd ../../../../"
+alias .2="cd ../../"
+alias .3="cd ../../../"
+alias .4="cd ../../../../"
+alias .5="cd ../../../../.."
 
 ## ls aliases
-alias ls='ls --color=auto'
-alias ll='ls -la'
-alias l.='ls -d .* --color=auto'
+alias ls="ls --color=auto"
+alias ll="ls -la"
+alias l.="ls -d .* --color=auto"
+alias l-size="ls -laSh"
 
 ## grep aliases
-alias grep='grep --color=auto'
+alias grep="grep --color=auto"
 
 ## override
 alias cat="bat"
 alias vim="$VIM"
 
 ## other aliases
-alias c='clear'
+alias c="clear"
 alias x=extract
 alias myip="curl http://ipecho.net/plain; echo"
 alias runp="lsof -i "
