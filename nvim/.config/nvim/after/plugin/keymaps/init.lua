@@ -4,6 +4,9 @@ local vnoremap = Remap.vnoremap
 local inoremap = Remap.inoremap
 local xnoremap = Remap.xnoremap
 
+local Utilities = require("user.utilities")
+local existsDir = Utilities.existsDir
+
 -- Increment/Decrement
 nnoremap("+", "<C-a>")
 nnoremap("-", "<C-x>")
@@ -81,7 +84,16 @@ nnoremap("<C-Down>", ":resize -3<CR>")
 nnoremap("<C-f>", "<cmd>!tmux neww tmux-sessionizer<CR>")
 
 -- Telescope
-nnoremap("<C-p>", "<cmd>lua require'telescope.builtin'.git_files()<CR>")
+nnoremap("<C-p>", function()
+    local tele_built = require("telescope.builtin")
+
+    local ok, err = existsDir("./git")
+    if ok then
+        tele_built.git_files()
+    else
+        tele_built.find_files()
+    end
+end)
 
 -- Nvim-tree
 nnoremap("<C-b>", ":NvimTreeToggle<CR>")
