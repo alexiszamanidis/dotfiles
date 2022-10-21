@@ -13,5 +13,9 @@ cloak.setup({
             file_pattern = ".netrc",
             cloak_pattern = " .+",
         },
+        {
+            file_pattern = ".pipeline",
+            cloak_pattern = ":.+",
+        },
     },
 })
