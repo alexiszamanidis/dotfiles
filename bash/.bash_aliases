@@ -27,6 +27,7 @@ alias x=extract
 alias myip="curl http://ipecho.net/plain; echo"
 alias runp="lsof -i "
 alias open="xdg-open $1"
+alias find-file-path="find . -name $1"
 
 # this alias is used to open settings on i3wm
 # TODO: is there a better way to do this?
