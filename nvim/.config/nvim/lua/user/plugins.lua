@@ -51,6 +51,7 @@ return packer.startup(function(use)
     use({ "nvim-lua/plenary.nvim" })
     use({ "windwp/nvim-ts-autotag" })
     use({ "akinsho/bufferline.nvim" })
+    use({ "nvim-lualine/lualine.nvim" })
     use({ "kyazdani42/nvim-tree.lua" })
     use({ "laytan/cloak.nvim" })
 
