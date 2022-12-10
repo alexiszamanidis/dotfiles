@@ -22,5 +22,4 @@ plugins=(
 )
 
 source $ZSH/oh-my-zsh.sh
-# TODO: toggleterm.nvim does NOT load .zprofile
 source $ZSH_PROFILE

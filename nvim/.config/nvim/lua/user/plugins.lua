@@ -55,9 +55,6 @@ return packer.startup(function(use)
     use({ "kyazdani42/nvim-tree.lua" })
     use({ "laytan/cloak.nvim" })
 
-    -- TERMINAL
-    use({ "akinsho/toggleterm.nvim" })
-
     -- UTILITIES
     use({ "lewis6991/impatient.nvim" })
 
