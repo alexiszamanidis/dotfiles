@@ -7,14 +7,14 @@ plugins=(
     # docker
     # docker-compose
     # extract
-    git
     # python
     # npm
     # yarn
-    sudo
     # web-search
     # history
     # jsontools
+    git
+    sudo
     zsh-autosuggestions
     zsh-syntax-highlighting
     zsh-z
