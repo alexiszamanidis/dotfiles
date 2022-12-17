@@ -11,8 +11,14 @@ local existsDir = Utilities.existsDir
 nnoremap("+", "<C-a>")
 nnoremap("-", "<C-x>")
 
+-- Make file executable
+nnoremap("<leader>x", "<cmd>!chmod +x %<CR>")
+
 -- Behave like the rest of the CAPITAL letters
 nnoremap("Y", "yg$")
+
+-- Keep cursor at the beginning
+nnoremap("J", "mzJ`z")
 
 -- Quit
 nnoremap("<C-q>", ":q<CR>")
