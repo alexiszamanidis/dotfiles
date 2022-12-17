@@ -15,11 +15,11 @@ if fn.empty(fn.glob(install_path)) > 0 then
     vim.cmd([[packadd packer.nvim]])
 end
 
--- Autocommand that reloads neovim whenever you save the plugins.lua file
+-- Autocommand that reloads neovim whenever you save the packer.lua file
 vim.cmd([[
     augroup packer_user_config
         autocmd!
-        autocmd BufWritePost plugins.lua source <afile> | PackerSync
+        autocmd BufWritePost packer.lua source <afile> | PackerSync
     augroup end
 ]])
 
@@ -71,25 +71,8 @@ return packer.startup(function(use)
     -- COLORSCHME
     use({ "Mofiqul/dracula.nvim" })
 
-    -- COMPLETIONS
-    -- completion plugin
-    use({ "hrsh7th/nvim-cmp" })
-    -- buffer completions
-    use({ "hrsh7th/cmp-buffer" })
-    -- path completions
-    use({ "hrsh7th/cmp-path" })
-    -- cmdline completions
-    use({ "hrsh7th/cmp-cmdline" })
-    -- snippet completions
-    use({ "saadparwaiz1/cmp_luasnip" })
-    -- Completion
-    use({ "hrsh7th/cmp-nvim-lsp" })
     -- TabNine
     use({ "tzachar/cmp-tabnine", run = "./install.sh" })
-
-    -- SNIPPETS
-    --snippet engine
-    use({ "L3MON4D3/LuaSnip" })
 
     -- TELESCOPE
     use({ "nvim-telescope/telescope.nvim" })
@@ -111,18 +94,30 @@ return packer.startup(function(use)
     })
 
     -- LSP
-    -- enable LSP
-    use({ "neovim/nvim-lspconfig" })
-    use({ "williamboman/mason.nvim" })
-    use({ "williamboman/mason-lspconfig.nvim" })
-    -- language server settings defined in json for
-    use({ "tamago324/nlsp-settings.nvim" })
-    use({ "b0o/SchemaStore.nvim" })
-    -- for formatters and linters
+    use({
+        "VonHeikemen/lsp-zero.nvim",
+        requires = {
+            -- LSP Support
+            { "neovim/nvim-lspconfig" },
+            { "williamboman/mason.nvim" },
+            { "williamboman/mason-lspconfig.nvim" },
+
+            -- Autocompletion
+            { "hrsh7th/nvim-cmp" },
+            { "hrsh7th/cmp-buffer" },
+            { "hrsh7th/cmp-path" },
+            { "saadparwaiz1/cmp_luasnip" },
+            { "hrsh7th/cmp-nvim-lsp" },
+            { "hrsh7th/cmp-nvim-lua" },
+
+            -- Snippets
+            { "L3MON4D3/LuaSnip" },
+            { "rafamadriz/friendly-snippets" },
+        },
+    })
+
+    -- formatters and linters
     use({ "jose-elias-alvarez/null-ls.nvim" })
-    use({ "ray-x/lsp_signature.nvim" })
-    -- vscode-like pictograms
-    use({ "onsails/lspkind-nvim" })
 
     -- Java
     use({ "mfussenegger/nvim-jdtls" })

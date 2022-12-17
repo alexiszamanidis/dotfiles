@@ -14,6 +14,7 @@ plugins=(
     # history
     # jsontools
     git
+    nvm
     sudo
     zsh-autosuggestions
     zsh-syntax-highlighting

@@ -1,8 +1,7 @@
 require("user.options")
 require("user.keymaps")
 require("user.colorscheme")
-require("user.plugins")
-require("user.lsp")
+require("user.packer")
 
 local augroup = vim.api.nvim_create_augroup
 local autocmd = vim.api.nvim_create_autocmd

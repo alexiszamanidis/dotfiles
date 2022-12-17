@@ -15,6 +15,8 @@ pastefinish() {
 }
 zstyle :bracketed-paste-magic paste-init pasteinit
 zstyle :bracketed-paste-magic paste-finish pastefinish
+# nvm: fix slow terminal start up
+zstyle ':omz:plugins:nvm' lazy yes
 
 declare -a dotfiles=(
     ".zsh_bindkeys"
@@ -39,28 +41,6 @@ export FZF_DEFAULT_COMMAND="fd --type f --hidden --follow --exclude .git"
 export FZF_CTRL_T_COMMAND="${FZF_DEFAULT_COMMAND}"
 alias fzfp="fzf $FZF_PREVIEW_OPTS"
 
-# nvm
-# export NVM_DIR="$HOME/.nvm"
-# [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
-# [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
-lazynvm() {
-    unset -f nvm node npm
-    export NVM_DIR=~/.nvm
-    [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
-}
-nvm() {
-    lazynvm
-    nvm $@
-}
-node() {
-    lazynvm
-    node $@
-}
-npm() {
-    lazynvm
-    npm $@
-}
-
 # sdkman(java)
 # alias start_java="export SDKMAN_DIR="$HOME/.sdkman" && [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh""
 export SDKMAN_DIR="$HOME/.sdkman"
@@ -74,8 +54,3 @@ add_to_path $HOME/.local/bin
 add_to_path $HOME/.local/scripts
 add_to_path $HOME/.local/.npm-global/bin
 add_to_path $HOME/.cargo/bin
-
-# if 'package.json' exists, then load nvm
-if [ -f "$PWD/package.json" ] ; then
-    lazynvm
-fi
