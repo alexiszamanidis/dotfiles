@@ -1,9 +1,6 @@
 ## Dotfiles
 
-This repository synchronizes a new Ubuntu System with the dotfiles that I am currently using
-
--   Bootstrap your new Ubuntu System
--   Never reconfigure your System ever again
+This repository synchronizes the dotfiles that I am currently using
 
 ### Reminders
 
