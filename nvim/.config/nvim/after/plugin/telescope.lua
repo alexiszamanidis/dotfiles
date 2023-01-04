@@ -13,6 +13,10 @@ telescope.setup({
         },
     },
     pickers = {
+        find_files = {
+            show_untracked = true,
+            hidden = true,
+        },
         git_files = {
             show_untracked = true,
             hidden = true,
