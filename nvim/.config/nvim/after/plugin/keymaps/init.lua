@@ -93,7 +93,10 @@ nnoremap("<C-f>", "<cmd>!tmux neww tmux-sessionizer<CR>")
 nnoremap("<C-p>", function()
     local tele_built = require("telescope.builtin")
 
-    local ok, err = existsDir("./git")
+    local pwd = vim.fn.getcwd()
+    local current_git_dir = pwd .. "/.git"
+
+    local ok, err = existsDir(current_git_dir)
     if ok then
         tele_built.git_files()
     else
