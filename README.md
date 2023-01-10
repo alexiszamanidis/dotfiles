@@ -26,4 +26,4 @@ This repository synchronizes the dotfiles that I am currently using
 
 -   Color schemes
 
-    -   vscode, dunst, kitty, nvim, rofi, wsl
+    -   vscode, dunst, kitty, nvim, rofi, wsl, git
