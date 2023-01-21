@@ -1,6 +1,6 @@
 ## Dotfiles
 
-This repository synchronizes the dotfiles that I am currently using
+This repository synchronizes the configuration files that I am currently using
 
 ### Reminders
 
