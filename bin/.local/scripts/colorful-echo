@@ -12,3 +12,5 @@ elif [ "$2" = "GREEN" ]; then
 elif [ "$2" = "RED" ]; then
     echo -e "${RED}$1${NC}"
 fi
+
+exit 0
