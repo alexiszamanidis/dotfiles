@@ -111,3 +111,8 @@ nnoremap("<C-b>", ":NvimTreeToggle<CR>")
 nnoremap("<C-_>", "<cmd>lua require('Comment.api').toggle.linewise()<CR>")
 inoremap("<C-_>", "<esc><cmd>lua require('Comment.api').toggle.linewise()<CR>")
 vnoremap("<C-_>", "<esc><cmd>lua require('Comment.api').toggle.linewise(vim.fn.visualmode())<CR>")
+
+-- Source file
+nnoremap("<leader><leader>", function()
+    vim.cmd("so")
+end)
