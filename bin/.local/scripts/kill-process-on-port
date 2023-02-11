@@ -3,7 +3,7 @@
 if [ ! $# -eq 1 ]
 then
     colorful-echo "You should pass the PORT" "RED"
-    colorful-echo "e.g. kill_process_on_port 3000" "RED"
+    colorful-echo "e.g. kill-process-on-port 3000" "RED"
     exit 1
 fi
 

@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+
+if [ ! $# -eq 2 ]
+then
+    colorful-echo "You should pass 2 files" "RED"
+    colorful-echo "e.g. swap-files file1 file2" "RED"
+    exit 1
+fi
+
+function swap() {
+    local TMPFILE=tmp.$$
+    mv "$1" $TMPFILE && mv "$2" "$1" && mv $TMPFILE "$2"
+}
+
+swap $1 $2
+
+exit 0
