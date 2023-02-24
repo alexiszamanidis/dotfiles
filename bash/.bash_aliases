@@ -33,6 +33,8 @@ alias find-file-path="find . -name $1"
 # TODO: is there a better way to do this?
 alias settings="env XDG_CURRENT_DESKTOP=GNOME gnome-control-center"
 
+alias dotfiles="cd ~/dotfiles"
+
 add_to_path() {
     if [[ "$PATH" != *"$1"* ]]; then
         export PATH=$1:$PATH
