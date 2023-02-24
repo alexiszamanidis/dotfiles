@@ -32,7 +32,6 @@ lsp.ensure_installed({
     "cssmodules_ls",
     "html",
     "jsonls",
-    "lua_ls",
     "tsserver",
     "yamlls",
     "bashls",
@@ -41,7 +40,15 @@ lsp.ensure_installed({
 })
 
 -- Fix Undefined global 'vim'
-lsp.nvim_workspace()
+lsp.configure('lua-language-server', {
+    settings = {
+        Lua = {
+            diagnostics = {
+                globals = { 'vim' }
+            }
+        }
+    }
+})
 
 lsp.set_preferences({
     suggest_lsp_servers = false,
