@@ -23,7 +23,6 @@ autocmd("VimEnter", {
     group = open_telescope_find_files,
     pattern = "*",
     callback = function()
-        vim.cmd("Telescope find_files")
+        vim.cmd("lua require('user.telescope').find_files()")
     end,
 })
-

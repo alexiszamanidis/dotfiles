@@ -4,9 +4,6 @@ local vnoremap = Remap.vnoremap
 local inoremap = Remap.inoremap
 local xnoremap = Remap.xnoremap
 
-local Utilities = require("user.utilities")
-local existsDir = Utilities.existsDir
-
 -- Increment/Decrement
 nnoremap("+", "<C-a>")
 nnoremap("-", "<C-x>")
@@ -90,19 +87,7 @@ nnoremap("<C-Down>", ":resize -3<CR>")
 nnoremap("<C-f>", "<cmd>!tmux neww tmux-sessionizer<CR>")
 
 -- Telescope
-nnoremap("<C-p>", function()
-    local tele_built = require("telescope.builtin")
-
-    local pwd = vim.fn.getcwd()
-    local current_git_dir = pwd .. "/.git"
-
-    local ok, err = existsDir(current_git_dir)
-    if ok then
-        tele_built.git_files()
-    else
-        tele_built.find_files()
-    end
-end)
+nnoremap("<C-p>", require("user.telescope").find_files)
 
 -- Nvim-tree
 nnoremap("<C-b>", ":NvimTreeToggle<CR>")
