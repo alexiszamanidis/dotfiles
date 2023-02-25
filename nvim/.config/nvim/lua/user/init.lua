@@ -5,8 +5,8 @@ require("user.packer")
 
 local augroup = vim.api.nvim_create_augroup
 local autocmd = vim.api.nvim_create_autocmd
-local yank_group = augroup("HighlightYank", {})
 
+local yank_group = augroup("HighlightYank", {})
 autocmd("TextYankPost", {
     group = yank_group,
     pattern = "*",
@@ -17,3 +17,13 @@ autocmd("TextYankPost", {
         })
     end,
 })
+
+local open_telescope_find_files = augroup("FindFilesOnStartUp", {})
+autocmd("VimEnter", {
+    group = open_telescope_find_files,
+    pattern = "*",
+    callback = function()
+        vim.cmd("Telescope find_files")
+    end,
+})
+
