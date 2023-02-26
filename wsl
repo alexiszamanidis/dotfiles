@@ -1,0 +1,10 @@
+#!/usr/bin/env zsh
+
+WINDOWS_USER=$(powershell.exe '$env:UserName' | sed -e 's/\r//g')
+
+WINDOWS_TERMINAL_CONFIG="/mnt/c/Users/${WINDOWS_USER}/AppData/Local/Packages/Microsoft.WindowsTerminal_8wekyb3d8bbwe/LocalState"
+
+cp windows/settings.json $WINDOWS_TERMINAL_CONFIG/settings.json
+
+# TODO: I must fix this!
+# stow -v --target=$WINDOWS_TERMINAL_CONFIG --adopt windows
