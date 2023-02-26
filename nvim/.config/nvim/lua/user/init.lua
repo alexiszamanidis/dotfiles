@@ -18,11 +18,11 @@ autocmd("TextYankPost", {
     end,
 })
 
-local open_telescope_find_files = augroup("FindFilesOnStartUp", {})
-autocmd("VimEnter", {
-    group = open_telescope_find_files,
-    pattern = "*",
-    callback = function()
-        vim.cmd("lua require('user.telescope').find_files()")
-    end,
-})
+-- local open_telescope_find_files = augroup("FindFilesOnStartUp", {})
+-- autocmd("VimEnter", {
+--     group = open_telescope_find_files,
+--     pattern = "*",
+--     callback = function()
+--         vim.cmd("lua require('user.telescope').find_files()")
+--     end,
+-- })
