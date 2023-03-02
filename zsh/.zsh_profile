@@ -56,6 +56,6 @@ add_to_path $HOME/.local/.npm-global/bin
 add_to_path $HOME/.cargo/bin
 
 # if tmux is not running then start a session
-if [ -z $TMUX ]; then
-    tmux new-session -A -s default
-fi
+# if [ -z $TMUX ]; then
+#     tmux new-session -A -s default
+# fi
