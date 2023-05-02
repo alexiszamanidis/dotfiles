@@ -70,7 +70,7 @@ local config = {
         "-data",
         java_path .. "/jdt-language-server/workspace/folder",
     },
-    on_attach = require("user.lsp.handlers").on_attach,
+    on_attach = require("user.lsp").on_attach,
     capabilities = capabilities,
     -- This is the default if not provided, you can remove it. Or adjust as needed.
     -- One dedicated LSP server & client will be started per unique root_dir
