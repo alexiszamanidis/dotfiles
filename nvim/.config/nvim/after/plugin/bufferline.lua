@@ -38,7 +38,7 @@ bufferline.setup({
         max_name_length = 30,
         max_prefix_length = 30, -- prefix used when a buffer is de-duplicated
         tab_size = 21,
-        diagnostics = false, -- | "nvim_lsp" | "coc",
+        diagnostics = false,    -- | "nvim_lsp" | "coc",
         diagnostics_update_in_insert = false,
         -- diagnostics_indicator = function(count, level, diagnostics_dict, context)
         --   return "("..count..")"
@@ -76,10 +76,6 @@ bufferline.setup({
         -- end
     },
     highlights = {
-        fill = {
-            fg = { attribute = "fg", highlight = "#ff0000" },
-            bg = { attribute = "bg", highlight = "TabLine" },
-        },
         background = {
             fg = { attribute = "fg", highlight = "TabLine" },
             bg = { attribute = "bg", highlight = "TabLine" },
