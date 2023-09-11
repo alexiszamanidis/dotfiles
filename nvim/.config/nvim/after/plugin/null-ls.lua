@@ -19,6 +19,7 @@ null_ls.setup({
         formatting.beautysh, -- Bash, Zsh
         diagnostics.codespell, -- Codespell
         diagnostics.eslint, -- javascript etc
+        diagnostics.yamllint, -- javascript etc
         code_actions.eslint, -- javascript etc
         formatting.prettier, -- javascript etc
         formatting.google_java_format, -- java

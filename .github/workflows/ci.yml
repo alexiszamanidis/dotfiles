@@ -1,0 +1,13 @@
+name: eclint check
+on:
+    pull_request:
+    push:
+        branches:
+        - master
+
+jobs:
+    eclint-check:
+        runs-on: ubuntu-latest
+        steps:
+        - uses: actions/checkout@v1
+        - uses: snow-actions/eclint@v1.0.1

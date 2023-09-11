@@ -6,3 +6,6 @@ autoload
 packer_compiled.lua
 nvim/.config/nvim/.netrwhist
 ~/
+
+# eclint needs this to ignore the packer_compiled.lua file
+nvim/.config/nvim/plugin/packer_compiled.lua
