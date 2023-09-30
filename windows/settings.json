@@ -62,7 +62,7 @@
                 "hidden": false,
                 "name": "Ubuntu 20.04.5 LTS",
                 "source": "CanonicalGroupLimited.Ubuntu20.04LTS_79rhkp1fndgsc"
-            },
+            }
         ]
     },
     "schemes": [
@@ -93,10 +93,9 @@
     // Add any keybinding overrides to this array.
     // To unbind a default keybinding, set the command to "unbound"
     "keybindings": [
-      { "command": "unbound", "keys": "alt+down" },
-      { "command": "unbound", "keys": "alt+left" },
-      { "command": "unbound", "keys": "alt+right" },
-      { "command": "unbound", "keys": "alt+up" }
+        { "command": "unbound", "keys": "alt+down" },
+        { "command": "unbound", "keys": "alt+left" },
+        { "command": "unbound", "keys": "alt+right" },
+        { "command": "unbound", "keys": "alt+up" }
     ]
 }
-
