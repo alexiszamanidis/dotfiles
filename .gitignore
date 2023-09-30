@@ -6,3 +6,6 @@ autoload
 packer_compiled.lua
 nvim/.config/nvim/.netrwhist
 ~/
+
+# Dependency directories
+node_modules/
