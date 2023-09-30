@@ -3,19 +3,20 @@ name: "Test"
 
 # Events that will trigger our workflow
 on: ["pull_request", "push"]
-
 jobs:
-    build:
-        name: Prettier
+    format:
         runs-on: ubuntu-latest
         steps:
-            - uses: actions/checkout@v1
-            - uses: bahmutov/npm-install@v1
-
+            - uses: actions/checkout@v2
+              with:
+                  ref: ${{ github.head_ref }}
+            - uses: actions/setup-node@v1
+              with:
+                  node-version: "18.x"
+            - run: npm ci
             - run: npm run format
-            - run: git status
-            # commit any changed files
-            # https://github.com/mikeal/publish-to-github-action
-            - uses: mikeal/publish-to-github-action@master
-              env:
-                  GITHUB_TOKEN: ${{ secrets.TOKEN }}
+            - name: Commit changes
+              uses: stefanzweifel/git-auto-commit-action@v4.1.2
+              with:
+                  commit_message: Apply formatting changes
+                  branch: ${{ github.head_ref }}
