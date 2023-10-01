@@ -4,7 +4,7 @@ This repository synchronizes the configuration files that I am currently using
 
 ### Reminders
 
--   STOW_FOLDERS variable is defined in install and .zsh_profile files
+-   STOW_FOLDERS variable is defined in `install` and `.zsh_profile` files
 -   i3
 
     -   monitors
@@ -13,16 +13,6 @@ This repository synchronizes the configuration files that I am currently using
     -   workspaces
         -   type `xprop` and click on an application you want to bind with a specific workspace
         -   pick the name next to `WM_NAME(STRING) =` and use it in i3/.config/i3/config
-
--   When .editorconfig is not working run the following commands
-
-    -   ```bash
-        # (Node should be installed!)
-        # check which files need to be fixed
-        npx eclint check '.'
-        # fix these files
-        npx eclint fix '.'
-        ```
 
 -   Color schemes
 
