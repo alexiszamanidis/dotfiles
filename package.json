@@ -9,6 +9,8 @@
     "author": "Alexis Zamanidis",
     "license": "MIT",
     "devDependencies": {
-        "prettier": "3.0.3"
-    }
+        "prettier": "^2.8.0",
+        "@alexiszamanidis/prettier-config": "1.0.1"
+    },
+    "prettier": "@alexiszamanidis/prettier-config"
 }
