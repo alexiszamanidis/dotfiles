@@ -3,13 +3,11 @@
     "name": "dotfiles",
     "version": "1.0.0",
     "description": "This repository synchronizes the configuration files that I am currently using",
-    "main": "index.js",
     "scripts": {
-        "test": "echo \"Error: no test specified\" && exit 1",
         "format": "prettier . --write"
     },
-    "author": "",
-    "license": "ISC",
+    "author": "Alexis Zamanidis",
+    "license": "MIT",
     "devDependencies": {
         "prettier": "3.0.3"
     }
