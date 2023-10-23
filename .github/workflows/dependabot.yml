@@ -1,0 +1,35 @@
+---
+name: Submodule Updates
+
+on:
+    pull_request:
+        branches: [master]
+
+jobs:
+    update:
+        name: Update submodules
+        runs-on: ubuntu-latest
+
+        steps:
+            - uses: actions/checkout@v1
+              with:
+                  token: ${{ secrets.TOKEN }}
+                  submodules: true
+
+            - uses: actions/checkout@v3
+              with:
+                  repository: alexiszamanidis/work
+                  token: ${{ secrets.TOKEN }}
+
+            - name: Update submodules recursively
+              run: |
+                  git submodule update --init --recursive
+                  git submodule update --recursive --remote
+
+            - name: Commit the changes
+              run: |
+                  git config user.email "actions@github.com"
+                  git config user.name "GitHub Actions - update submodules"
+                  git add --all
+                  git commit -m "Update submodules" || echo "No changes to commit"
+                  git push
