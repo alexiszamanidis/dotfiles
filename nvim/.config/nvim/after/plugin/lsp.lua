@@ -23,25 +23,36 @@ local cmp_mappings = lsp.defaults.cmp_mappings({
 -- cmp_mappings["<Tab>"] = nil
 -- cmp_mappings["<S-Tab>"] = nil
 
-lsp.setup_nvim_cmp({
+local cmp = require("cmp")
+local cmp_action = lsp.cmp_action()
+
+cmp.setup({
     mapping = cmp_mappings,
 })
 
-lsp.ensure_installed({
-    "cssls",
-    "cssmodules_ls",
-    "html",
-    "jsonls",
-    "tsserver",
-    "lua_ls",
-    "yamlls",
-    "bashls",
-    "prismals",
-    "jdtls",
+require("mason").setup({})
+require("mason-lspconfig").setup({
+    -- Replace the language servers listed here
+    -- with the ones you want to install
+    ensure_installed = {
+        "cssls",
+        "cssmodules_ls",
+        "html",
+        "jsonls",
+        "tsserver",
+        "lua_ls",
+        "yamlls",
+        "bashls",
+        "prismals",
+        "jdtls",
+    },
+    handlers = {
+        lsp.default_setup,
+    },
 })
 
 -- Fix Undefined global 'vim'
-lsp.nvim_workspace()
+lsp.nvim_lua_ls()
 
 lsp.set_preferences({
     suggest_lsp_servers = false,
