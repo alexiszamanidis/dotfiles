@@ -5,12 +5,28 @@ RED="\033[0;31m"
 # No Color
 NC="\033[0m"
 
-if [ "$#" -eq 1 ]; then
-    echo -e $1
-elif [ "$2" = "GREEN" ]; then
-    echo -e "${GREEN}$1${NC}"
-elif [ "$2" = "RED" ]; then
-    echo -e "${RED}$1${NC}"
-fi
+function usage() {
+    echo "Usage: colorful-echo <string> [GREEN|RED]"
+}
+
+function error() {
+    usage
+}
+
+function main() {
+    if [ "$#" -lt 1 ]; then
+        error
+        exit 1
+    fi
+    if [ "$#" -eq 1 ]; then
+        echo -e $1
+    elif [ "$2" = "GREEN" ]; then
+        echo -e "${GREEN}$1${NC}"
+    elif [ "$2" = "RED" ]; then
+        echo -e "${RED}$1${NC}"
+    fi
+}
+
+main "$@"
 
 exit 0

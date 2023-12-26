@@ -101,3 +101,17 @@ vnoremap("<C-_>", "<esc><cmd>lua require('Comment.api').toggle.linewise(vim.fn.v
 nnoremap("<leader><leader>", function()
     vim.cmd("so")
 end)
+
+-- Codeium
+inoremap("<Tab>", function()
+    return vim.fn["codeium#Accept"]()
+end)
+inoremap("<C-j>", function()
+    return vim.fn["codeium#CycleCompletions"](1)
+end)
+inoremap("<C-k>", function()
+    return vim.fn["codeium#CycleCompletions"](-1)
+end)
+inoremap("<C-x>", function()
+    return vim.fn["codeium#Clear"]()
+end)
