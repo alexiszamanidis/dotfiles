@@ -28,8 +28,11 @@ declare -a dotfiles=(
 # source global aliases
 for dotfile in "${dotfiles[@]}"
 do
-    if [ -f "$HOME/$dotfile" ] ; then
-        source "$HOME/$dotfile"
+    dotfilePath="$HOME/$dotfile"
+    if [ -f "$dotfilePath" ] ; then
+        source "$dotfilePath"
+    else
+        echo "Warning: $dotfile not found in $HOME directory."
     fi
 done
 

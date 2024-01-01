@@ -74,10 +74,10 @@ return packer.startup(function(use)
     -- TabNine
     use({ "tzachar/cmp-tabnine", run = "./install.sh" })
 
-    -- TELESCOPE
+    -- Telescope
     use({ "nvim-telescope/telescope.nvim" })
 
-    -- TREESITTER
+    -- Treesitter
     use({
         "nvim-treesitter/nvim-treesitter",
         run = function()
@@ -85,10 +85,10 @@ return packer.startup(function(use)
             ts_update()
         end,
     })
-    -- sticky header
+    -- Sticky header
     use({ "nvim-treesitter/nvim-treesitter-context" })
 
-    -- GIT
+    -- Git
     use({ "dinhhuy258/git.nvim" })
     use({ "lewis6991/gitsigns.nvim" })
     use({
@@ -119,7 +119,7 @@ return packer.startup(function(use)
         },
     })
 
-    -- formatters and linters
+    -- Formatters and linters
     use({ "jose-elias-alvarez/null-ls.nvim" })
 
     -- Java
