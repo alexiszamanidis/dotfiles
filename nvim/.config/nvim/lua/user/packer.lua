@@ -88,6 +88,10 @@ return packer.startup(function(use)
     -- Sticky header
     use({ "nvim-treesitter/nvim-treesitter-context" })
 
+
+    -- Illuminate
+    use({ "RRethy/vim-illuminate" })
+
     -- Git
     use({ "dinhhuy258/git.nvim" })
     use({ "lewis6991/gitsigns.nvim" })
@@ -130,6 +134,7 @@ return packer.startup(function(use)
     use({ "rcarriga/nvim-dap-ui" })
     use({ "ravenxrz/DAPInstall.nvim" })
 
+    -- AI
     use({ "Exafunction/codeium.vim" })
 
     -- Automatically set up your configuration after cloning packer.nvim
