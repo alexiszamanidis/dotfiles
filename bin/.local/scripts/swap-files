@@ -1,17 +1,20 @@
 #!/usr/bin/env bash
 
-if [ ! $# -eq 2 ]
-then
-    colorful-echo "You should pass 2 files" "RED"
-    colorful-echo "e.g. swap-files file1 file2" "RED"
-    exit 1
-fi
-
-function swap() {
-    local TMPFILE=tmp.$$
-    mv "$1" $TMPFILE && mv "$2" "$1" && mv $TMPFILE "$2"
+usage() {
+    echo "Usage: $0 <FILE1> <FILE2>"
+    echo "Example: $0 file1 file2"
 }
 
-swap $1 $2
+swap() {
+    if [ "$#" -ne 2 ]; then
+        colorful-echo "You should pass 2 files" "RED"
+        usage
+        exit 1
+    fi
 
-exit 0
+    local TMPFILE=tmp.$$
+    mv "$1" $TMPFILE && mv "$2" "$1" && mv $TMPFILE "$2"
+    colorful-echo "Files '$1' and '$2' successfully swapped" "GREEN"
+}
+
+swap "$@"

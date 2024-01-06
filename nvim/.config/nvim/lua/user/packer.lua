@@ -75,7 +75,7 @@ return packer.startup(function(use)
     use({ "tzachar/cmp-tabnine", run = "./install.sh" })
 
     -- Telescope
-    use({ "nvim-telescope/telescope.nvim" })
+    use({ "nvim-telescope/telescope.nvim", tag = "0.1.5" })
 
     -- Treesitter
     use({
@@ -87,7 +87,6 @@ return packer.startup(function(use)
     })
     -- Sticky header
     use({ "nvim-treesitter/nvim-treesitter-context" })
-
 
     -- Illuminate
     use({ "RRethy/vim-illuminate" })

@@ -2,28 +2,37 @@
 
 GREEN="\033[0;32m"
 RED="\033[0;31m"
+YELLOW="\033[0;33m"
 # No Color
 NC="\033[0m"
 
-function usage() {
-    echo "Usage: colorful-echo <string> [GREEN|RED]"
+usage() {
+    echo "Usage: $0 <MESSAGE> [COLOR]"
+    echo " - COLOR: [GREEN | RED | YELLOW]"
+    echo "Example: $0 'Error message' RED"
 }
 
-function error() {
-    usage
-}
-
-function main() {
+main() {
     if [ "$#" -lt 1 ]; then
-        error
+        colorful-echo "You should pass a message" "RED"
+        usage
         exit 1
     fi
+
+    local message="$1"
+    local color="$2"
+
     if [ "$#" -eq 1 ]; then
-        echo -e $1
-    elif [ "$2" = "GREEN" ]; then
-        echo -e "${GREEN}$1${NC}"
-    elif [ "$2" = "RED" ]; then
-        echo -e "${RED}$1${NC}"
+        echo -e "$message"
+    elif [ "$color" = "GREEN" ]; then
+        echo -e "${GREEN}$message${NC}"
+    elif [ "$color" = "RED" ]; then
+        echo -e "${RED}$message${NC}"
+    elif [ "$color" = "YELLOW" ]; then
+        echo -e "${YELLOW}$message${NC}"
+    else
+        colorful-echo "Unsupported color. Defaulting to no color." "YELLOW"
+        echo -e "$message"
     fi
 }
 

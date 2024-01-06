@@ -1,24 +1,29 @@
 #!/usr/bin/env bash
 
-if [ ! $# -eq 1 ]
-then
-    colorful-echo "You should pass the PORT" "RED"
-    colorful-echo "e.g. kill-process-on-port 3000" "RED"
-    exit 1
-fi
+usage() {
+    echo "Usage: $0 <PORT>"
+    echo "Example: $0 3000"
+}
 
-port=$1
+main() {
+    if [ "$#" -ne 1 ]; then
+        colorful-echo "You should pass the PORT" "RED"
+        usage
+        exit 1
+    fi
 
-open_files=$(lsof -t -i:$port)
-if [ -z "$open_files" ]
-then
-    colorful-echo "No PORT running on $port" "RED"
-    exit 1
-fi
+    local port="$1"
+    local open_files=$(lsof -t -i:$port)
 
-kill_open_files_command="kill -9 $open_files"
-eval $kill_open_files_command
+    if [ -z "$open_files" ]; then
+        colorful-echo "No process running on port $port" "RED"
+        exit 1
+    fi
 
-colorful-echo "Process on port '$port' was killed successfully" "GREEN"
+    local kill_open_files_command="kill -9 $open_files"
+    eval "$kill_open_files_command"
 
-exit 0
+    colorful-echo "Process on port '$port' was killed successfully" "GREEN"
+}
+
+main "$@"

@@ -86,8 +86,26 @@ nnoremap("<C-Down>", ":resize -3<CR>")
 -- Tmux
 nnoremap("<C-f>", "<cmd>!tmux neww tmux-sessionizer<CR>")
 
+local telescope = require("telescope.builtin")
+
 -- Telescope
-nnoremap("<C-p>", require("user.telescope").find_files)
+nnoremap("<C-p>", telescope.find_files)
+nnoremap("<leader>fw", function()
+    local word = vim.fn.expand("<cword>")
+    telescope.grep_string({ search = word })
+end)
+nnoremap("<leader>fW", function()
+    local word = vim.fn.expand("<cWORD>")
+    telescope.grep_string({ search = word })
+end)
+-- nnoremap("<leader>fw", function()
+--     local word = vim.fn.expand("<cword>")
+--     telescope.live_grep({ default_text = word })
+-- end)
+-- nnoremap("<leader>fW", function()
+--     local word = vim.fn.expand("<cWORD>")
+--     telescope.live_grep({ default_text = word })
+-- end)
 
 -- Nvim-tree
 nnoremap("<C-b>", ":NvimTreeToggle<CR>")
