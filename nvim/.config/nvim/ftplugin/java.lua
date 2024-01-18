@@ -70,7 +70,16 @@ local config = {
         "-data",
         java_path .. "/jdt-language-server/workspace/folder",
     },
-    on_attach = require("user.lsp").on_attach,
+    on_attach = function(client, bufnr)
+        if client.name == "jdt.ls" then
+            vim.lsp.codelens.refresh()
+            if JAVA_DAP_ACTIVE then
+                require("jdtls").setup_dap({ hotcodereplace = "auto" })
+                require("jdtls.dap").setup_dap_main_class_configs()
+            end
+        end
+    end,
+
     capabilities = capabilities,
     -- This is the default if not provided, you can remove it. Or adjust as needed.
     -- One dedicated LSP server & client will be started per unique root_dir
@@ -167,7 +176,7 @@ if not which_key_status_ok then
 end
 
 local opts = {
-    mode = "n", -- NORMAL mode
+    mode = "n",  -- NORMAL mode
     prefix = "<leader>",
     buffer = nil, -- Global mappings. Specify a buffer number for buffer local mappings
     silent = true, -- use `silent` when creating keymaps
@@ -176,7 +185,7 @@ local opts = {
 }
 
 local vopts = {
-    mode = "v", -- VISUAL mode
+    mode = "v",  -- VISUAL mode
     prefix = "<leader>",
     buffer = nil, -- Global mappings. Specify a buffer number for buffer local mappings
     silent = true, -- use `silent` when creating keymaps
