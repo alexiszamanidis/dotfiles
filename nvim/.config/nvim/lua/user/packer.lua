@@ -71,9 +71,6 @@ return packer.startup(function(use)
     -- COLORSCHME
     use({ "Mofiqul/dracula.nvim" })
 
-    -- TabNine
-    use({ "tzachar/cmp-tabnine", run = "./install.sh" })
-
     -- Telescope
     use({ "nvim-telescope/telescope.nvim", tag = "0.1.5" })
 
@@ -130,7 +127,7 @@ return packer.startup(function(use)
 
     -- DAP
     use({ "mfussenegger/nvim-dap" })
-    use({ "rcarriga/nvim-dap-ui" })
+    use({ "rcarriga/nvim-dap-ui", requires = { "nvim-neotest/nvim-nio" } })
     use({ "ravenxrz/DAPInstall.nvim" })
 
     -- AI
