@@ -1,43 +1,63 @@
 #!/usr/bin/env bash
 
-# default values
-v=false # v: update vscode extensions
+# set default values
+v=false  # v: update vscode extensions
 
-# iterate through user input arguments
-while getopts :v options; do
-    echo ${options}
-    case $options in
-        v) v=true ;;
-        ?)
-            echo "Usage [-v]"
-            exit 1 ;;
-    esac
-done
+update_and_upgrade() {
+    colorful-echo "Updating package lists" "YELLOW"
+    sudo apt-get update -y
+    colorful-echo "Upgrading packages" "YELLOW"
+    sudo apt-get upgrade -y
+    colorful-echo "Performing distribution upgrade" "YELLOW"
+    sudo apt-get dist-upgrade -y
+}
 
-colorful-echo "Updating and Upgrading" "GREEN"
-sudo apt-get update -y
-sudo apt-get upgrade -y
-sudo apt-get dist-upgrade -y
+update_vscode_extensions() {
+    colorful-echo "Listing installed VSCode extensions" "YELLOW"
+    while read -r extension; do
+        colorful-echo "Updating $extension" "YELLOW"
+        code --install-extension "$extension" --force
+    done < <(code --list-extensions)
+}
 
-if [ "$v" = true ] ; then
-    colorful-echo "Updating VSCODE extensions" "GREEN"
-    code --list-extensions |
-    while read extension;
-    do
-        colorful-echo "Updating $extension" "GREEN"
-        code --install-extension $extension --force
+clean_up() {
+    colorful-echo "Cleaning cache" "YELLOW"
+    sudo apt-get clean -y
+    sudo apt-get autoclean -y
+
+    colorful-echo "Removing unnecessary packages" "YELLOW"
+    sudo apt-get autoremove -y
+
+    colorful-echo "Emptying trash for user and root" "YELLOW"
+    trash-empty
+}
+
+display_usage() {
+    echo "Usage: [-v]"
+    exit 1
+}
+
+main() {
+    while getopts ":v" option; do
+        case $option in
+            v)
+                v=true
+                ;;
+            \?)
+                display_usage
+                ;;
+        esac
     done
-fi
 
-# clean up
-colorful-echo "Cleaning Cache" "GREEN"
-sudo apt-get clean -y
-sudo apt-get autoclean -y
+    update_and_upgrade
 
-colorful-echo "Removing Unnecessary Packages" "GREEN"
-sudo apt-get autoremove -y
+    if [ "$v" = true ]; then
+        update_vscode_extensions
+    fi
 
-colorful-echo "Cleaning user and root trash" "GREEN"
-trash-empty
+    clean_up
 
-exit 0
+    colorful-echo "Script execution complete" "GREEN"
+}
+
+main "$@"

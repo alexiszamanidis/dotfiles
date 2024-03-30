@@ -5,7 +5,7 @@ usage() {
     echo "Example: $0 file1 file2"
 }
 
-swap() {
+main() {
     if [ "$#" -ne 2 ]; then
         colorful-echo "You should pass 2 files" "RED"
         usage
@@ -17,4 +17,4 @@ swap() {
     colorful-echo "Files '$1' and '$2' successfully swapped" "GREEN"
 }
 
-swap "$@"
+main "$@"
