@@ -6,15 +6,37 @@ usage() {
 }
 
 main() {
+    # check if two arguments are provided
     if [ "$#" -ne 2 ]; then
-        colorful-echo "You should pass 2 files" "RED"
+        colorful-echo "Error: You should pass 2 files" "RED"
         usage
         exit 1
     fi
 
-    local TMPFILE=tmp.$$
-    mv "$1" $TMPFILE && mv "$2" "$1" && mv $TMPFILE "$2"
-    colorful-echo "Files '$1' and '$2' successfully swapped" "GREEN"
+    local file1="$1"
+    local file2="$2"
+
+    # check if both files exist
+    if [ ! -e "$file1" ]; then
+        colorful-echo "Error: File '$file1' does not exist" "RED"
+        exit 1
+    fi
+
+    if [ ! -e "$file2" ]; then
+        colorful-echo "Error: File '$file2' does not exist" "RED"
+        exit 1
+    fi
+
+    # swap files
+    local tmp_file="tmp.$$"
+    mv "$file1" "$tmp_file" && mv "$file2" "$file1" && mv "$tmp_file" "$file2"
+
+    # check if files were swapped successfully
+    if [ $? -eq 0 ]; then
+        colorful-echo "Files '$file1' and '$file2' successfully swapped" "GREEN"
+    else
+        colorful-echo "Error: Failed to swap files" "RED"
+    fi
 }
 
 main "$@"
