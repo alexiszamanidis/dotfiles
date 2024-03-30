@@ -113,6 +113,9 @@ return packer.startup(function(use)
             { "hrsh7th/cmp-nvim-lsp" },
             { "hrsh7th/cmp-nvim-lua" },
 
+            -- Fidget
+            { "j-hui/fidget.nvim" },
+
             -- Snippets
             { "L3MON4D3/LuaSnip" },
             { "rafamadriz/friendly-snippets" },
