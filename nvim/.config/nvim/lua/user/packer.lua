@@ -134,7 +134,23 @@ return packer.startup(function(use)
     use({ "ravenxrz/DAPInstall.nvim" })
 
     -- AI
-    use({ "Exafunction/codeium.vim" })
+    use({
+        "Exafunction/codeium.vim",
+        config = function()
+            vim.keymap.set("i", "<C-g>", function()
+                return vim.fn["codeium#Accept"]()
+            end, { expr = true, silent = true })
+            vim.keymap.set("i", "<C-j>", function()
+                return vim.fn["codeium#CycleCompletions"](1)
+            end, { expr = true, silent = true })
+            vim.keymap.set("i", "<C-k>", function()
+                return vim.fn["codeium#CycleCompletions"](-1)
+            end, { expr = true, silent = true })
+            vim.keymap.set("i", "<C-x>", function()
+                return vim.fn["codeium#Clear"]()
+            end, { expr = true, silent = true })
+        end,
+    })
 
     -- Automatically set up your configuration after cloning packer.nvim
     -- Put this at the end after all plugins
