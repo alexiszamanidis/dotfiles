@@ -1,3 +1,5 @@
+bindkey -e
+
 # tmux
 bindkey -s ^f "tmux-sessionizer\n"
 

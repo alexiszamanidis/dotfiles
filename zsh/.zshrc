@@ -20,6 +20,7 @@ plugins=(
     zsh-syntax-highlighting
     zsh-z
     zsh-git-fzf
+    zsh-fzf-history-search
 )
 
 source $ZSH/oh-my-zsh.sh
