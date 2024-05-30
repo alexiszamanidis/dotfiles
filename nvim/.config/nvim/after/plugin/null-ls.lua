@@ -16,10 +16,10 @@ null_ls.setup({
     debug = false,
     sources = {
         formatting.stylua, -- Lua
-        formatting.beautysh, -- Bash, Zsh
+        require("none-ls.formatting.beautysh"), -- Bash, Zsh
         diagnostics.codespell, -- Codespell
-        diagnostics.eslint, -- javascript etc
-        code_actions.eslint, -- javascript etc
+        require("none-ls.diagnostics.eslint"), -- JavaScript etc
+        require("none-ls.code_actions.eslint"), -- JavaScript etc
         formatting.prettier, -- javascript etc
         formatting.google_java_format, -- java
     },

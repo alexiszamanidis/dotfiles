@@ -123,7 +123,7 @@ return packer.startup(function(use)
     })
 
     -- Formatters and linters
-    use({ "jose-elias-alvarez/null-ls.nvim" })
+    use({ "nvimtools/none-ls.nvim", requires = { "nvimtools/none-ls-extras.nvim" } })
 
     -- Java
     use({ "mfussenegger/nvim-jdtls" })
