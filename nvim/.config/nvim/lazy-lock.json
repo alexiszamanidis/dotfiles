@@ -1,5 +1,14 @@
 {
-  "lazy.nvim": { "branch": "main", "commit": "eab487c2520f0fe9e54eb5e3ea0606e20512492e" },
-  "plenary.nvim": { "branch": "master", "commit": "a3e3bc82a3f95c5ed0d7201546d5d2c19b20d683" },
-  "telescope.nvim": { "branch": "master", "commit": "d90956833d7c27e73c621a61f20b29fdb7122709" }
+    "lazy.nvim": {
+        "branch": "main",
+        "commit": "eab487c2520f0fe9e54eb5e3ea0606e20512492e"
+    },
+    "plenary.nvim": {
+        "branch": "master",
+        "commit": "a3e3bc82a3f95c5ed0d7201546d5d2c19b20d683"
+    },
+    "telescope.nvim": {
+        "branch": "master",
+        "commit": "d90956833d7c27e73c621a61f20b29fdb7122709"
+    }
 }
