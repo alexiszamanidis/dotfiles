@@ -1,4 +1,4 @@
-require('options')
-require('keymaps')
-require('lazy_init')
-require('misc')
+require("options")
+require("keymaps")
+require("lazy_init")
+require("misc")
