@@ -105,6 +105,7 @@ return packer.startup(function(use)
             { "neovim/nvim-lspconfig" },
             { "williamboman/mason.nvim" },
             { "williamboman/mason-lspconfig.nvim" },
+            { "jay-babu/mason-null-ls.nvim" },
 
             -- Autocompletion
             { "hrsh7th/nvim-cmp" },

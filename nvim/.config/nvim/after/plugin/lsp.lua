@@ -23,15 +23,22 @@ local cmp_mappings = lsp.defaults.cmp_mappings({
 -- cmp_mappings["<Tab>"] = nil
 -- cmp_mappings["<S-Tab>"] = nil
 
-local cmp = require("cmp")
-local cmp_action = lsp.cmp_action()
-
 cmp.setup({
     mapping = cmp_mappings,
 })
 
 require("fidget").setup({})
 require("mason").setup({})
+require("mason-null-ls").setup({
+    ensure_installed = {
+        "beautysh",
+        "codespell",
+        "eslint",
+        "prettier",
+        "google_java_format",
+        "black",
+    },
+})
 require("mason-lspconfig").setup({
     -- Replace the language servers listed here
     -- with the ones you want to install
@@ -46,6 +53,7 @@ require("mason-lspconfig").setup({
         "bashls",
         "prismals",
         "jdtls",
+        "pylsp",
     },
     handlers = {
         lsp.default_setup,

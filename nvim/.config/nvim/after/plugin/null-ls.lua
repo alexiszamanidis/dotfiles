@@ -22,6 +22,7 @@ null_ls.setup({
         require("none-ls.code_actions.eslint"), -- JavaScript etc
         formatting.prettier, -- javascript etc
         formatting.google_java_format, -- java
+        formatting.black, -- java
     },
     -- you can reuse a shared lspconfig on_attach callback here
     on_attach = function(client, bufnr)
