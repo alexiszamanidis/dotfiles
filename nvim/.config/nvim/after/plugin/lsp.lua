@@ -33,7 +33,7 @@ require("mason-null-ls").setup({
     ensure_installed = {
         "beautysh",
         "codespell",
-        "eslint",
+        "eslint_d",
         "prettier",
         "google_java_format",
         "black",
@@ -48,6 +48,7 @@ require("mason-lspconfig").setup({
         "html",
         "jsonls",
         "tsserver",
+        "eslint",
         "lua_ls",
         "yamlls",
         "bashls",
