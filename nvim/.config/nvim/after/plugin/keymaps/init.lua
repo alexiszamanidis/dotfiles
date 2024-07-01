@@ -119,4 +119,3 @@ vnoremap("<C-_>", "<esc><cmd>lua require('Comment.api').toggle.linewise(vim.fn.v
 nnoremap("<leader><leader>", function()
     vim.cmd("so")
 end)
-
