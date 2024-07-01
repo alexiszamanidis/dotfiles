@@ -73,7 +73,7 @@ return packer.startup(function(use)
     use({ "Mofiqul/dracula.nvim" })
 
     -- Telescope
-    use({ "nvim-telescope/telescope.nvim", tag = "0.1.5" })
+    use({ "nvim-telescope/telescope.nvim" })
 
     -- Treesitter
     use({
