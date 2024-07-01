@@ -54,6 +54,7 @@ return packer.startup(function(use)
     use({ "nvim-lualine/lualine.nvim" })
     use({ "kyazdani42/nvim-tree.lua" })
     use({ "laytan/cloak.nvim" })
+    use({ "folke/trouble.nvim" })
 
     -- UTILITIES
     use({ "lewis6991/impatient.nvim" })

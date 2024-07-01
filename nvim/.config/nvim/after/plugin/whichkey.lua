@@ -31,7 +31,6 @@ local mappings = {
         f = { "<cmd>lua vim.lsp.buf.format({ async = true })<cr>", "Format" },
         F = { "<cmd>LspToggleAutoFormat<cr>", "Toggle Autoformat" },
         r = { "<cmd>lua vim.lsp.buf.rename()<cr>", "Rename" },
-        R = { "<cmd>TroubleToggle lsp_references<cr>", "References" },
     },
     s = {
         name = "Tabs",
@@ -61,6 +60,14 @@ local mappings = {
         l = { "<cmd>lua require'dap'.run_last()<cr>", "Last" },
         u = { "<cmd>lua require'dapui'.toggle()<cr>", "UI" },
         x = { "<cmd>lua require'dap'.terminate()<cr>", "Exit" },
+    },
+    t = {
+        name = "Trouble",
+        x = { "<cmd>Trouble diagnostics toggle focus filter.buf=0<cr>", "Toggle" },
+        w = { "<cmd>Trouble diagnostics toggle focus<cr>", "Workspace Diagnostics" },
+        d = { "<cmd>Trouble diagnostics toggle focus filter.buf=0<cr>", "Toggle" },
+        q = { "<cmd>Trouble qflist toggle<cr>", "Quickfix" },
+        l = { "<cmd>Trouble loclist toggle<cr>", "Loclist" },
     },
     b = {
         name = "Background",
