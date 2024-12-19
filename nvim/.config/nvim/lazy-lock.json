@@ -1,0 +1,5 @@
+{
+  "LazyVim": { "branch": "main", "commit": "a3a28bf8e43f7239316942c2f2bac6e74b28586b" },
+  "dracula.nvim": { "branch": "main", "commit": "515acae4fd294fcefa5b15237a333c2606e958d1" },
+  "lazy.nvim": { "branch": "main", "commit": "7e6c863bc7563efbdd757a310d17ebc95166cef3" }
+}
