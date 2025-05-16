@@ -248,6 +248,8 @@ bindsym XF86AudioPrev exec playerctl previous
 
 # STARTUP
 
+# disable touchpad
+exec_always "synclient TouchpadOff=1"
 # switch language(us, gr): ALT+SHIFT
 exec_always "setxkbmap -model pc104 -layout us,gr -variant ,, -option grp:alt_shift_toggle"
 # smooth switching
