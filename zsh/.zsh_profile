@@ -1,7 +1,7 @@
 VIM="nvim"
 
 export DOTFILES=$HOME/dotfiles
-export STOW_FOLDERS="bin,bash,docker,dunst,git,i3,compton,kitty,tmux,nvim,rofi,zsh,work"
+export STOW_FOLDERS="bin,bash,docker,dunst,git,i3,compton,kitty,tmux,nvim,rofi,zsh"
 export EDITOR=$VIM
 export ZSH_GIT_FZF_REMOVE_STALLED_BRANCHES="true"
 
@@ -47,7 +47,7 @@ declare -a dotfiles=(
     ".bash_aliases"
     ".docker_aliases"
     ".git_aliases"
-    "work/.work_aliases"
+    ".work_aliases"
 )
 # source global aliases
 for dotfile in "${dotfiles[@]}"
