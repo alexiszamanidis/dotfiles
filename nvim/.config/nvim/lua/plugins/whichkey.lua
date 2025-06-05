@@ -203,7 +203,6 @@ return {
                 },
             }
 
-
             local opts = { prefix = "<leader>" }
             require("which-key").add(mappings, opts)
         end,
