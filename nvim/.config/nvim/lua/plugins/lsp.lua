@@ -38,7 +38,7 @@ return {
                 "cssmodules_ls",
                 "html",
                 "jsonls",
-                "tsserver",
+                "ts_ls",
                 "lua_ls",
                 "yamlls",
                 "bashls",
