@@ -28,7 +28,12 @@ return {
         require("fidget").setup({})
         require("mason").setup()
         -- Install all Linters
-        require("mason-nvim-lint").setup()
+        require("mason-nvim-lint").setup({
+            ensure_installed = {
+                "ansible_lint",
+                "yamllint",
+            },
+        })
         -- Install all Formatters
         require("mason-conform").setup()
         -- Install all LSP
