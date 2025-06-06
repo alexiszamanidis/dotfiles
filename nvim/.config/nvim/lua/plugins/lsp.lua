@@ -13,6 +13,17 @@ return {
         "L3MON4D3/LuaSnip",
         "saadparwaiz1/cmp_luasnip",
         "j-hui/fidget.nvim",
+        {
+            "folke/lazydev.nvim",
+            ft = "lua", -- only load on lua files
+            opts = {
+                library = {
+                    -- See the configuration section for more details
+                    -- Load luvit types when the `vim.uv` word is found
+                    { path = "${3rd}/luv/library", words = { "vim%.uv" } },
+                },
+            },
+        },
     },
 
     config = function()
@@ -34,11 +45,15 @@ return {
                 "yamllint",
                 "shellcheck",
             },
+            ignore_install = {},
+            automatic_installation = true,
+            quiet_mode = false,
         })
         -- Install all Formatters
         require("mason-conform").setup()
         -- Install all LSP
         require("mason-lspconfig").setup({
+            automatic_enable = true,
             ensure_installed = {
                 "cssls",
                 "cssmodules_ls",
@@ -55,20 +70,6 @@ return {
                 function(server_name) -- default handler (optional)
                     require("lspconfig")[server_name].setup({
                         capabilities = capabilities,
-                    })
-                end,
-
-                ["lua_ls"] = function()
-                    local lspconfig = require("lspconfig")
-                    lspconfig.lua_ls.setup({
-                        capabilities = capabilities,
-                        settings = {
-                            Lua = {
-                                diagnostics = {
-                                    globals = { "vim", "it", "describe", "before_each", "after_each" },
-                                },
-                            },
-                        },
                     })
                 end,
             },
@@ -103,7 +104,7 @@ return {
                 focusable = false,
                 style = "minimal",
                 border = "rounded",
-                source = "always",
+                source = true,
                 header = "",
                 prefix = "",
             },
