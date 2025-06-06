@@ -32,6 +32,7 @@ return {
             ensure_installed = {
                 "ansible_lint",
                 "yamllint",
+                "shellcheck",
             },
         })
         -- Install all Formatters
