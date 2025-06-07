@@ -10,7 +10,7 @@ return {
 
             local function select_background(prompt_bufnr, map)
                 local function set_the_background(close)
-                    local content = require("telescope.actions.state").get_selected_entry(prompt_bufnr)
+                    local content = require("telescope.actions.state").get_selected_entry()
                     set_background(content.cwd .. "/" .. content.value)
                     if close then
                         require("telescope.actions").close(prompt_bufnr)
