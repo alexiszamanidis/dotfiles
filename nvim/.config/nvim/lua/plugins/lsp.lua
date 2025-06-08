@@ -109,5 +109,40 @@ return {
                 prefix = "",
             },
         })
+
+        local mappings = {
+            {
+                "<leader>la",
+                "<cmd>lua vim.lsp.buf.code_action()<cr>",
+                desc = "Code Action",
+            },
+            {
+                "<leader>li",
+                "<cmd>LspInfo<cr>",
+                desc = "Info",
+            },
+            {
+                "<leader>lf",
+                "<cmd>lua vim.lsp.buf.format({ async = true })<cr>",
+                desc = "Format",
+            },
+            {
+                "<leader>lF",
+                "<cmd>LspToggleAutoFormat<cr>",
+                desc = "Toggle Autoformat",
+            },
+            {
+                "<leader>lr",
+                "<cmd>lua vim.lsp.buf.rename()<cr>",
+                desc = "Rename",
+            },
+            {
+                "<leader>lR",
+                "<cmd>TroubleToggle lsp_references<cr>",
+                desc = "References",
+            },
+        }
+
+        require("which-key").add(mappings)
     end,
 }
