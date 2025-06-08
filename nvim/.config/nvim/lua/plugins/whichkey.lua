@@ -62,38 +62,6 @@ return {
                     desc = "Diff Close",
                 },
 
-                -- Find mappings
-                {
-                    "<leader>ff",
-                    "<cmd>Telescope find_files<cr>",
-                    desc = "Find files",
-                },
-                {
-                    "<leader>fg",
-                    "<cmd>Telescope live_grep<cr>",
-                    desc = "Find text in files",
-                },
-                {
-                    "<leader>fb",
-                    "<cmd>Telescope buffers<cr>",
-                    desc = "Find buffers",
-                },
-                {
-                    "<leader>ft",
-                    "<cmd>Telescope help_tags<cr>",
-                    desc = "Find tags",
-                },
-                {
-                    "<leader>fr",
-                    "<cmd>Telescope resume<cr>",
-                    desc = "Last search",
-                },
-                {
-                    "<leader>fd",
-                    "<cmd>Telescope diagnostics<cr>",
-                    desc = "Find diagnostics",
-                },
-
                 -- LSP mappings
                 {
                     "<leader>la",
@@ -203,8 +171,7 @@ return {
                 },
             }
 
-            local opts = { prefix = "<leader>" }
-            require("which-key").add(mappings, opts)
+            require("which-key").add(mappings)
         end,
     },
 }

@@ -1,8 +1,11 @@
 return {
     {
         "nvim-telescope/telescope.nvim",
-        tag = "0.1.5",
-        dependencies = { "nvim-lua/plenary.nvim" },
+        tag = "0.1.8",
+        dependencies = {
+            "nvim-lua/plenary.nvim",
+            { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
+        },
         config = function()
             require("telescope").setup({
                 defaults = {
@@ -41,16 +44,55 @@ return {
             })
 
             local builtin = require("telescope.builtin")
-            vim.keymap.set("n", "<C-p>", builtin.find_files)
-            vim.keymap.set("n", "<leader>fg", builtin.live_grep)
-            vim.keymap.set("n", "<leader>fw", function()
-                local word = vim.fn.expand("<cword>")
-                builtin.grep_string({ search = word })
-            end)
-            vim.keymap.set("n", "<leader>fW", function()
-                local word = vim.fn.expand("<cWORD>")
-                builtin.grep_string({ search = word })
-            end)
+
+            local mappings = {
+                -- Find mappings
+                {
+                    "<C-p>",
+                    builtin.find_files,
+                    desc = "Find files",
+                },
+                {
+                    "<leader>ff",
+                    builtin.find_files,
+                    desc = "Find files",
+                },
+                {
+                    "<leader>fg",
+                    builtin.live_grep,
+                    desc = "Find text in files",
+                },
+                {
+                    "<leader>fb",
+                    builtin.buffers,
+                    desc = "Find buffers",
+                },
+                {
+                    "<leader>ft",
+                    builtin.help_tags,
+                    desc = "Find tags",
+                },
+                {
+                    "<leader>fr",
+                    builtin.resume,
+                    desc = "Last search",
+                },
+                {
+                    "<leader>fd",
+                    builtin.diagnostics,
+                    desc = "Find diagnostics",
+                },
+                {
+                    "<leader>fW",
+                    function()
+                        local word = vim.fn.expand("<cword>")
+                        builtin.grep_string({ search = word })
+                    end,
+                    desc = "Find word",
+                },
+            }
+
+            require("which-key").add(mappings)
         end,
     },
 }
