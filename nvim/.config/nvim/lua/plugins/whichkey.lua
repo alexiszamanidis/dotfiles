@@ -116,53 +116,6 @@ return {
                     desc = "Change to horizontal split",
                 },
 
-                -- Debug mappings
-                {
-                    "<leader>db",
-                    "<cmd>lua require'dap'.toggle_breakpoint()<cr>",
-                    desc = "Breakpoint",
-                },
-                {
-                    "<leader>dc",
-                    "<cmd>lua require'dap'.continue()<cr>",
-                    desc = "Continue",
-                },
-                {
-                    "<leader>di",
-                    "<cmd>lua require'dap'.step_into()<cr>",
-                    desc = "Into",
-                },
-                {
-                    "<leader>do",
-                    "<cmd>lua require'dap'.step_over()<cr>",
-                    desc = "Over",
-                },
-                {
-                    "<leader>dO",
-                    "<cmd>lua require'dap'.step_out()<cr>",
-                    desc = "Out",
-                },
-                {
-                    "<leader>dr",
-                    "<cmd>lua require'dap'.repl.toggle()<cr>",
-                    desc = "Repl",
-                },
-                {
-                    "<leader>dl",
-                    "<cmd>lua require'dap'.run_last()<cr>",
-                    desc = "Last",
-                },
-                {
-                    "<leader>du",
-                    "<cmd>lua require'dapui'.toggle()<cr>",
-                    desc = "UI",
-                },
-                {
-                    "<leader>dx",
-                    "<cmd>lua require'dap'.terminate()<cr>",
-                    desc = "Exit",
-                },
-
                 -- Background image picker
                 {
                     "<leader>bi",
