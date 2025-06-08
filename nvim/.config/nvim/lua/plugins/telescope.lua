@@ -46,7 +46,6 @@ return {
             local builtin = require("telescope.builtin")
 
             local mappings = {
-                -- Find mappings
                 {
                     "<C-p>",
                     builtin.find_files,

@@ -50,18 +50,6 @@ return {
                     desc = "Replace word",
                 },
 
-                -- Git mappings
-                {
-                    "<leader>gd",
-                    ":DiffviewOpen<cr>",
-                    desc = "Diff",
-                },
-                {
-                    "<leader>gdc",
-                    ":DiffviewClose<cr>",
-                    desc = "Diff Close",
-                },
-
                 -- LSP mappings
                 {
                     "<leader>la",

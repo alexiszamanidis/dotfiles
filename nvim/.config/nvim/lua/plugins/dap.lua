@@ -25,7 +25,6 @@ return {
         end
 
         local mappings = {
-            -- Debug mappings
             {
                 "<leader>db",
                 "<cmd>lua require'dap'.toggle_breakpoint()<cr>",
