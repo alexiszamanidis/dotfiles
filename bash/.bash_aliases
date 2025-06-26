@@ -18,7 +18,7 @@ alias l-size="ls -laSh"
 alias grep="grep --color=auto"
 
 ## override
-# alias cat="bat"
+alias cat="bat --paging=never --style=plain"
 alias vim="$VIM"
 
 ## other aliases
