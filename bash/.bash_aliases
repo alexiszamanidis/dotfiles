@@ -26,10 +26,6 @@ alias c="clear"
 alias open="xdg-open $1"
 alias find-file="find . -name $1"
 
-# this alias is used to open settings on i3wm
-# TODO: is there a better way to do this?
-alias settings="env XDG_CURRENT_DESKTOP=GNOME gnome-control-center"
-
 add_to_path() {
     if [[ "$PATH" != *"$1"* ]]; then
         export PATH=$1:$PATH
