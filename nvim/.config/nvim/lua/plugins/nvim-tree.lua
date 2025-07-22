@@ -2,6 +2,9 @@ return {
     {
         "kyazdani42/nvim-tree.lua",
         event = "VeryLazy",
+        keys = {
+            { "<C-b>", ":NvimTreeToggle<CR>" },
+        },
         config = function()
             require("nvim-tree").setup({
                 hijack_directories = {
@@ -85,8 +88,6 @@ return {
                     relativenumber = false,
                 },
             })
-
-            vim.keymap.set("n", "<C-b>", ":NvimTreeToggle<CR>")
         end,
     },
 }

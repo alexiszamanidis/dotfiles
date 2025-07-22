@@ -1,7 +1,6 @@
 return {
     {
         "numToStr/Comment.nvim",
-        opts = {},
         config = function()
             -- Comment with 'Ctrl-/'
             vim.api.nvim_set_keymap(
