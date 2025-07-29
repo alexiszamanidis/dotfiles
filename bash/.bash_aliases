@@ -23,6 +23,7 @@ alias vim="$VIM"
 
 ## other aliases
 alias c="clear"
+alias cc="c && printf '\e[3J'"
 alias open="xdg-open $1"
 alias find-file="find . -name $1"
 
