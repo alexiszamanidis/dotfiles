@@ -1,32 +1,29 @@
-## cd aliases
+# Directory navigation
 alias ..="cd .."
-alias ...="cd ../../../"
-alias ....="cd ../../../../"
-alias .....="cd ../../../../"
-alias .2="cd ../../"
-alias .3="cd ../../../"
-alias .4="cd ../../../../"
-alias .5="cd ../../../../.."
+alias ...="cd ../.."
+alias ....="cd ../../.."
+alias .....="cd ../../../.."
 
-## ls aliases
+# List commands
 alias ls="ls --color=auto"
-alias ll="ls -la"
+alias ll="ls -lah"
 alias l.="ls -d .* --color=auto"
-alias l-size="ls -laSh"
+alias lsize="ls -laSh"
 
-## grep aliases
+# Grep with color
 alias grep="grep --color=auto"
 
-## override
+# Use bat for cat
 alias cat="bat --paging=never --style=plain"
+# Use $VIM for vim
 alias vim="$VIM"
 
-## other aliases
+# Miscellaneous
 alias c="clear"
-alias cc="c && printf '\e[3J'"
-alias open="xdg-open $1"
-alias find-file="find . -name $1"
+alias cc="clear && printf '\e[3J'"
+alias open="xdg-open"
 
+# Add to PATH if not already present
 add_to_path() {
     if [[ "$PATH" != *"$1"* ]]; then
         export PATH=$1:$PATH

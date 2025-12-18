@@ -1,14 +1,17 @@
 #!/usr/bin/env bash
 
+
+# Print usage information
 usage() {
     echo "Usage: $0 <FILE1> <FILE2>"
     echo "Example: $0 file1 file2"
 }
 
+
+# Main logic for swapping two files
 main() {
-    # check if two arguments are provided
     if [ "$#" -ne 2 ]; then
-        colorful-echo "Error: You should pass 2 files" "RED"
+        colorful-echo "Error: You must provide exactly 2 files." "RED"
         usage
         exit 1
     fi
@@ -16,26 +19,29 @@ main() {
     local file1="$1"
     local file2="$2"
 
-    # check if both files exist
-    if [ ! -e "$file1" ]; then
-        colorful-echo "Error: File '$file1' does not exist" "RED"
+    if [[ ! -e "$file1" ]]; then
+        colorful-echo "Error: File '$file1' does not exist." "RED"
+        exit 1
+    fi
+    if [[ ! -e "$file2" ]]; then
+        colorful-echo "Error: File '$file2' does not exist." "RED"
         exit 1
     fi
 
-    if [ ! -e "$file2" ]; then
-        colorful-echo "Error: File '$file2' does not exist" "RED"
+    # Use mktemp for a secure temporary file
+    local tmp_file
+    tmp_file=$(mktemp "${TMPDIR:-/tmp}/swapfiles.XXXXXX") || {
+        colorful-echo "Error: Could not create temporary file." "RED"
         exit 1
-    fi
+    }
 
-    # swap files
-    local tmp_file="tmp.$$"
-    mv "$file1" "$tmp_file" && mv "$file2" "$file1" && mv "$tmp_file" "$file2"
-
-    # check if files were swapped successfully
-    if [ $? -eq 0 ]; then
-        colorful-echo "Files '$file1' and '$file2' successfully swapped" "GREEN"
+    if mv -- "$file1" "$tmp_file" && mv -- "$file2" "$file1" && mv -- "$tmp_file" "$file2"; then
+        colorful-echo "Files '$file1' and '$file2' successfully swapped." "GREEN"
     else
-        colorful-echo "Error: Failed to swap files" "RED"
+        colorful-echo "Error: Failed to swap files." "RED"
+        # Attempt to restore original files if possible
+        [ -e "$tmp_file" ] && mv -- "$tmp_file" "$file1"
+        exit 1
     fi
 }
 

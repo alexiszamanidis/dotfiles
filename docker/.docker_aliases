@@ -10,7 +10,7 @@ alias dpa="docker ps -a"
 # Get images
 alias di="docker images"
 
-# Get container IP
+# Get container IP (requires container name/id as argument)
 alias dip="docker inspect --format '{{ .NetworkSettings.IPAddress }}'"
 
 # Run daemonized container, e.g., $dkd base /bin/echo hello
@@ -23,16 +23,16 @@ alias dki="docker run -i -t -P"
 alias dex="docker exec -i -t"
 
 # Stop all containers
-dstop() { docker stop $(docker ps -a -q); }
+alias dstop="docker stop $(docker ps -a -q)"
 
 # Remove all containers
-function drm() { docker rm $(docker ps -a -q); }
+alias drm="docker rm $(docker ps -a -q)"
 
 # Stop and Remove all containers
-alias drmf='docker stop $(docker ps -a -q) && docker rm $(docker ps -a -q)'
+alias drmf="docker stop $(docker ps -a -q) && docker rm $(docker ps -a -q)"
 
 # Remove all images
-dri() { docker rmi $(docker images -q); }
+alias dri="docker rmi $(docker images -q)"
 
 # Dockerfile build, e.g., $dbu tcnksm/test
 dbu() { docker build -t=$1 .; }

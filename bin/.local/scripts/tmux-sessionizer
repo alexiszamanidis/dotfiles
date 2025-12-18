@@ -1,33 +1,35 @@
 #!/usr/bin/env bash
 
+# Print usage if no arguments and no fzf
 if [[ $# -eq 1 ]]; then
-    # support when simply passing the current working directory or a specified path
-    selected="$1" && [[ "$selected" == '.' ]] && selected="$PWD"
+    # If a path is provided, use it; if '.', use $PWD
+    selected="$1"
+    [[ "$selected" == '.' ]] && selected="$PWD"
 else
-    selected=$(find ~/ ~/personal-projects $WORK_DIRECTORIES -mindepth 1 -maxdepth 1 -type d | fzf --no-preview)
+    selected=$(find ~/ ~/personal-projects $WORK_DIRECTORIES -mindepth 1 -maxdepth 1 -type d 2>/dev/null | fzf --no-preview)
 fi
 
-if [[ -z $selected ]]; then
+if [[ -z "$selected" ]]; then
     exit 0
 fi
 
-selected_name=$(basename "$selected" | tr . _)
+selected_name=$(basename -- "$selected" | tr . _)
 tmux_running=$(pgrep tmux)
 
 if [ -z "$tmux_running" ]; then
-    tmux new-session -s $selected_name -c $selected
+    tmux new-session -s "$selected_name" -c "$selected"
     exit 0
 fi
 
 if [ -z "$TMUX" ]; then
-    tmux new-session -A -s $selected_name -c $selected
+    tmux new-session -A -s "$selected_name" -c "$selected"
     exit 0
 fi
 
-if ! tmux has-session -t=$selected_name 2> /dev/null; then
-    tmux new-session -ds $selected_name -c $selected
+if ! tmux has-session -t="$selected_name" 2>/dev/null; then
+    tmux new-session -ds "$selected_name" -c "$selected"
 fi
 
-tmux switch-client -t $selected_name
+tmux switch-client -t "$selected_name"
 
 exit 0

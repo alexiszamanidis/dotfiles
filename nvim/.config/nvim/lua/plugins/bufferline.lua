@@ -35,7 +35,7 @@ return {
                     --   end
                     -- end,
                     max_name_length = 30,
-                    max_prefix_length = 30, -- prefix used when a buffer is de-duplicated
+                    max_prefix_length = 30,
                     tab_size = 21,
                     diagnostics = false, -- | "nvim_lsp" | "coc",
                     diagnostics_update_in_insert = false,
@@ -117,18 +117,6 @@ return {
                         bg = { attribute = "bg", highlight = "Normal" },
                     },
 
-                    duplicate_selected = {
-                        fg = { attribute = "fg", highlight = "TabLineSel" },
-                        bg = { attribute = "bg", highlight = "TabLineSel" },
-                    },
-                    duplicate_visible = {
-                        fg = { attribute = "fg", highlight = "TabLine" },
-                        bg = { attribute = "bg", highlight = "TabLine" },
-                    },
-                    duplicate = {
-                        fg = { attribute = "fg", highlight = "TabLine" },
-                        bg = { attribute = "bg", highlight = "TabLine" },
-                    },
 
                     modified = {
                         fg = { attribute = "fg", highlight = "TabLine" },

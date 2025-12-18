@@ -1,29 +1,42 @@
 #!/usr/bin/env bash
 
+
+# Print usage information
 usage() {
     echo "Usage: $0 <PORT>"
     echo "Example: $0 3000"
 }
 
+
+# Main logic for killing process on a port
 main() {
     if [ "$#" -ne 1 ]; then
-        colorful-echo "You should pass the PORT" "RED"
+        colorful-echo "Error: You must provide a port number." "RED"
         usage
         exit 1
     fi
 
     local port="$1"
-    local open_files=$(lsof -t -i:$port)
-
-    if [ -z "$open_files" ]; then
-        colorful-echo "No process running on port $port" "RED"
+    if ! [[ "$port" =~ ^[0-9]+$ ]]; then
+        colorful-echo "Error: Port must be a number." "RED"
+        usage
         exit 1
     fi
 
-    local kill_open_files_command="kill -9 $open_files"
-    eval "$kill_open_files_command"
+    local open_files
+    open_files=$(lsof -t -i:"$port")
 
-    colorful-echo "Process on port '$port' was killed successfully" "GREEN"
+    if [ -z "$open_files" ]; then
+        colorful-echo "No process running on port $port." "YELLOW"
+        exit 0
+    fi
+
+    if kill -9 $open_files 2>/dev/null; then
+        colorful-echo "Process(es) on port '$port' killed successfully." "GREEN"
+    else
+        colorful-echo "Error: Failed to kill process(es) on port $port." "RED"
+        exit 1
+    fi
 }
 
 main "$@"

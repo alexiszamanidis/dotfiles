@@ -34,7 +34,6 @@
     ellipsize = middle
     ignore_newline = no
     stack_duplicates = true
-    hide_duplicate_count = false
     show_indicators = yes
     icon_position = left
     min_icon_size = 0

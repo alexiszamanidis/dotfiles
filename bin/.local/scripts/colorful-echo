@@ -6,15 +6,17 @@ YELLOW="\033[0;33m"
 # NC: no color
 NC="\033[0m"
 
+# Print usage information
 usage() {
     echo "Usage: $0 <MESSAGE> [COLOR]"
     echo " - COLOR: [GREEN | RED | YELLOW]"
     echo "Example: $0 'Error message' RED"
 }
 
+# Main logic for colorful echo
 main() {
     if [ "$#" -lt 1 ]; then
-        colorful-echo "You should pass a message" "RED"
+        echo "Error: You must provide a message." >&2
         usage
         exit 1
     fi
@@ -22,18 +24,13 @@ main() {
     local message="$1"
     local color="$2"
 
-    if [ "$#" -eq 1 ]; then
-        echo -e "$message"
-    elif [ "$color" = "GREEN" ]; then
-        echo -e "${GREEN}$message${NC}"
-    elif [ "$color" = "RED" ]; then
-        echo -e "${RED}$message${NC}"
-    elif [ "$color" = "YELLOW" ]; then
-        echo -e "${YELLOW}$message${NC}"
-    else
-        colorful-echo "Unsupported color. Defaulting to no color." "YELLOW"
-        echo -e "$message"
-    fi
+    case "$color" in
+        GREEN) echo -e "${GREEN}${message}${NC}" ;;
+        RED) echo -e "${RED}${message}${NC}" ;;
+        YELLOW) echo -e "${YELLOW}${message}${NC}" ;;
+        ""|NONE) echo -e "$message" ;;
+        *) echo -e "${YELLOW}Unsupported color. Defaulting to no color.${NC}\n$message" ;;
+    esac
 }
 
 main "$@"

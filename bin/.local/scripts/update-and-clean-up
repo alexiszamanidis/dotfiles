@@ -32,7 +32,7 @@ clean_up() {
     trash-empty
 }
 
-display_usage() {
+usage() {
     echo "Usage: [-v]"
     exit 1
 }
@@ -43,8 +43,8 @@ main() {
             v)
                 v=true
                 ;;
-            \?)
-                display_usage
+            *)
+                usage
                 ;;
         esac
     done

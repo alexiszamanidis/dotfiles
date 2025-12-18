@@ -160,9 +160,6 @@ for_window [class="Gimp"] move to workspace $ws6
 assign [class="Forticlientsslvpn"] $ws7
 for_window [class="Spotify"] move to workspace $ws9
 assign [class="Brave-browser"] $ws10
-# TODO: assign not working for gimp and spotify
-# assign [class="Gimp"] $ws6
-# assign [class="Spotify"] $ws9
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
@@ -257,7 +254,7 @@ exec --no-startup-id compton -f -b
 # background
 exec_always --no-startup-id ~/.fehbg
 # connect to input-leap
-exec_always --no-startup-id /usr/bin/input-leapc --disable-crypto --no-daemon 192.168.1.8:24800 
+exec_always --no-startup-id /usr/bin/input-leapc --disable-crypto --no-daemon 192.168.1.8:24800
 
 # applications
 exec --no-startup-id google-chrome-stable
