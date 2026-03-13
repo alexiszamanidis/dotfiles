@@ -250,11 +250,11 @@ bindsym XF86AudioPrev exec playerctl previous
 # switch language(us, gr): ALT+SHIFT
 exec_always "setxkbmap -model pc104 -layout us,gr -variant ,, -option grp:alt_shift_toggle"
 # smooth switching
-exec --no-startup-id compton -f -b
+exec --no-startup-id picom -b
 # background
 exec_always --no-startup-id ~/.fehbg
 # connect to input-leap
-exec_always --no-startup-id /usr/bin/input-leapc --disable-crypto --no-daemon 192.168.1.8:24800
+exec_always --no-startup-id input-leapc --disable-crypto --no-daemon 192.168.1.8:24800
 
 # applications
 exec --no-startup-id google-chrome-stable
