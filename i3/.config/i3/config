@@ -254,7 +254,7 @@ exec --no-startup-id picom -b
 # background
 exec_always --no-startup-id ~/.fehbg
 # connect to input-leap
-exec_always --no-startup-id input-leapc --disable-crypto --no-daemon 192.168.1.8:24800
+exec_always --no-startup-id input-leapc --disable-crypto --no-daemon 192.168.1.2:24800
 
 # applications
 exec --no-startup-id google-chrome-stable
