@@ -148,7 +148,10 @@ bindsym $mod+Control+Left move workspace to output right
 bindsym $mod+Control+Right move workspace to output left
 
 assign [class="Google-chrome"] $ws1
+# Both code and Code are included so it works across VS Code versions
+assign [class="code"] $ws2
 assign [class="Code"] $ws2
+assign [class="Cursor"] $ws2
 assign [class="SpringToolSuite4"] $ws2
 assign [class="jetbrains-idea-ce"] $ws2
 assign [class="kitty"] $ws3
@@ -254,7 +257,7 @@ exec --no-startup-id picom -b
 # background
 exec_always --no-startup-id ~/.fehbg
 # connect to input-leap
-exec_always --no-startup-id input-leapc --disable-crypto --no-daemon 192.168.1.2:24800
+exec_always --no-startup-id input-leapc --disable-crypto --no-daemon 192.168.1.4:24800
 
 # applications
 exec --no-startup-id google-chrome-stable
