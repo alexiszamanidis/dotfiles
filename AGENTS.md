@@ -4,17 +4,17 @@
 
 Personal dotfiles synced with [GNU Stow](https://www.gnu.org/software/stow/). Each top-level folder (`nvim/`, `i3/`, `zsh/`, etc.) mirrors paths under `$HOME` and is symlinked via `./install`.
 
-- `DOTFILES` — repo root (default: `$HOME/dotfiles`)
-- `STOW_FOLDERS` — comma-separated stow packages (defined in `install` and `zsh/.zsh_profile`)
+-   `DOTFILES` — repo root (default: `$HOME/dotfiles`)
+-   `STOW_FOLDERS` — comma-separated stow packages (defined in `install` and `zsh/.zsh_profile`)
 
 ## Commands
 
-| Action | Command |
-|--------|---------|
-| Install / restow | `./install` |
-| Unstow | `./unstow` |
-| Format | `npm ci && npm run format` |
-| Reload i3 | `i3-msg reload` |
+| Action           | Command                    |
+| ---------------- | -------------------------- |
+| Install / restow | `./install`                |
+| Unstow           | `./unstow`                 |
+| Format           | `npm ci && npm run format` |
+| Reload i3        | `i3-msg reload`            |
 
 ## Layout
 
@@ -26,11 +26,11 @@ Neovim uses lazy.nvim; plugins live in `nvim/.config/nvim/lua/plugins/`.
 
 ## Conventions
 
-- Shell scripts: `#!/usr/bin/env zsh`
-- Lua: 4-space indent (stylua), one plugin per file under `lua/plugins/`
-- i3: assign windows with `assign [class="..."] $wsN` — get the class via `xprop` (second value in `WM_CLASS`)
-- Formatting: Prettier for JS/JSON/MD etc. (excludes `*.yaml`/`*.yml`); stylua for Lua
-- New stow package: add the folder and update `STOW_FOLDERS` in both `install` and `zsh/.zsh_profile`
+-   Shell scripts: `#!/usr/bin/env zsh`
+-   Lua: 4-space indent (stylua), one plugin per file under `lua/plugins/`
+-   i3: assign windows with `assign [class="..."] $wsN` — get the class via `xprop` (second value in `WM_CLASS`)
+-   Formatting: Prettier for JS/JSON/MD etc. (excludes `*.yaml`/`*.yml`); stylua for Lua
+-   New stow package: add the folder and update `STOW_FOLDERS` in both `install` and `zsh/.zsh_profile`
 
 ## Boundaries
 
