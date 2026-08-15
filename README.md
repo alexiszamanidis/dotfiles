@@ -16,4 +16,4 @@ This repository synchronizes the configuration files that I am currently using
 
 -   Color schemes
 
-    -   vscode, dunst, kitty, nvim, rofi, wsl, git
+    -   vscode, dunst, kitty, tmux, nvim, rofi, wsl, git
