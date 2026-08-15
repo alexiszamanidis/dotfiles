@@ -22,13 +22,12 @@ local options = {
     incsearch = true,
     scrolloff = 8, -- determine the number of context lines you would like to see above and below the cursor
     signcolumn = "yes", -- always show the sign column, otherwise it would shift the text each time
-    cursorcolumn = true,
     cursorline = true, -- highlight the current line
     ignorecase = true, -- ignore case in search patterns
     splitbelow = true, -- force all horizontal splits to go below current window
     splitright = true, -- force all vertical splits to go to the right of current window
     colorcolumn = "80",
-    updatetime = 50, -- Having longer updatetime (default is 4000 ms = 4 s) leads to noticeable delays and poor user experience.
+    updatetime = 250, -- CursorHold / plugin refresh; 50 was too aggressive
 }
 
 for k, v in pairs(options) do

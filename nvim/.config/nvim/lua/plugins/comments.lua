@@ -1,26 +1,35 @@
 return {
     {
         "numToStr/Comment.nvim",
-        config = function()
-            -- Comment with 'Ctrl-/'
-            vim.api.nvim_set_keymap(
-                "n",
+        keys = {
+            {
                 "<C-_>",
-                '<cmd>lua require("Comment.api").toggle.linewise()<CR>',
-                { noremap = true }
-            )
-            vim.api.nvim_set_keymap(
-                "i",
+                function()
+                    require("Comment.api").toggle.linewise.current()
+                end,
+                mode = "n",
+                desc = "Toggle comment",
+            },
+            {
                 "<C-_>",
-                '<esc><cmd>lua require("Comment.api").toggle.linewise()<CR>',
-                { noremap = true }
-            )
-            vim.api.nvim_set_keymap(
-                "v",
+                function()
+                    vim.cmd("stopinsert")
+                    require("Comment.api").toggle.linewise.current()
+                end,
+                mode = "i",
+                desc = "Toggle comment",
+            },
+            {
                 "<C-_>",
-                '<esc><cmd>lua require("Comment.api").toggle.linewise(vim.fn.visualmode())<CR>',
-                { noremap = true }
-            )
-        end,
+                function()
+                    local esc = vim.api.nvim_replace_termcodes("<ESC>", true, false, true)
+                    vim.api.nvim_feedkeys(esc, "nx", false)
+                    require("Comment.api").toggle.linewise(vim.fn.visualmode())
+                end,
+                mode = "v",
+                desc = "Toggle comment",
+            },
+        },
+        opts = {},
     },
 }

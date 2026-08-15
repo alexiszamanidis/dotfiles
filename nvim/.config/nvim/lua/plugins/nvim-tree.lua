@@ -1,9 +1,8 @@
 return {
     {
         "kyazdani42/nvim-tree.lua",
-        event = "VeryLazy",
         keys = {
-            { "<C-b>", ":NvimTreeToggle<CR>" },
+            { "<C-b>", ":NvimTreeToggle<CR>", desc = "Toggle file tree" },
         },
         config = function()
             require("nvim-tree").setup({

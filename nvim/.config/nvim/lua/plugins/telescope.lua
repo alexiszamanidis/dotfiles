@@ -6,6 +6,22 @@ return {
             "nvim-lua/plenary.nvim",
             { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
         },
+        keys = {
+            { "<C-p>", "<cmd>Telescope find_files<cr>", desc = "Find files" },
+            { "<leader>ff", "<cmd>Telescope find_files<cr>", desc = "Find files" },
+            { "<leader>fg", "<cmd>Telescope live_grep<cr>", desc = "Find text in files" },
+            { "<leader>fb", "<cmd>Telescope buffers<cr>", desc = "Find buffers" },
+            { "<leader>ft", "<cmd>Telescope help_tags<cr>", desc = "Find tags" },
+            { "<leader>fr", "<cmd>Telescope resume<cr>", desc = "Last search" },
+            { "<leader>fd", "<cmd>Telescope diagnostics<cr>", desc = "Find diagnostics" },
+            {
+                "<leader>fW",
+                function()
+                    require("telescope.builtin").grep_string({ search = vim.fn.expand("<cword>") })
+                end,
+                desc = "Find word",
+            },
+        },
         config = function()
             require("telescope").setup({
                 defaults = {
@@ -42,61 +58,6 @@ return {
                     },
                 },
             })
-
-            local builtin = require("telescope.builtin")
-            -- I always execute some of the following commands when I open nvim
-            -- and which-key is a bit slow. That's why I define these keymaps twice
-            vim.keymap.set("n", "<C-p>", builtin.find_files)
-            vim.keymap.set("n", "<leader>ff", builtin.find_files)
-            vim.keymap.set("n", "<leader>fg", builtin.live_grep)
-
-            local mappings = {
-                {
-                    "<C-p>",
-                    builtin.find_files,
-                    desc = "Find files",
-                },
-                {
-                    "<leader>ff",
-                    builtin.find_files,
-                    desc = "Find files",
-                },
-                {
-                    "<leader>fg",
-                    builtin.live_grep,
-                    desc = "Find text in files",
-                },
-                {
-                    "<leader>fb",
-                    builtin.buffers,
-                    desc = "Find buffers",
-                },
-                {
-                    "<leader>ft",
-                    builtin.help_tags,
-                    desc = "Find tags",
-                },
-                {
-                    "<leader>fr",
-                    builtin.resume,
-                    desc = "Last search",
-                },
-                {
-                    "<leader>fd",
-                    builtin.diagnostics,
-                    desc = "Find diagnostics",
-                },
-                {
-                    "<leader>fW",
-                    function()
-                        local word = vim.fn.expand("<cword>")
-                        builtin.grep_string({ search = word })
-                    end,
-                    desc = "Find word",
-                },
-            }
-
-            require("which-key").add(mappings)
         end,
     },
 }
