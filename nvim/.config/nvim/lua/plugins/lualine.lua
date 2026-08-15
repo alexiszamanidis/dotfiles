@@ -1,21 +1,19 @@
 return {
     "nvim-lualine/lualine.nvim",
     event = "VeryLazy",
-    dependencies = { "nvim-tree/nvim-web-devicons" },
+        dependencies = { "nvim-tree/nvim-web-devicons", "Mofiqul/dracula.nvim" },
     config = function()
         local lualine = require("lualine")
+        local palette = require("dracula.palette")
         local colors = {
-            bg = "#101019",
-            fg = "#cdd6f4",
-            yellow = "#f9e2af",
-            cyan = "#89dceb",
-            darkblue = "#45475a",
-            green = "#a6e3a1",
-            orange = "#fab387",
-            violet = "#cba6f7",
-            magenta = "#f5c2e7",
-            blue = "#89b4fa",
-            red = "#f38ba8",
+            fg = palette.fg,
+            yellow = palette.yellow,
+            cyan = palette.cyan,
+            green = palette.green,
+            orange = palette.orange,
+            violet = palette.purple,
+            magenta = palette.pink,
+            red = palette.red,
         }
 
         local conditions = {
@@ -38,13 +36,7 @@ return {
                 -- Disable sections and component separators
                 component_separators = "",
                 section_separators = "",
-                theme = {
-                    -- We are going to use lualine_c an lualine_x as left and
-                    -- right section. Both are highlighted by c theme .  So we
-                    -- are just setting default looks o statusline
-                    normal = { c = { fg = colors.fg, bg = colors.bg } },
-                    inactive = { c = { fg = colors.fg, bg = colors.bg } },
-                },
+                theme = "dracula-nvim",
                 disabled_filetypes = { "NvimTree", "alpha" },
             },
             sections = {
@@ -97,11 +89,12 @@ return {
         ins_left({
             "diagnostics",
             sources = { "nvim_diagnostic" },
-            symbols = { error = " ", warn = " ", info = " " },
+            symbols = { error = " ", warn = " ", info = " ", hint = " " },
             diagnostics_color = {
-                color_error = { fg = colors.red },
-                color_warn = { fg = colors.yellow },
-                color_info = { fg = colors.cyan },
+                error = { fg = colors.red },
+                warn = { fg = colors.yellow },
+                info = { fg = colors.cyan },
+                hint = { fg = colors.violet },
             },
         })
 
@@ -131,7 +124,7 @@ return {
                 return msg
             end,
             icon = " LSP:",
-            color = { fg = "#ffffff", gui = "bold" },
+            color = { fg = colors.fg, gui = "bold" },
         })
 
         -- Add components to right sections
@@ -157,8 +150,7 @@ return {
 
         ins_right({
             "diff",
-            -- Is it me or the symbol for modified us really weird
-            symbols = { added = " ", modified = "柳 ", removed = " " },
+            symbols = { added = " ", modified = " ", removed = " " },
             diff_color = {
                 added = { fg = colors.green },
                 modified = { fg = colors.orange },
