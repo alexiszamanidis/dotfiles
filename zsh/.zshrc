@@ -3,6 +3,9 @@ export ZSH_PROFILE="$HOME/.zsh_profile"
 
 ZSH_THEME="muse"
 
+# must be set before oh-my-zsh loads the nvm plugin
+zstyle ':omz:plugins:nvm' lazy yes
+
 plugins=(
     # docker
     # docker-compose

@@ -22,17 +22,17 @@ alias dki="docker run -i -t -P"
 # Execute interactive container, e.g., $dex base /bin/bash
 alias dex="docker exec -i -t"
 
-# Stop all containers
-alias dstop="docker stop $(docker ps -a -q)"
+# Stop all containers (single quotes: expand docker at use-time, not source-time)
+alias dstop='docker stop $(docker ps -a -q)'
 
 # Remove all containers
-alias drm="docker rm $(docker ps -a -q)"
+alias drm='docker rm $(docker ps -a -q)'
 
 # Stop and Remove all containers
-alias drmf="docker stop $(docker ps -a -q) && docker rm $(docker ps -a -q)"
+alias drmf='docker stop $(docker ps -a -q) && docker rm $(docker ps -a -q)'
 
 # Remove all images
-alias dri="docker rmi $(docker images -q)"
+alias dri='docker rmi $(docker images -q)'
 
 # Dockerfile build, e.g., $dbu tcnksm/test
 dbu() { docker build -t=$1 .; }
