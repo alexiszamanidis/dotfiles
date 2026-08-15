@@ -17,6 +17,9 @@ pastefinish() {
 zstyle :bracketed-paste-magic paste-init pasteinit
 zstyle :bracketed-paste-magic paste-finish pastefinish
 
+# muse theme without git_prompt_status (avoids git status --porcelain every prompt)
+PROMPT="${FG[117]}%~%{$reset_color%}\$(git_prompt_info)\$(virtualenv_prompt_info) ${FG[077]}ᐅ%{$reset_color%} "
+
 # history
 HISTSIZE=5000
 HISTFILE=~/.zsh_history
@@ -35,10 +38,7 @@ zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
 zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
 zstyle ':completion:*' menu no
 zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls --color $realpath'
-zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'ls --color $realpath'
-
-# fzf-tab (oh-my-zsh already runs compinit)
-source $ZSH_CUSTOM/plugins/fzf-tab/fzf-tab.plugin.zsh
+zstyle ':fzf-tab:complete:z:*' fzf-preview 'ls --color $realpath'
 
 declare -a dotfiles=(
     ".zsh_bindkeys"
@@ -59,7 +59,6 @@ do
 done
 
 # fzf
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 FZF_PREVIEW_OPTS="--preview='bat --style=numbers --color=always --line-range :500 {}'"
 # It includes colors from the Dracula theme
 export FZF_DEFAULT_OPTS="--height 100% --layout=reverse --border --color=fg:#f8f8f2,bg:#282a36,hl:#bd93f9 --color=fg+:#f8f8f2,bg+:#44475a,hl+:#bd93f9 --color=info:#ffb86c,prompt:#50fa7b,pointer:#ff79c6 --color=marker:#ff79c6,spinner:#ffb86c,header:#6272a4"

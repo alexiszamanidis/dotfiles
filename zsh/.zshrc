@@ -3,7 +3,13 @@ export ZSH_PROFILE="$HOME/.zsh_profile"
 
 ZSH_THEME="muse"
 
-# must be set before oh-my-zsh loads the nvm plugin
+# skip completion dir security audit (~10–15ms)
+ZSH_DISABLE_COMPFIX=true
+# git prompt: ignore untracked files when deciding dirty
+DISABLE_UNTRACKED_FILES_DIRTY="true"
+
+# must be set before oh-my-zsh.sh (update check + nvm plugin)
+zstyle ':omz:update' mode disabled
 zstyle ':omz:plugins:nvm' lazy yes
 
 plugins=(
@@ -19,11 +25,12 @@ plugins=(
     git
     nvm
     sudo
-    zsh-autosuggestions
-    zsh-syntax-highlighting
     zsh-z
     zsh-git-fzf
     zsh-fzf-history-search
+    fzf-tab
+    zsh-autosuggestions
+    zsh-syntax-highlighting
 )
 
 source $ZSH/oh-my-zsh.sh
