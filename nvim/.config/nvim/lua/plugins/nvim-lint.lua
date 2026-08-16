@@ -12,6 +12,10 @@ return {
             typescript = { "eslint_d" },
             javascriptreact = { "eslint_d" },
             typescriptreact = { "eslint_d" },
+            yaml = { "yamllint" },
+            ansible = { "ansible_lint" },
+            sh = { "shellcheck" },
+            bash = { "shellcheck" },
             ["*"] = { "codespell" },
         }
 

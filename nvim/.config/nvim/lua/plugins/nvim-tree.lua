@@ -1,6 +1,6 @@
 return {
     {
-        "kyazdani42/nvim-tree.lua",
+        "nvim-tree/nvim-tree.lua",
         keys = {
             { "<C-b>", ":NvimTreeToggle<CR>", desc = "Toggle file tree" },
         },
@@ -12,13 +12,13 @@ return {
                 filters = {
                     custom = { "^.git$" },
                 },
-                update_cwd = true,
+                sync_root_with_cwd = true,
                 renderer = {
                     add_trailing = false,
                     group_empty = false,
                     highlight_git = false,
                     highlight_opened_files = "none",
-                    root_folder_modifier = ":t",
+                    root_folder_label = ":t",
                     indent_markers = {
                         enable = false,
                         icons = {
@@ -64,7 +64,7 @@ return {
                 diagnostics = {
                     enable = true,
                     icons = {
-                        hint = "",
+                        hint = "",
                         info = "",
                         warning = "",
                         error = "",
@@ -72,7 +72,7 @@ return {
                 },
                 update_focused_file = {
                     enable = true,
-                    update_cwd = true,
+                    update_root = true,
                     ignore_list = {},
                 },
                 git = {

@@ -17,7 +17,6 @@ vim.api.nvim_set_keymap("i", "<C-c>", "<Esc>", { noremap = true })
 
 -- Keep same paste
 vim.api.nvim_set_keymap("x", "p", '"_dP', { noremap = true })
--- vim.api.nvim_set_keymap("n", "p", '"_dP', { noremap = true })
 
 -- Keeping it centered
 vim.api.nvim_set_keymap("n", "n", "nzzzv", { noremap = true })
@@ -65,17 +64,11 @@ vim.api.nvim_set_keymap("x", "<A-Down>", ":move '>+1<CR>gv-gv", { noremap = true
 vim.api.nvim_set_keymap("x", "<A-k>", ":move '<-2<CR>gv-gv", { noremap = true })
 vim.api.nvim_set_keymap("x", "<A-Up>", ":move '<-2<CR>gv-gv", { noremap = true })
 
--- Move between splits
--- Vim
-vim.api.nvim_set_keymap("n", "<C-h>", "<C-w>h", { noremap = true })
-vim.api.nvim_set_keymap("n", "<C-j>", "<C-w>j", { noremap = true })
-vim.api.nvim_set_keymap("n", "<C-k>", "<C-w>k", { noremap = true })
-vim.api.nvim_set_keymap("n", "<C-l>", "<C-w>l", { noremap = true })
--- Arrows
-vim.api.nvim_set_keymap("n", "<C-Left>", ":vertical resize +3<CR>", { noremap = true })
-vim.api.nvim_set_keymap("n", "<C-Right>", ":vertical resize -3<CR>", { noremap = true })
-vim.api.nvim_set_keymap("n", "<C-Up>", ":resize +3<CR>", { noremap = true })
-vim.api.nvim_set_keymap("n", "<C-Down>", ":resize -3<CR>", { noremap = true })
+-- Move between splits (vim-tmux-navigator owns C-h/j/k/l)
+vim.keymap.set("n", "<C-Left>", ":vertical resize +3<CR>")
+vim.keymap.set("n", "<C-Right>", ":vertical resize -3<CR>")
+vim.keymap.set("n", "<C-Up>", ":resize +3<CR>")
+vim.keymap.set("n", "<C-Down>", ":resize -3<CR>")
 
 -- Tmux
 vim.api.nvim_set_keymap("n", "<C-f>", "<cmd>!tmux neww tmux-sessionizer<CR>", { noremap = true })

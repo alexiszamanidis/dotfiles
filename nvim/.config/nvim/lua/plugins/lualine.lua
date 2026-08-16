@@ -1,7 +1,7 @@
 return {
     "nvim-lualine/lualine.nvim",
     event = "VeryLazy",
-        dependencies = { "nvim-tree/nvim-web-devicons", "Mofiqul/dracula.nvim" },
+    dependencies = { "nvim-tree/nvim-web-devicons", "Mofiqul/dracula.nvim" },
     config = function()
         local lualine = require("lualine")
         local palette = require("dracula.palette")
@@ -23,11 +23,6 @@ return {
             hide_in_width = function()
                 return vim.fn.winwidth(0) > 80
             end,
-            check_git_workspace = function()
-                local filepath = vim.fn.expand("%:p:h")
-                local gitdir = vim.fn.finddir(".git", filepath .. ";")
-                return gitdir and #gitdir > 0 and #gitdir < #filepath
-            end,
         }
 
         -- Config
@@ -37,7 +32,7 @@ return {
                 component_separators = "",
                 section_separators = "",
                 theme = "dracula-nvim",
-                disabled_filetypes = { "NvimTree", "alpha" },
+                disabled_filetypes = { "NvimTree" },
             },
             sections = {
                 -- these are to remove the defaults

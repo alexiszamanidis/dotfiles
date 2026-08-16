@@ -2,8 +2,8 @@ return {
     "neovim/nvim-lspconfig",
     event = { "BufReadPre", "BufNewFile" },
     dependencies = {
-        "williamboman/mason.nvim",
-        "williamboman/mason-lspconfig.nvim",
+        "mason-org/mason.nvim",
+        "mason-org/mason-lspconfig.nvim",
         "rshkarin/mason-nvim-lint",
         "zapling/mason-conform.nvim",
         "hrsh7th/cmp-nvim-lsp",
@@ -14,13 +14,12 @@ return {
         "L3MON4D3/LuaSnip",
         "saadparwaiz1/cmp_luasnip",
         "j-hui/fidget.nvim",
+        "folke/which-key.nvim",
         {
             "folke/lazydev.nvim",
-            ft = "lua", -- only load on lua files
+            ft = "lua",
             opts = {
                 library = {
-                    -- See the configuration section for more details
-                    -- Load luvit types when the `vim.uv` word is found
                     { path = "${3rd}/luv/library", words = { "vim%.uv" } },
                 },
             },
@@ -29,32 +28,34 @@ return {
 
     config = function()
         local cmp = require("cmp")
-        local cmp_lsp = require("cmp_nvim_lsp")
         local capabilities = vim.tbl_deep_extend(
             "force",
-            {},
             vim.lsp.protocol.make_client_capabilities(),
-            cmp_lsp.default_capabilities()
+            require("cmp_nvim_lsp").default_capabilities()
         )
+
+        vim.lsp.config("*", { capabilities = capabilities })
 
         require("fidget").setup({})
         require("mason").setup()
-        -- Install all Linters
         require("mason-nvim-lint").setup({
+            -- nvim-lint names (mapped to Mason packages internally)
             ensure_installed = {
                 "ansible_lint",
                 "yamllint",
                 "shellcheck",
+                "eslint_d",
+                "codespell",
             },
             ignore_install = {},
             automatic_installation = true,
             quiet_mode = false,
         })
-        -- Install all Formatters
         require("mason-conform").setup()
-        -- Install all LSP
         require("mason-lspconfig").setup({
-            automatic_enable = true,
+            automatic_enable = {
+                exclude = { "jdtls" },
+            },
             ensure_installed = {
                 "cssls",
                 "cssmodules_ls",
@@ -65,13 +66,6 @@ return {
                 "yamlls",
                 "bashls",
                 "prismals",
-            },
-            handlers = {
-                function(server_name) -- default handler (optional)
-                    require("lspconfig")[server_name].setup({
-                        capabilities = capabilities,
-                    })
-                end,
             },
         })
 
@@ -98,8 +92,23 @@ return {
             },
         })
 
+        cmp.setup.cmdline({ "/", "?" }, {
+            mapping = cmp.mapping.preset.cmdline(),
+            sources = {
+                { name = "buffer" },
+            },
+        })
+
+        cmp.setup.cmdline(":", {
+            mapping = cmp.mapping.preset.cmdline(),
+            sources = cmp.config.sources({
+                { name = "path" },
+            }, {
+                { name = "cmdline" },
+            }),
+        })
+
         vim.diagnostic.config({
-            -- update_in_insert = true,
             float = {
                 focusable = false,
                 style = "minimal",
@@ -110,39 +119,18 @@ return {
             },
         })
 
-        local mappings = {
-            {
-                "<leader>la",
-                "<cmd>lua vim.lsp.buf.code_action()<cr>",
-                desc = "Code Action",
-            },
-            {
-                "<leader>li",
-                "<cmd>LspInfo<cr>",
-                desc = "Info",
-            },
+        require("which-key").add({
+            { "<leader>la", vim.lsp.buf.code_action, desc = "Code Action" },
+            { "<leader>li", "<cmd>LspInfo<cr>", desc = "Info" },
             {
                 "<leader>lf",
-                "<cmd>lua vim.lsp.buf.format({ async = true })<cr>",
+                function()
+                    vim.lsp.buf.format({ async = true })
+                end,
                 desc = "Format",
             },
-            {
-                "<leader>lF",
-                "<cmd>LspToggleAutoFormat<cr>",
-                desc = "Toggle Autoformat",
-            },
-            {
-                "<leader>lr",
-                "<cmd>lua vim.lsp.buf.rename()<cr>",
-                desc = "Rename",
-            },
-            {
-                "<leader>lR",
-                "<cmd>TroubleToggle lsp_references<cr>",
-                desc = "References",
-            },
-        }
-
-        require("which-key").add(mappings)
+            { "<leader>lr", vim.lsp.buf.rename, desc = "Rename" },
+            { "<leader>lR", "<cmd>Trouble lsp_references toggle<cr>", desc = "References" },
+        })
     end,
 }

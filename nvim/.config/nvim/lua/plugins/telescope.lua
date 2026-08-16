@@ -58,6 +58,7 @@ return {
                     },
                 },
             })
+            pcall(require("telescope").load_extension, "fzf")
         end,
     },
 }

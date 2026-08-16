@@ -1,5 +1,3 @@
-local home = os.getenv("HOME")
-
 local options = {
     exrc = true,
     hlsearch = false, -- highlight all matches on previous search pattern
