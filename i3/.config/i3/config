@@ -7,7 +7,7 @@ set $down  j
 set $up    k
 set $right l
 
-font pango:Ubuntu Regular 11
+font pango:Ubuntu Regular 13
 
 # xss-lock grabs a logind suspend inhibit lock and will use i3lock to lock the
 # screen before suspend. Use loginctl lock-session to lock your screen.
@@ -212,6 +212,12 @@ mode "resize" {
     bindsym $mod+r mode "default"
 }
 
+# Hide the i3 title bar in split layout (Chrome, Kitty, Slack, etc.).
+# Tabbed and stacked layouts still show titles so you can switch windows.
+default_border pixel 1
+default_floating_border pixel 1
+for_window [class=".*"] border pixel 1
+
 # window colors
 # class                 border  bground text    indicator child_border
 client.focused          #6272A4 #6272A4 #F8F8F2 #6272A4   #6272A4
@@ -226,6 +232,7 @@ client.background       #F8F8F2
 # finds out, if available)
 bar {
     position top
+    font pango:Ubuntu Regular 13
     status_command i3blocks -c ~/.config/i3/i3blocks.conf
     colors {
         background #282A36
