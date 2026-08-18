@@ -270,6 +270,9 @@ exec_always --no-startup-id ~/.fehbg
 # connect to input-leap (exec, not exec_always — avoid duplicate clients on reload)
 exec --no-startup-id input-leapc --disable-crypto --no-daemon 192.168.1.4:24800
 
+# VPN after NetworkManager is connected (exec, not exec_always — skip on i3 reload)
+exec --no-startup-id ~/.local/scripts/connect-vpn
+
 # applications
 exec --no-startup-id google-chrome-stable
 # exec --no-startup-id code

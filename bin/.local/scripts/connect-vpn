@@ -1,0 +1,178 @@
+#!/usr/bin/env bash
+
+# Wait until NetworkManager has a connection, then bring up a VPN if it is not
+# already active. Used from i3 on login.
+
+set -u
+
+PATH="$HOME/.local/scripts:$PATH"
+
+VPN_NAME="${1:-work-vpn}"
+TIMEOUT="${VPN_TIMEOUT:-60}"
+RETRIES="${VPN_RETRIES:-5}"
+RETRY_DELAY="${VPN_RETRY_DELAY:-3}"
+LOG_FILE="${VPN_LOG_FILE:-${XDG_STATE_HOME:-$HOME/.local/state}/connect-vpn.log}"
+LOCK_FILE="${XDG_RUNTIME_DIR:-/tmp}/connect-vpn.lock"
+
+usage() {
+    echo "Usage: $0 [VPN_NAME]"
+    echo "Environment: VPN_TIMEOUT (default 60), VPN_RETRIES (default 5),"
+    echo "             VPN_RETRY_DELAY (default 3), VPN_LOG_FILE"
+}
+
+log() {
+    local level="$1"
+    shift
+    local line color
+    line="$(date '+%F %T') [$level] $*"
+    case "$level" in
+        SUCCESS) color=GREEN ;;
+        WAITING | WARN) color=YELLOW ;;
+        ERROR) color=RED ;;
+        *) color=NONE ;;
+    esac
+    colorful-echo "$line" "$color"
+    if [ -n "${LOG_FILE:-}" ]; then
+        echo "$line" >>"$LOG_FILE" 2>/dev/null || true
+    fi
+}
+
+notify() {
+    if command -v notify-send >/dev/null 2>&1; then
+        notify-send --app-name=connect-vpn --expire-time=5000 "$1" "${2:-}"
+    fi
+}
+
+nm_state() {
+    nmcli -t -f STATE g 2>/dev/null || echo "unavailable"
+}
+
+nm_connectivity() {
+    nmcli -t networking connectivity 2>/dev/null || echo "unknown"
+}
+
+is_nm_connected() {
+    local state
+    state="$(nm_state)"
+    [[ "$state" == connected* ]]
+}
+
+vpn_profile_exists() {
+    nmcli -t -f NAME connection show 2>/dev/null | grep -Fxq "$VPN_NAME"
+}
+
+vpn_is_active() {
+    nmcli -t -f NAME connection show --active 2>/dev/null | grep -Fxq "$VPN_NAME"
+}
+
+active_connections() {
+    nmcli -t -f NAME connection show --active 2>/dev/null | paste -sd ', ' -
+}
+
+wait_for_network() {
+    local elapsed=0
+    local state
+
+    state="$(nm_state)"
+    log WAITING "Waiting for NetworkManager (timeout ${TIMEOUT}s, current state=${state})"
+
+    while ! is_nm_connected; do
+        sleep 1
+        elapsed=$((elapsed + 1))
+        if (( elapsed % 10 == 0 )); then
+            log WAITING "Still waiting (${elapsed}s/${TIMEOUT}s), NM state=$(nm_state)"
+        fi
+        if (( elapsed >= TIMEOUT )); then
+            log ERROR "Timed out after ${TIMEOUT}s waiting for network (state=$(nm_state))"
+            return 1
+        fi
+    done
+
+    log INFO "Network ready (state=$(nm_state), connectivity=$(nm_connectivity), active=$(active_connections))"
+}
+
+bring_up_vpn() {
+    local attempt=1
+    local output rc
+
+    while (( attempt <= RETRIES )); do
+        log INFO "Bringing up '${VPN_NAME}' (attempt ${attempt}/${RETRIES})"
+        output="$(nmcli connection up "$VPN_NAME" 2>&1)"
+        rc=$?
+        if (( rc == 0 )); then
+            [ -n "$output" ] && log INFO "$output"
+            if vpn_is_active; then
+                log SUCCESS "VPN '${VPN_NAME}' is active"
+                return 0
+            fi
+            log WARN "nmcli succeeded but '${VPN_NAME}' is not in the active list yet"
+        else
+            log WARN "nmcli failed (exit ${rc}): ${output}"
+        fi
+        if (( attempt < RETRIES )); then
+            log WAITING "Retrying in ${RETRY_DELAY}s"
+            sleep "$RETRY_DELAY"
+        fi
+        attempt=$((attempt + 1))
+    done
+    return 1
+}
+
+main() {
+    if [ "${1:-}" = "-h" ] || [ "${1:-}" = "--help" ]; then
+        usage
+        exit 0
+    fi
+
+    mkdir -p "$(dirname "$LOG_FILE")" 2>/dev/null || LOG_FILE=""
+
+    exec 9>"$LOCK_FILE"
+    if ! flock -n 9; then
+        log INFO "Another connect-vpn is already running; exiting"
+        exit 0
+    fi
+
+    log INFO "Starting (vpn=${VPN_NAME}, pid=$$)"
+
+    if ! command -v nmcli >/dev/null 2>&1; then
+        log ERROR "nmcli not found in PATH=$PATH"
+        notify "VPN failed" "nmcli not found"
+        exit 1
+    fi
+
+    if ! vpn_profile_exists; then
+        log ERROR "Connection profile '${VPN_NAME}' does not exist"
+        notify "VPN failed" "No connection named ${VPN_NAME}"
+        exit 1
+    fi
+
+    if vpn_is_active; then
+        log SUCCESS "Already connected to '${VPN_NAME}' (active=$(active_connections))"
+        notify "VPN" "Already connected to ${VPN_NAME}"
+        exit 0
+    fi
+
+    log INFO "VPN '${VPN_NAME}' is not active (active=$(active_connections))"
+
+    if ! wait_for_network; then
+        notify "VPN failed" "Network not ready"
+        exit 1
+    fi
+
+    if vpn_is_active; then
+        log SUCCESS "Already connected to '${VPN_NAME}' after waiting for network"
+        notify "VPN" "Already connected to ${VPN_NAME}"
+        exit 0
+    fi
+
+    if bring_up_vpn; then
+        notify "VPN connected" "$VPN_NAME"
+        exit 0
+    fi
+
+    log ERROR "Failed to bring up '${VPN_NAME}' after ${RETRIES} attempts (state=$(nm_state), active=$(active_connections))"
+    notify "VPN failed" "Could not connect ${VPN_NAME}"
+    exit 1
+}
+
+main "$@"
