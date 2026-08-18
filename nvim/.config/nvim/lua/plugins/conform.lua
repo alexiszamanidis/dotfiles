@@ -23,12 +23,12 @@ return {
                 bash = { "beautysh" },
                 python = { "black" },
             },
-            format_on_save = function()
-                if vim.g.disable_autoformat then
-                    return
-                end
-                return format_on_save
-            end,
+            -- format_on_save = function()
+            --     if vim.g.disable_autoformat then
+            --         return
+            --     end
+            --     return format_on_save
+            -- end,
         })
 
         vim.keymap.set({ "n", "v" }, "<leader>l", function()

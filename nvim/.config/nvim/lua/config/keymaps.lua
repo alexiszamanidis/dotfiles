@@ -3,7 +3,7 @@ vim.api.nvim_set_keymap("n", "+", "<C-a>", { noremap = true })
 vim.api.nvim_set_keymap("n", "-", "<C-x>", { noremap = true })
 
 -- Make file executable
-vim.api.nvim_set_keymap("n", "<leader>x", ":!chmod +x %<CR>", { noremap = true, silent = true })
+-- vim.api.nvim_set_keymap("n", "<leader>x", ":!chmod +x %<CR>", { noremap = true, silent = true })
 
 -- Behave like the rest of the CAPITAL letters
 vim.api.nvim_set_keymap("n", "Y", "yg$", { noremap = true })
