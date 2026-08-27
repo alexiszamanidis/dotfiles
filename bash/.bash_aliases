@@ -23,6 +23,9 @@ alias c="clear"
 alias cc="clear && printf '\e[3J'"
 alias open="xdg-open"
 
+# Ansible
+alias ap="ansible-playbook"
+
 # Add to PATH if not already present
 add_to_path() {
     if [[ "$PATH" != *"$1"* ]]; then

@@ -27,6 +27,7 @@ plugins=(
     sudo
     zsh-z
     zsh-git-fzf
+    zsh-ansible-fzf
     zsh-fzf-history-search
     fzf-tab
     zsh-autosuggestions
