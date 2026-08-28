@@ -6,7 +6,7 @@ if [[ $# -eq 1 ]]; then
     selected="$1"
     [[ "$selected" == '.' ]] && selected="$PWD"
 else
-    selected=$(find ~/ ~/personal-projects $WORK_DIRECTORIES -mindepth 1 -maxdepth 1 -type d 2>/dev/null | fzf --no-preview)
+    selected=$(find ~/ $PERSONAL_DIRECTORIES $WORK_DIRECTORIES -mindepth 1 -maxdepth 1 -type d 2>/dev/null | fzf --no-preview)
 fi
 
 if [[ -z "$selected" ]]; then

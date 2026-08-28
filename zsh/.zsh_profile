@@ -43,6 +43,7 @@ zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls --color $realpath'
 zstyle ':fzf-tab:complete:z:*' fzf-preview 'ls --color $realpath'
 
 declare -a dotfiles=(
+    ".personal_env"
     ".zsh_bindkeys"
     ".bash_aliases"
     ".docker_aliases"
