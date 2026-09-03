@@ -20,16 +20,119 @@ update_vscode_extensions() {
     done < <(code --list-extensions)
 }
 
-clean_up() {
-    colorful-echo "Cleaning cache" "YELLOW"
+clean_apt() {
+    colorful-echo "Cleaning apt cache" "YELLOW"
     sudo apt-get clean -y
     sudo apt-get autoclean -y
 
     colorful-echo "Removing unnecessary packages" "YELLOW"
-    sudo apt-get autoremove -y
+    sudo apt-get autoremove --purge -y
+}
 
+clean_journal() {
+    colorful-echo "Vacuuming journal logs to 200M" "YELLOW"
+    sudo journalctl --vacuum-size=200M
+}
+
+clean_snaps() {
+    if ! command -v snap >/dev/null 2>&1; then
+        return
+    fi
+
+    colorful-echo "Removing disabled snap revisions" "YELLOW"
+    # Keep only active revisions; disabled ones are previous versions left after refresh.
+    while read -r name rev; do
+        [ -z "$name" ] && continue
+        colorful-echo "  snap remove $name --revision=$rev" "YELLOW"
+        sudo snap remove "$name" --revision="$rev" || true
+    done < <(snap list --all 2>/dev/null | awk '/disabled/{print $1, $3}')
+
+    # Limit retained revisions on future refreshes (default is often 3).
+    sudo snap set system refresh.retain=2 2>/dev/null || true
+
+    colorful-echo "Clearing snapd download cache" "YELLOW"
+    sudo rm -rf /var/lib/snapd/cache/*
+}
+
+clean_oversized_logs() {
+    # SSSD has no logrotate config here and can grow multi-GB rotated logs.
+    colorful-echo "Truncating oversized SSSD/FortiClient logs" "YELLOW"
+
+    # Rotated uncompressed logs: safe to remove.
+    sudo find /var/log/sssd /var/log/forticlient \
+        -type f \( -name '*.log.[0-9]' -o -name '*.log.[0-9][0-9]' \) \
+        -size +20M -print -delete 2>/dev/null || true
+
+    # Active logs over 100M: truncate in place so the daemon keeps the fd.
+    sudo find /var/log/sssd /var/log/forticlient \
+        -type f -name '*.log' -size +100M \
+        -print -exec truncate -s 0 {} \; 2>/dev/null || true
+}
+
+clean_crash_reports() {
+    colorful-echo "Removing crash reports" "YELLOW"
+    sudo rm -f /var/crash/* 2>/dev/null || true
+}
+
+clean_orphan_modules() {
+    # Leftover tiny module trees from removed kernels (often ~1M each).
+    colorful-echo "Removing orphaned kernel module directories" "YELLOW"
+    local running
+    running="$(uname -r)"
+    for dir in /usr/lib/modules/*; do
+        [ -d "$dir" ] || continue
+        local k
+        k="$(basename "$dir")"
+        [ "$k" = "$running" ] && continue
+        if ! dpkg -S "$dir" >/dev/null 2>&1; then
+            colorful-echo "  removing $dir" "YELLOW"
+            sudo rm -rf "$dir"
+        fi
+    done
+}
+
+clean_postman_leftovers() {
+    # Old Postman extracts/tarballs left beside the active app/ install.
+    if [ ! -d /opt/Postman ]; then
+        return
+    fi
+
+    colorful-echo "Checking for old Postman install leftovers" "YELLOW"
+    shopt -s nullglob
+    local paths=(/opt/Postman/Postman-*-old /opt/Postman/Postman-*.tar.gz)
+    shopt -u nullglob
+
+    if [ "${#paths[@]}" -eq 0 ]; then
+        return
+    fi
+
+    for path in "${paths[@]}"; do
+        colorful-echo "  removing $path" "YELLOW"
+        sudo rm -rf "$path"
+    done
+}
+
+clean_trash() {
     colorful-echo "Emptying trash for user and root" "YELLOW"
-    trash-empty
+    trash-empty 2>/dev/null || true
+    sudo trash-empty 2>/dev/null || true
+}
+
+report_disk() {
+    colorful-echo "Disk usage after cleanup:" "GREEN"
+    df -h / /home /boot 2>/dev/null || df -h /
+}
+
+clean_up() {
+    clean_apt
+    clean_journal
+    clean_snaps
+    clean_oversized_logs
+    clean_crash_reports
+    clean_orphan_modules
+    clean_postman_leftovers
+    clean_trash
+    report_disk
 }
 
 usage() {
