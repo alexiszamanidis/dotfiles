@@ -26,6 +26,9 @@ alias open="xdg-open"
 # Ansible
 alias ap="ansible-playbook"
 
+# AI
+alias ca="cursor-agent"
+
 # Add to PATH if not already present
 add_to_path() {
     if [[ "$PATH" != *"$1"* ]]; then
