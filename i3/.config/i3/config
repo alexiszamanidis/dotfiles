@@ -155,6 +155,8 @@ assign [class="Google-chrome"] $ws1
 # Both code and Code are included so it works across VS Code versions
 assign [class="code"] $ws2
 assign [class="Code"] $ws2
+# Cursor reports class "cursor" after recent upgrades; "Cursor" covers older builds
+assign [class="cursor"] $ws2
 assign [class="Cursor"] $ws2
 assign [class="SpringToolSuite4"] $ws2
 assign [class="jetbrains-idea-ce"] $ws2
