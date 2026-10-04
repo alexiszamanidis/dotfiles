@@ -73,3 +73,17 @@
     foreground = "#f8f8f2"
     frame_color = "#ff5555"
     timeout = 0
+
+# Cursor agent banners. "Done" / "Agent complete" is a finished prompt.
+# "Input needed" is the selection card.
+[cursor_done]
+    summary = "Done*"
+    script = ~/.local/scripts/dunst-cursor-sound
+
+[cursor_agent_complete]
+    summary = "Agent complete"
+    script = ~/.local/scripts/dunst-cursor-sound
+
+[cursor_input_needed]
+    summary = "Input needed*"
+    script = ~/.local/scripts/dunst-cursor-sound

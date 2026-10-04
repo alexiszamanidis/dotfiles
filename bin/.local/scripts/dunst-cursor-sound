@@ -1,0 +1,44 @@
+#!/usr/bin/env bash
+
+# Play a different sound for a finished Cursor prompt and for a selection card.
+# Dunst runs this from the rules in dunstrc and exports DUNST_* for the banner.
+
+set -u
+
+summary="${DUNST_SUMMARY:-${2:-}}"
+app="$(printf '%s' "${DUNST_APP_NAME:-${1:-}}" | tr '[:upper:]' '[:lower:]')"
+desktop="$(printf '%s' "${DUNST_DESKTOP_ENTRY:-}" | tr '[:upper:]' '[:lower:]')"
+
+cursor_sender() {
+    case "$app" in
+        cursor | cursor-url-handler) return 0 ;;
+    esac
+    case "$desktop" in
+        cursor | cursor-url-handler) return 0 ;;
+    esac
+    # Some banners arrive without an app name. The matched titles are Cursor's.
+    [ -z "$app" ] && [ -z "$desktop" ]
+}
+
+cursor_sender || exit 0
+
+sound_dir=/usr/share/sounds/freedesktop/stereo
+case "$summary" in
+    "Agent complete" | Done*)
+        sound="$sound_dir/complete.oga"
+        ;;
+    "Input needed"*)
+        sound="$sound_dir/window-question.oga"
+        ;;
+    *)
+        exit 0
+        ;;
+esac
+
+[ -f "$sound" ] || exit 0
+
+if command -v paplay >/dev/null 2>&1; then
+    paplay "$sound" >/dev/null 2>&1 || true
+elif command -v pw-play >/dev/null 2>&1; then
+    pw-play "$sound" >/dev/null 2>&1 || true
+fi
