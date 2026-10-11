@@ -158,7 +158,6 @@ assign [class="Code"] $ws2
 # Cursor reports class "cursor" after recent upgrades; "Cursor" covers older builds
 assign [class="cursor"] $ws2
 assign [class="Cursor"] $ws2
-assign [class="SpringToolSuite4"] $ws2
 assign [class="kitty"] $ws3
 assign [class="Slack"] $ws5
 # probably instance won't remain the same per installation
