@@ -151,21 +151,33 @@ bindsym $mod+Control+h move workspace to output left
 bindsym $mod+Control+Left move workspace to output right
 bindsym $mod+Control+Right move workspace to output left
 
+# assign places the window on its workspace. The matching workspace command
+# then switches there, so opening kitty (or any app below) follows it.
 assign [class="Google-chrome"] $ws1
+for_window [class="Google-chrome"] workspace $ws1
 # Both code and Code are included so it works across VS Code versions
 assign [class="code"] $ws2
+for_window [class="code"] workspace $ws2
 assign [class="Code"] $ws2
+for_window [class="Code"] workspace $ws2
 # Cursor reports class "cursor" after recent upgrades; "Cursor" covers older builds
 assign [class="cursor"] $ws2
+for_window [class="cursor"] workspace $ws2
 assign [class="Cursor"] $ws2
+for_window [class="Cursor"] workspace $ws2
 assign [class="kitty"] $ws3
+for_window [class="kitty"] workspace $ws3
 assign [class="Slack"] $ws5
+for_window [class="Slack"] workspace $ws5
 # probably instance won't remain the same per installation
-# excalidraw PWA
+# excalidraw PWA. More specific than the chrome rule above, so it wins.
 for_window [class="Google-chrome" instance="crx_kmcnjdcipmgchfndpapkoecbidofdpbc"] move to workspace $ws6
 assign [class="Forticlientsslvpn"] $ws7
+for_window [class="Forticlientsslvpn"] workspace $ws7
+# move already switches to the workspace
 for_window [class="Spotify"] move to workspace $ws9
 assign [class="Brave-browser"] $ws10
+for_window [class="Brave-browser"] workspace $ws10
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
