@@ -4,7 +4,7 @@ This repository synchronizes the configuration files that I am currently using
 
 ### Reminders
 
--   STOW_FOLDERS variable is defined in `install` and `.zsh_profile` files
+-   The default `STOW_FOLDERS` list is defined in `stow-folders`
 -   i3
 
     -   monitors

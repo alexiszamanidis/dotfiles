@@ -1,7 +1,6 @@
 VIM="nvim"
 
 export DOTFILES=$HOME/dotfiles
-export STOW_FOLDERS="bin,bash,docker,dunst,git,i3,picom,kitty,tmux,nvim,rofi,zsh"
 export EDITOR=$VIM
 export BAT_THEME="Dracula"
 export ZSH_GIT_FZF_REMOVE_STALLED_BRANCHES="true"
