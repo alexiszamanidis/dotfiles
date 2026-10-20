@@ -23,15 +23,15 @@ main() {
         exit 1
     fi
 
-    local open_files
-    open_files=$(lsof -t -i:"$port")
+    local -a open_files
+    mapfile -t open_files < <(lsof -t -i:"$port")
 
-    if [ -z "$open_files" ]; then
+    if [ "${#open_files[@]}" -eq 0 ]; then
         colorful-echo "No process running on port $port." "YELLOW"
         exit 0
     fi
 
-    if kill -9 $open_files 2>/dev/null; then
+    if kill -9 "${open_files[@]}" 2>/dev/null; then
         colorful-echo "Process(es) on port '$port' killed successfully." "GREEN"
     else
         colorful-echo "Error: Failed to kill process(es) on port $port." "RED"

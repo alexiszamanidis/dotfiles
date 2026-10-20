@@ -1,3 +1,5 @@
+# shellcheck shell=bash
+
 # Directory navigation
 alias ..="cd .."
 alias ...="cd ../.."
@@ -16,7 +18,7 @@ alias grep="grep --color=auto"
 # Use bat for cat
 alias cat="bat --paging=never --style=plain"
 # Use $VIM for vim
-alias vim="$VIM"
+alias vim='$VIM'
 
 # Miscellaneous
 alias c="clear"

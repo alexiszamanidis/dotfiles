@@ -1,3 +1,5 @@
+# shellcheck shell=bash
+
 alias gs="git status"
 alias gd="git diff --word-diff=color"
 alias gdc="git diff --word-diff=color --cached"
@@ -7,4 +9,3 @@ alias glog="git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset
 alias gst="git stash"
 alias gsta="git stash apply"
 alias gstl="git stash list"
-
