@@ -3,9 +3,36 @@
 # set default values
 v=false  # v: update vscode extensions
 
+# Metapackages that pull a new ABI. Holding them stops dist-upgrade from
+# installing a newer kernel and making it the GRUB default on the next reboot.
+# Unhold these on purpose when a kernel update is wanted.
+kernel_metapackages=(
+    linux-generic
+    linux-image-generic
+    linux-headers-generic
+    linux-modules-generic
+    linux-modules-extra-generic
+)
+
+hold_kernel_metapackages() {
+    local installed=()
+    local pkg
+    for pkg in "${kernel_metapackages[@]}"; do
+        if dpkg-query -W -f='${Status}' "$pkg" 2>/dev/null | grep -q 'install ok installed'; then
+            installed+=("$pkg")
+        fi
+    done
+    if [ "${#installed[@]}" -eq 0 ]; then
+        return
+    fi
+    colorful-echo "Holding kernel metapackages so the boot kernel stays put" "YELLOW"
+    sudo apt-mark hold "${installed[@]}"
+}
+
 update_and_upgrade() {
     colorful-echo "Updating package lists" "YELLOW"
     sudo apt-get update -y
+    hold_kernel_metapackages
     colorful-echo "Upgrading packages" "YELLOW"
     sudo apt-get upgrade -y
     colorful-echo "Performing distribution upgrade" "YELLOW"
